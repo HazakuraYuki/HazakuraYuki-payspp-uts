@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP - Kasir Pembayaran</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3e494b",
+                    "primary-fixed": "#9eefff",
+                    "background": "#f6fafb",
+                    "outline-variant": "#bdc8cb",
+                    "secondary": "#5c5f60",
+                    "inverse-on-surface": "#eef1f2",
+                    "on-secondary-fixed": "#191c1e",
+                    "secondary-container": "#dee0e2",
+                    "primary-fixed-dim": "#77d4e5",
+                    "on-surface": "#181c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "tertiary": "#894c16",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#dfe3e4",
+                    "primary-container": "#028090",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-container": "#a7642d",
+                    "surface-container-low": "#f1f4f5",
+                    "on-background": "#181c1d",
+                    "outline": "#6e797b",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#d7dbdc",
+                    "secondary-fixed": "#e1e2e4",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#001f24",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#77d4e5",
+                    "on-primary-container": "#f6fdff",
+                    "on-secondary-container": "#606365",
+                    "inverse-surface": "#2d3132",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#006876",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "primary": "#006572",
+                    "surface-container-highest": "#dfe3e4",
+                    "surface-bright": "#f6fafb",
+                    "on-primary-fixed-variant": "#004e59",
+                    "surface-container-high": "#e5e9ea",
+                    "surface-container": "#ebeeef",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f6fafb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "mobile-margin": "16px",
+                    "sm": "8px",
+                    "container-max-width": "1200px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "desktop-gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f6fafb;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .pos-card-shadow {
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+      }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Anchor -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">PaySPP</span>
+<div class="hidden md:flex gap-md ml-xl">
+<span class="text-on-surface-variant dark:text-secondary cursor-pointer active:scale-95 duration-200 font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors px-md py-sm rounded-lg">Dashboard</span>
+<span class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary cursor-pointer active:scale-95 duration-200 font-label-md text-label-md px-md py-sm">Payments</span>
+<span class="text-on-surface-variant dark:text-secondary cursor-pointer active:scale-95 duration-200 font-label-md text-label-md hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors px-md py-sm rounded-lg">Students</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-label-md focus:outline-none focus:ring-2 focus:ring-primary w-64" placeholder="Search NIS or Name..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary p-2 rounded-full hover:bg-surface-container-high">notifications</button>
+<button class="material-symbols-outlined text-primary p-2 rounded-full hover:bg-surface-container-high">help</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img alt="User profile avatar" data-alt="A professional headshot of a school administrator in their late 30s with a warm and friendly expression. The person is wearing a neat, light blue oxford shirt. The background is a clean, slightly out-of-focus modern office setting with soft natural lighting and teal accents that match the corporate brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp505N60cYglqB-jj8xBV9y18_7_dVYNVWLovLiB-JAIiqkJrHmL1yZmTIcB3Sl9C2VLVh3YO3WCyrwI4kYOVu-m5h9UwhB1F7odR0ksWFUrtbqZ0tYbBs-54-TCQVmDC-36JKeYPXIz9ph6s8qencfABD67IuJPsnGb53_uQEVLPRLqij6waGH5Y1PGatiMgmX44Q8fF0AmBy7V_SRgZjp_5YWr4G0w3C4VmuGQpUhGE1mettejMII-z75F---IGThzkICvFM4uA"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation Anchor -->
+<aside class="hidden lg:flex flex-col gap-sm py-xl w-72 h-[calc(100vh-64px)] fixed left-0 top-16 border-r border-outline-variant bg-surface-container-highest dark:bg-inverse-surface">
+<div class="px-lg mb-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h2 class="font-headline-md text-label-md text-primary">PaySPP Admin</h2>
+<p class="text-xs text-on-surface-variant">Academic Year 2023/2024</p>
+</div>
+</div>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md bg-primary text-on-primary rounded-lg mx-md px-md py-sm transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-md mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm mb-lg shadow-sm">
+<span class="material-symbols-outlined">add</span>
+                    Quick Payment
+                </button>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-error-container hover:text-on-error-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-72 p-lg lg:p-xl bg-background">
+<div class="max-w-container-max-width mx-auto">
+<!-- Page Header -->
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Kasir Pembayaran</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Entri pembayaran SPP dan iuran siswa secara manual.</p>
+</div>
+<div class="flex gap-md items-center bg-surface-container p-sm rounded-xl">
+<div class="px-md py-base border-r border-outline-variant">
+<p class="text-[10px] uppercase font-bold text-outline">Terminal ID</p>
+<p class="font-label-md text-label-md">POS-ADM-01</p>
+</div>
+<div class="px-md py-base">
+<p class="text-[10px] uppercase font-bold text-outline">Operator</p>
+<p class="font-label-md text-label-md">Ahmad Kasir</p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Cashier Interface -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-lg">
+<!-- Left Column: Student Search & Selection -->
+<div class="xl:col-span-8 space-y-lg">
+<!-- Section: Student Search Card -->
+<div class="bg-surface-container-lowest rounded-xl p-lg pos-card-shadow border border-outline-variant">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">person_search</span>
+<h3 class="font-headline-md text-headline-md">Cari Siswa</h3>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-md py-4 bg-surface-container-low border border-outline-variant rounded-xl text-body-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Masukkan NIS atau Nama Lengkap Siswa..." type="text"/>
+</div>
+<!-- Search Result Mockup -->
+<div class="mt-lg p-md bg-primary/5 rounded-xl border border-primary/20 flex items-center gap-lg">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Student profile" data-alt="A portrait of a cheerful Indonesian student wearing a white and grey school uniform, smiling confidently at the camera. The background is a brightly lit, slightly blurred school hallway with lockers and educational posters, maintaining a professional and clean academic atmosphere with soft teal and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDen-WwN-xGY4RmvDrLpKr545z9lcRdoDU47Dx7m10wBO6RDioAROhH_Nh76W3L4571djgrx5lCAvVig7BXV3Pcopksn8MFhoN9L4fHXBGszzGNAAt5dLKW3AJoWX4GMtW20ygTbaDW0dGbrBiwO869bm0wod_lK6StWw-BTXAW1w6oa_5y3wuJA38QZVVpP_QcRCu7ldhuFVl2ShhN5eEQIk-vDFvsZWtRfPAn9NIPssoNooPC10tQ50W02vdjhfE0BPAtdUUu3t0"/>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-y-sm">
+<div>
+<p class="text-xs uppercase font-bold text-outline">Nama Siswa</p>
+<p class="font-headline-md text-headline-md text-on-surface">Muhammad Rizky Pratama</p>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-outline">NIS / NISN</p>
+<p class="font-label-md text-label-md">20230045 / 001293848</p>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-outline">Kelas</p>
+<p class="font-label-md text-label-md">X - IPA 2 (Unggulan)</p>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-outline">Status Beasiswa</p>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-800">Regular</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Invoice List / Itemized Charges -->
+<div class="bg-surface-container-lowest rounded-xl p-lg pos-card-shadow border border-outline-variant">
+<div class="flex items-center justify-between mb-lg">
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined">list_alt</span>
+<h3 class="font-headline-md text-headline-md">Daftar Tagihan Aktif</h3>
+</div>
+<span class="text-label-sm text-on-surface-variant">Tampilkan semua 12 bulan</span>
+</div>
+<div class="space-y-md">
+<!-- Invoice Item 1 -->
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-error-container text-on-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">SPP Bulan Januari 2024</p>
+<p class="text-body-sm text-on-surface-variant italic">Jatuh Tempo: 10 Jan 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="text-right">
+<p class="font-headline-md text-label-md text-error">Rp 750.000</p>
+<p class="text-[10px] text-error font-bold uppercase">Terlambat</p>
+</div>
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<!-- Invoice Item 2 -->
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">event_note</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">SPP Bulan Februari 2024</p>
+<p class="text-body-sm text-on-surface-variant italic">Jatuh Tempo: 10 Feb 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="text-right">
+<p class="font-headline-md text-label-md">Rp 750.000</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Mendatang</p>
+</div>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<!-- Invoice Item 3 (Other fees) -->
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">stadium</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Iuran Ekstrakurikuler Basket</p>
+<p class="text-body-sm text-on-surface-variant italic">Semester Genap</p>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="text-right">
+<p class="font-headline-md text-label-md">Rp 150.000</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Tagihan Khusus</p>
+</div>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Checkout & Summary -->
+<div class="xl:col-span-4 space-y-lg">
+<!-- Section: Payment Summary -->
+<div class="bg-primary text-on-primary rounded-xl p-lg pos-card-shadow overflow-hidden relative">
+<!-- Background accent -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<h3 class="font-label-md text-label-md mb-sm opacity-80">Total Tagihan Dipilih</h3>
+<div class="mb-lg">
+<span class="text-body-lg font-bold opacity-80">Rp</span>
+<span class="text-[40px] leading-none font-bold">750.000</span>
+</div>
+<div class="space-y-sm pt-md border-t border-white/20">
+<div class="flex justify-between items-center text-sm">
+<span class="opacity-80">Subtotal</span>
+<span>Rp 750.000</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="opacity-80">Biaya Admin (Manual)</span>
+<span>Rp 0</span>
+</div>
+<div class="flex justify-between items-center font-bold text-lg pt-sm">
+<span>Total Bayar</span>
+<span>Rp 750.000</span>
+</div>
+</div>
+</div>
+<!-- Section: Payment Input Form -->
+<div class="bg-surface-container-lowest rounded-xl p-lg pos-card-shadow border border-outline-variant">
+<h3 class="font-headline-md text-headline-md mb-lg text-on-surface">Konfirmasi Pembayaran</h3>
+<div class="space-y-lg">
+<!-- Nominal Input -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-xs">Nominal yang Diterima</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 font-bold text-primary">Rp</span>
+<input class="w-full pl-12 pr-md py-3 bg-surface border-2 border-primary rounded-xl text-headline-md font-bold text-primary focus:outline-none" type="text" value="750.000"/>
+</div>
+<div class="flex gap-sm mt-sm">
+<button class="flex-1 py-1 px-2 text-[10px] font-bold border border-outline-variant rounded-lg hover:bg-surface-container-high transition-colors">UANG PAS</button>
+<button class="flex-1 py-1 px-2 text-[10px] font-bold border border-outline-variant rounded-lg hover:bg-surface-container-high transition-colors">+ Rp 50.000</button>
+<button class="flex-1 py-1 px-2 text-[10px] font-bold border border-outline-variant rounded-lg hover:bg-surface-container-high transition-colors">+ Rp 100.000</button>
+</div>
+</div>
+<!-- Payment Method -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-md">Metode Pembayaran</label>
+<div class="grid grid-cols-2 gap-md">
+<label class="relative flex flex-col items-center gap-sm p-md border-2 border-primary bg-primary/5 rounded-xl cursor-pointer">
+<input checked="" class="absolute top-2 right-2 text-primary focus:ring-primary" name="pay_method" type="radio"/>
+<span class="material-symbols-outlined text-primary scale-125" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-md text-label-md text-primary">Tunai (Cash)</span>
+</label>
+<label class="relative flex flex-col items-center gap-sm p-md border-2 border-outline-variant hover:border-primary/50 rounded-xl cursor-pointer transition-colors">
+<input class="absolute top-2 right-2 text-primary focus:ring-primary" name="pay_method" type="radio"/>
+<span class="material-symbols-outlined text-on-surface-variant scale-125">account_balance</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Transfer Bank</span>
+</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="pt-lg space-y-sm">
+<button class="w-full h-[56px] bg-primary-container text-on-primary-container rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-sm shadow-md active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">print</span>
+                                        Proses &amp; Cetak Struk
+                                    </button>
+<button class="w-full h-[48px] bg-surface-container-high text-on-surface-variant rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined">visibility</span>
+                                        Pratinjau Struk
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Mini History Card -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant border-dashed">
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">history</span>
+<h4 class="text-[10px] uppercase font-bold">Transaksi Terakhir di Terminal Ini</h4>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-center py-sm border-b border-outline-variant/30">
+<div class="text-[11px]">
+<p class="font-bold">INV-99281 - Budi</p>
+<p class="text-outline">10:45 AM • Tunai</p>
+</div>
+<p class="text-xs font-bold text-primary">Rp 450.000</p>
+</div>
+<div class="flex justify-between items-center py-sm">
+<div class="text-[11px]">
+<p class="font-bold">INV-99280 - Siti</p>
+<p class="text-outline">10:32 AM • Transfer</p>
+</div>
+<p class="text-xs font-bold text-primary">Rp 1.250.000</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation (Hidden on desktop) -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-surface shadow-[0_-4px_10px_rgba(0,0,0,0.05)] h-16 flex items-center justify-around px-md z-50">
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-bold">Bayar</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Siswa</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">Laporan</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profil</span>
+</a>
+</nav>
+</body></html>

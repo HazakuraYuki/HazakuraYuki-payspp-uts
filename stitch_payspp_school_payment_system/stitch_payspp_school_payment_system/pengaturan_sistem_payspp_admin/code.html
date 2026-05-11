@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Pengaturan Sistem - PaySPP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3e494b",
+                        "primary-fixed": "#9eefff",
+                        "background": "#f6fafb",
+                        "outline-variant": "#bdc8cb",
+                        "secondary": "#5c5f60",
+                        "inverse-on-surface": "#eef1f2",
+                        "on-secondary-fixed": "#191c1e",
+                        "secondary-container": "#dee0e2",
+                        "primary-fixed-dim": "#77d4e5",
+                        "on-surface": "#181c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "tertiary": "#894c16",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "primary-container": "#028090",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#a7642d",
+                        "surface-container-low": "#f1f4f5",
+                        "on-background": "#181c1d",
+                        "outline": "#6e797b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-dim": "#d7dbdc",
+                        "secondary-fixed": "#e1e2e4",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001f24",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#77d4e5",
+                        "on-primary-container": "#f6fdff",
+                        "on-secondary-container": "#606365",
+                        "inverse-surface": "#2d3132",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#006876",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "primary": "#006572",
+                        "surface-container-highest": "#dfe3e4",
+                        "surface-bright": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container": "#ebeeef",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f6fafb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "mobile-margin": "16px",
+                        "sm": "8px",
+                        "container-max-width": "1200px",
+                        "md": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "desktop-gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fafb;
+        }
+        .settings-card {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #028090;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50">
+<div class="flex items-center gap-md">
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">PaySPP</h1>
+<div class="hidden md:flex ml-xl gap-lg h-full">
+<a class="text-on-surface-variant dark:text-secondary hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors cursor-pointer active:scale-95 duration-200 px-sm flex items-center h-full" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors cursor-pointer active:scale-95 duration-200 px-sm flex items-center h-full" href="#">Payments</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant transition-colors cursor-pointer active:scale-95 duration-200 px-sm flex items-center h-full" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-sm hover:bg-surface-container-high rounded-full">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-sm hover:bg-surface-container-high rounded-full">help</span>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="A professional headshot of a school administrator in a bright, modern office setting. The lighting is clean and high-key, emphasizing a reliable and friendly corporate persona. The overall image has a soft focus background with teal and white accents that match the educational fintech platform's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQLY4HUi8e0fDkzbLQsovYrnY10pYWRhowJgV9DPIJ6sj9WWSq6YQ0uTFutat_EzlU1vxJtnvWWm2Odxml_SNWmmcl7B3l1US2aJd7-YhPVoN55GKxLLsCJq5GJa1JXEGeoBNj0aFuWjvNXksSBZ88wQfJM_ryEfRrigGiwNIClJKFAM7HX9bdvQZXKEoVX2L2Ftdy8nMkmqWM4V1GS75oHa2wwD3hjk6AoVpqa4_AUKorjIXL0EKDUVy0FQaJ9XNgQSt--iWV_O0"/>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex flex-col gap-sm py-xl w-72 h-screen fixed left-0 top-16 bg-surface-container-highest dark:bg-inverse-surface border-r border-outline-variant">
+<div class="px-lg mb-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">school</span>
+</div>
+<div>
+<p class="font-headline-md text-label-md text-primary dark:text-primary-fixed">PaySPP Admin</p>
+<p class="text-[10px] text-on-surface-variant opacity-70">Academic Year 2023/2024</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-on-secondary-fixed-variant transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-on-secondary-fixed-variant transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-on-secondary-fixed-variant transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-on-secondary-fixed-variant transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-on-secondary-fixed-variant transition-all active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-md bg-primary text-on-primary rounded-lg mx-md px-md py-sm active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-md">
+<button class="w-full bg-primary-container text-on-primary-container py-md rounded-xl font-label-md mb-lg flex items-center justify-center gap-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    Quick Payment
+                </button>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-72 p-lg lg:p-xl">
+<div class="max-w-[1200px] mx-auto">
+<header class="mb-xl flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Pengaturan Sistem</h2>
+<p class="text-on-surface-variant font-body-lg">Kelola konfigurasi sekolah, notifikasi, dan keamanan akun Anda.</p>
+</div>
+<button class="bg-primary text-on-primary px-xl py-md rounded-xl font-label-md flex items-center gap-sm hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">save</span>
+                        Simpan Perubahan
+                    </button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- School Profile Section -->
+<section class="md:col-span-8 bg-surface-container-lowest rounded-xl p-lg settings-card border border-outline-variant">
+<div class="flex items-center gap-sm mb-xl border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">school</span>
+<h3 class="font-headline-md text-headline-md">Profil Sekolah</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-xl">
+<div class="flex flex-col items-center gap-md">
+<div class="relative group">
+<img alt="School Logo" class="w-32 h-32 rounded-xl object-cover border border-outline-variant" data-alt="A clean, professional logo for a prestigious Indonesian academic institution. The logo is displayed in a square format with soft shadows against a crisp white background. The visual style is modern, minimalist, and conveys digital trust for an educational fintech application, utilizing teal and deep gray color tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiDkZyrw49yCvDZd-MIceWOr4gw5hHDIcsS7RJVqoQqmz5eiMn4XT_ivZQeMlCjarqwnh0H5ALRRUqi38x2PEeC__qZ0EfunwG_b4JzqXRUfC44pJiPbFnxsPSDopNqPFa8NpsmpWK7-hMVa5qMU7PnOJQdqI5j-TIjxEYLYK9bQ1oBnsbRHt5evOl3Oec9WI6-lvY1Uv5F0eCi74CXGznfoS2wQ67TJIYEvYgXLF2kB_Xd8ge4BCQehAc4s3YOaHMzr3_A7GMCR0"/>
+<div class="absolute inset-0 bg-black/40 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+</div>
+<button class="text-primary font-label-md hover:underline">Ganti Logo</button>
+</div>
+<div class="flex-1 grid grid-cols-1 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant">Nama Instansi</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="SMA Nusantara Global Jakarta"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant">Alamat Lengkap</label>
+<textarea class="w-full px-md py-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" rows="3">Jl. Merdeka No. 45, Kebayoran Baru, Jakarta Selatan, 12110</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant">Email Resmi</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="email" value="info@nusantaraglobal.sch.id"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant">Nomor Telepon</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="tel" value="+62 21 555 1234"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Account Security Section -->
+<section class="md:col-span-4 bg-surface-container-lowest rounded-xl p-lg settings-card border border-outline-variant flex flex-col">
+<div class="flex items-center gap-sm mb-xl border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">shield_lock</span>
+<h3 class="font-headline-md text-headline-md">Keamanan Akun</h3>
+</div>
+<div class="space-y-lg flex-1">
+<div class="p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="font-label-md mb-sm">Terakhir diubah: 2 bulan lalu</p>
+<button class="w-full py-sm bg-secondary-container text-on-secondary-container rounded-lg font-label-md hover:bg-outline-variant transition-colors">Ubah Kata Sandi</button>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md">Two-Factor Auth</span>
+<span class="text-[12px] text-on-surface-variant">Gunakan Google Authenticator</span>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer outline-none transition-transform duration-200" id="tfa-toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer transition-colors duration-200" for="tfa-toggle"></label>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md">Login History</span>
+<span class="text-[12px] text-on-surface-variant">Catat semua aktivitas login</span>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer outline-none transition-transform duration-200" id="history-toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer transition-colors duration-200" for="history-toggle"></label>
+</div>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant">
+<button class="text-error font-label-md flex items-center gap-sm hover:bg-error-container/20 p-sm rounded-lg transition-colors w-full">
+<span class="material-symbols-outlined">delete_forever</span>
+                                    Deaktivasi Akun Admin
+                                </button>
+</div>
+</div>
+</section>
+<!-- Notification Settings -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-lg settings-card border border-outline-variant">
+<div class="flex items-center gap-sm mb-xl border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h3 class="font-headline-md text-headline-md">Pengaturan Notifikasi Otomatis</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant font-label-md border-b border-outline-variant">
+<th class="py-md px-md">Trigger Notifikasi</th>
+<th class="py-md px-md text-center">SMS Gateway</th>
+<th class="py-md px-md text-center">WhatsApp</th>
+<th class="py-md px-md text-center">Email</th>
+<th class="py-md px-md">Kustomisasi Pesan</th>
+</tr>
+</thead>
+<tbody class="font-body-sm">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-lg px-md">
+<p class="font-label-md">Penerbitan Tagihan Baru</p>
+<p class="text-[12px] text-on-surface-variant">Saat admin membuat invoice bulanan</p>
+</td>
+<td class="py-lg px-md text-center">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md">
+<button class="text-primary flex items-center gap-xs font-label-md">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+                                                Edit Template
+                                            </button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-lg px-md">
+<p class="font-label-md">Pengingat H-3 Jatuh Tempo</p>
+<p class="text-[12px] text-on-surface-variant">Otomatis 3 hari sebelum deadline</p>
+</td>
+<td class="py-lg px-md text-center">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md">
+<button class="text-primary flex items-center gap-xs font-label-md">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+                                                Edit Template
+                                            </button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-lg px-md">
+<p class="font-label-md">Konfirmasi Pembayaran Berhasil</p>
+<p class="text-[12px] text-on-surface-variant">Setelah sistem memverifikasi transaksi</p>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md text-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-lg px-md">
+<button class="text-primary flex items-center gap-xs font-label-md">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+                                                Edit Template
+                                            </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Floating Support Action -->
+<div class="fixed bottom-lg right-lg lg:bottom-xl lg:right-xl">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">support_agent</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Principal Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f1f4f5",
+                    "surface-container": "#ebeeef",
+                    "surface-container-high": "#e5e9ea",
+                    "on-secondary-container": "#606365",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#dfe3e4",
+                    "primary-container": "#028090",
+                    "inverse-on-surface": "#eef1f2",
+                    "on-tertiary-fixed": "#301400",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-primary-container": "#f6fdff",
+                    "secondary": "#5c5f60",
+                    "outline": "#6e797b",
+                    "surface-tint": "#006876",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#e1e2e4",
+                    "surface-bright": "#f6fafb",
+                    "primary-fixed-dim": "#77d4e5",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary-fixed": "#9eefff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#dfe3e4",
+                    "inverse-primary": "#77d4e5",
+                    "primary": "#006572",
+                    "on-surface": "#181c1d",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "tertiary-container": "#a7642d",
+                    "on-primary-fixed-variant": "#004e59",
+                    "outline-variant": "#bdc8cb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f6fafb",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-primary-fixed": "#001f24",
+                    "secondary-container": "#dee0e2",
+                    "on-surface-variant": "#3e494b",
+                    "tertiary": "#894c16",
+                    "surface-dim": "#d7dbdc",
+                    "background": "#f6fafb",
+                    "inverse-surface": "#2d3132",
+                    "error-container": "#ffdad6",
+                    "on-background": "#181c1d",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "desktop-gutter": "24px",
+                    "mobile-margin": "16px",
+                    "base": "4px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "container-max-width": "1200px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #bdc8cb; border-radius: 10px; }
+      .bento-card {
+        background: #ffffff;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg overflow-x-hidden">
+<!-- Side Navigation Drawer -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low dark:bg-inverse-surface flex flex-col py-lg space-y-sm z-40 hidden md:flex">
+<div class="px-lg pb-xl">
+<h1 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed-dim">PaySPP Admin</h1>
+</div>
+<nav class="flex-1 px-md space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-primary-container/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="font-label-md text-label-md">Monitoring</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-md text-label-md">Laporan</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Data Siswa</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Verifikasi</span>
+</a>
+</nav>
+<div class="px-md mt-auto">
+<div class="bg-surface-container-high rounded-xl p-md flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a school principal in his late 40s, wearing a formal suit and a warm, confident expression. The lighting is bright and corporate, emphasizing a clean and trustworthy atmosphere. The background is a soft-focus modern school hallway with teal accents, maintaining a high-end educational administrative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdBOLoihabcAb1kQ0NOgdQqUCp2520i79ObBp1VknUsO_Wwy2ZL6P3paWe4cHzJ3-08VtrA7Csdp6a6kv08QrPkWZJNceWsDudxJ5gxNAeorK7opdHbCQeZa8_sow1dHkAcY4DhKTQ1sJHmLN4W9O-zmrIzCRYMlkJFtky43ohBO2fpOnDhbDrQS8ya6J_xVYXrbYmwAH5r7Y0eCWPcjFdaHWNOyfgcdtKPHiYkuWd5fGWHKH3qANe5QT76DisatU0mqCGE7COHTg"/>
+<div class="overflow-hidden">
+<p class="font-label-md text-on-surface truncate">Dr. Ahmad Subagyo</p>
+<p class="text-xs text-secondary truncate">Kepala Sekolah</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-[280px] min-h-screen p-mobile-margin md:p-desktop-gutter max-w-container-max-width mx-auto">
+<!-- Header -->
+<header class="flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Financial Monitoring</h2>
+<p class="text-secondary font-body-sm">Ringkasan kesehatan finansial institusi hari ini.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-surface-container-high p-sm rounded-full text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md flex items-center gap-sm shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+          Ekspor Laporan
+        </button>
+</div>
+</header>
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Stats Cards -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-md">
+<!-- Lunas Card -->
+<div class="bento-card p-lg border-l-4 border-primary">
+<div class="flex justify-between items-start mb-sm">
+<span class="p-xs bg-primary-container/10 text-primary rounded-lg material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="text-xs font-label-md text-primary">BULAN INI</span>
+</div>
+<p class="text-secondary font-label-sm">Total Lunas</p>
+<h3 class="text-headline-md font-headline-md text-primary">Rp 458.200.000</h3>
+<div class="mt-md w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[85%]"></div>
+</div>
+<p class="mt-xs text-[10px] text-secondary">85% dari target bulanan</p>
+</div>
+<!-- Cicilan Card -->
+<div class="bento-card p-lg border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-sm">
+<span class="p-xs bg-tertiary-container/10 text-tertiary rounded-lg material-symbols-outlined" data-icon="pending">pending</span>
+<span class="text-xs font-label-md text-tertiary">DALAM PROSES</span>
+</div>
+<p class="text-secondary font-label-sm">Total Cicilan</p>
+<h3 class="text-headline-md font-headline-md text-tertiary">Rp 82.450.000</h3>
+<p class="mt-md text-[11px] text-secondary flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+            Meningkat 12% dari bulan lalu
+          </p>
+</div>
+<!-- Menunggak Card -->
+<div class="bento-card p-lg border-l-4 border-error">
+<div class="flex justify-between items-start mb-sm">
+<span class="p-xs bg-error-container/10 text-error rounded-lg material-symbols-outlined" data-icon="warning">warning</span>
+<span class="text-xs font-label-md text-error">URGENT</span>
+</div>
+<p class="text-secondary font-label-sm">Total Menunggak</p>
+<h3 class="text-headline-md font-headline-md text-error">Rp 12.100.000</h3>
+<p class="mt-md text-[11px] text-secondary">Terdiri dari 42 siswa</p>
+</div>
+</div>
+<!-- Monthly Income Chart (Visual Representation using pure Tailwind) -->
+<div class="col-span-1 md:col-span-8 bento-card p-lg flex flex-col">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Income Monthly Chart</h4>
+<p class="text-secondary font-body-sm">Trend penerimaan biaya SPP Semester Ganjil 2023</p>
+</div>
+<select class="bg-surface-container text-on-surface border-none rounded-lg font-label-sm focus:ring-primary">
+<option>Tahun 2023</option>
+<option>Tahun 2022</option>
+</select>
+</div>
+<!-- Bar Chart Container -->
+<div class="flex-1 flex items-end justify-between gap-sm md:gap-lg px-sm pt-md border-b border-surface-variant min-h-[300px]">
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[40%] group-hover:bg-primary transition-all relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-white text-[10px] py-1 px-2 rounded hidden group-hover:block whitespace-nowrap">Rp 120M</div>
+</div>
+<span class="text-[10px] mt-sm text-secondary font-label-sm">JAN</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[55%] group-hover:bg-primary transition-all relative"></div>
+<span class="text-[10px] mt-sm text-secondary font-label-sm">FEB</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[75%] group-hover:bg-primary transition-all relative"></div>
+<span class="text-[10px] mt-sm text-secondary font-label-sm">MAR</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[60%] group-hover:bg-primary transition-all relative"></div>
+<span class="text-[10px] mt-sm text-secondary font-label-sm">APR</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[85%] group-hover:bg-primary transition-all relative"></div>
+<span class="text-[10px] mt-sm text-secondary font-label-sm">MEI</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary h-[95%] group-hover:bg-primary-container transition-all relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-white text-[10px] py-1 px-2 rounded block whitespace-nowrap">Rp 458M</div>
+</div>
+<span class="text-[10px] mt-sm text-primary font-bold font-label-sm">JUN</span>
+</div>
+</div>
+</div>
+<!-- Table Section: Rekap Pembayaran Kelas -->
+<div class="col-span-1 md:col-span-8 bento-card overflow-hidden">
+<div class="p-lg border-b border-surface-variant flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Rekap Pembayaran Kelas</h4>
+<button class="text-primary font-label-md flex items-center gap-xs">
+            Lihat Semua
+            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-lg py-md font-label-md text-secondary">KELAS</th>
+<th class="px-lg py-md font-label-md text-secondary">TERBAYAR</th>
+<th class="px-lg py-md font-label-md text-secondary">MENUNGGAK</th>
+<th class="px-lg py-md font-label-md text-secondary">PROGRES</th>
+<th class="px-lg py-md font-label-md text-secondary text-right">AKSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-lg py-md font-label-md">XII MIPA 1</td>
+<td class="px-lg py-md text-body-sm">32 Siswa</td>
+<td class="px-lg py-md text-body-sm text-error">2 Siswa</td>
+<td class="px-lg py-md">
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[94%]"></div>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary material-symbols-outlined" data-icon="open_in_new">open_in_new</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-lg py-md font-label-md">XII MIPA 2</td>
+<td class="px-lg py-md text-body-sm">28 Siswa</td>
+<td class="px-lg py-md text-body-sm text-error">6 Siswa</td>
+<td class="px-lg py-md">
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[82%]"></div>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary material-symbols-outlined" data-icon="open_in_new">open_in_new</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-lg py-md font-label-md">XI IPS 1</td>
+<td class="px-lg py-md text-body-sm">25 Siswa</td>
+<td class="px-lg py-md text-body-sm text-error">10 Siswa</td>
+<td class="px-lg py-md">
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[70%]"></div>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary material-symbols-outlined" data-icon="open_in_new">open_in_new</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-lg py-md font-label-md">XI IPS 2</td>
+<td class="px-lg py-md text-body-sm">30 Siswa</td>
+<td class="px-lg py-md text-body-sm text-error">0 Siswa</td>
+<td class="px-lg py-md">
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[100%]"></div>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary material-symbols-outlined" data-icon="open_in_new">open_in_new</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Outstanding Payment Summary Report -->
+<div class="col-span-1 md:col-span-4 bento-card p-lg bg-surface-container-low flex flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-md">Outstanding Summary</h4>
+<div class="bg-white rounded-xl p-md border border-outline-variant mb-md">
+<p class="text-xs text-secondary font-label-sm uppercase tracking-wider mb-sm">Siswa Menunggak &gt; 3 Bulan</p>
+<div class="flex items-end gap-sm">
+<span class="text-headline-lg font-headline-lg text-error">18</span>
+<span class="text-secondary font-body-sm mb-1.5">Siswa Terdeteksi</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-sm">
+<div class="flex items-center justify-between p-sm border-b border-surface-variant">
+<div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A portrait of a male high school student in a blue Indonesian school uniform, looking serious but academic. The background is a blurred library shelf, symbolizing diligence and focus. The lighting is soft natural daylight from a side window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDcMHJP7MTjauBbirasyTJd5yiMwKVpxWagmNP9wvCwuoG_ILr7HsGRMGikMZ5L4wxbFpdJiB1TNxm78oZodIQp3ND7WG6L0kTqFhb6z9pgOb7j4zwhRYVOM8Zh0LA2FLhQHYFOBi_8lMQBZky3bqiiLuE1gggdEZZSOfTEQMah8O--OJ7HJsjwodeOrj7LyX7LxSs9Ufun918cbNxXFASs6vMIzwTWDt819KyYIauRSYFky2iWAvMsiNcIgH_mhVrgA39kxBl77I"/>
+<div>
+<p class="text-sm font-label-md">Reza Wijaya</p>
+<p class="text-[10px] text-secondary">XII MIPA 1</p>
+</div>
+</div>
+<span class="text-xs font-bold text-error">Rp 1.250k</span>
+</div>
+<div class="flex items-center justify-between p-sm border-b border-surface-variant">
+<div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A portrait of a female student in an Indonesian high school uniform, with a polite and neutral expression. The style is professional educational photography with high-key lighting and a soft neutral gray background to fit the clean UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLSWVnodx7vKt3l0qlU44x8cCtAPaBJxzM-pTD0mO63JKshSFLLGzsERJ7vP_U2UjfTl3Z-iDX-VSiAfX4ckBrSp6N2v_v64AxH75plTnXtrARF2Fdpaqdy55L7Py3TyFYGLA4wh2SprTz8cBKKQl3_SySvwm5Nvkw6J5_caSLdzRoBCz1Xhc1P2bEzvGKwlgDn_IRKGSSWuyJow_rnz4mBq0Ylb4c7K_yPjWUd7lEryTo5tsLnszgE3apZssMxPbz5OdgoyOWr08"/>
+<div>
+<p class="text-sm font-label-md">Siti Aminah</p>
+<p class="text-[10px] text-secondary">XI IPS 1</p>
+</div>
+</div>
+<span class="text-xs font-bold text-error">Rp 2.100k</span>
+</div>
+<div class="flex items-center justify-between p-sm border-b border-surface-variant">
+<div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A portrait of a male teenage student wearing a white school shirt, with a clean and professional appearance. The background is a slightly blurred office setting, creating a formal tone for the financial administrative dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZg-8OXMNsAKp-Y8FrNTFsUDj7H9SPacEQ2YsAZ0tJF15wo6zD5jY2jCsuRpSRij7XYc0CxC8-qgjircb_66tGtvN3eISLnpLxZP0LgWQPu9kUk4KTKLJ7W1DtD3gKWgBkfSXyyJUzC6eLfq3Np38IPxNrRnZCXL1Moorh1b-NxJXBVtezGYsFEkKVT5hscmRqF92c_TTUgwtjHI2O5QBfbwPtA5fkzkTVCTh-jraBZUHyW43tjjsXrDqifUA9jGGGzO03epaq_98"/>
+<div>
+<p class="text-sm font-label-md">Budi Santoso</p>
+<p class="text-[10px] text-secondary">X Bahasa</p>
+</div>
+</div>
+<span class="text-xs font-bold text-error">Rp 900k</span>
+</div>
+</div>
+<button class="mt-lg w-full py-md border-2 border-primary text-primary rounded-xl font-label-md hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+          Kirim Pengingat Masal
+        </button>
+</div>
+</div>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Tagihan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">Riwayat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</div>
+</nav>
+</main>
+</body></html>

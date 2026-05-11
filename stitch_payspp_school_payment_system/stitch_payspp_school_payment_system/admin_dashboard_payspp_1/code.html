@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f1f4f5",
+                    "surface-container": "#ebeeef",
+                    "surface-container-high": "#e5e9ea",
+                    "on-secondary-container": "#606365",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#dfe3e4",
+                    "primary-container": "#028090",
+                    "inverse-on-surface": "#eef1f2",
+                    "on-tertiary-fixed": "#301400",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-primary-container": "#f6fdff",
+                    "secondary": "#5c5f60",
+                    "outline": "#6e797b",
+                    "surface-tint": "#006876",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#e1e2e4",
+                    "surface-bright": "#f6fafb",
+                    "primary-fixed-dim": "#77d4e5",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary-fixed": "#9eefff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#dfe3e4",
+                    "inverse-primary": "#77d4e5",
+                    "primary": "#006572",
+                    "on-surface": "#181c1d",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "tertiary-container": "#a7642d",
+                    "on-primary-fixed-variant": "#004e59",
+                    "outline-variant": "#bdc8cb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f6fafb",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-primary-fixed": "#001f24",
+                    "secondary-container": "#dee0e2",
+                    "on-surface-variant": "#3e494b",
+                    "tertiary": "#894c16",
+                    "surface-dim": "#d7dbdc",
+                    "background": "#f6fafb",
+                    "inverse-surface": "#2d3132",
+                    "error-container": "#ffdad6",
+                    "on-background": "#181c1d",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "desktop-gutter": "24px",
+                    "mobile-margin": "16px",
+                    "base": "4px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "container-max-width": "1200px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            font-weight: 700;
+            border-right-width: 4px;
+            border-color: #006572;
+            background-color: rgba(2, 128, 144, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex">
+<!-- NavigationDrawer (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low flex flex-col py-lg space-y-sm z-40">
+<div class="px-lg pb-xl">
+<h1 class="font-headline-lg text-headline-lg font-black text-primary">PaySPP Admin</h1>
+</div>
+<nav class="flex-1 flex flex-col px-md">
+<a class="flex items-center gap-md px-md py-sm rounded-lg sidebar-active text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Data Siswa</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Generate Tagihan</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Buku Besar</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Verifikasi</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Kasir</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-md text-label-md">Laporan</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-lg">
+<div class="flex items-center gap-md p-md bg-surface-container rounded-xl">
+<img alt="Admin" class="w-10 h-10 rounded-full bg-surface-variant" data-alt="A professional headshot avatar of a school administrator in a clean office setting. The lighting is soft and natural, emphasizing a friendly yet authoritative digital identity. The background is a blurred modern workspace with hints of teal and white to match the school system palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGzqKrY5msEnBvsg0BaIk09vXK__S-AlHMZ9dEZTRJ7sC45Kaw6G72zIL-YfYYYRkEShEJSDxzWf5jdgxAII_mfL-Gu-zcJqFKKFg51HQSQjTVyQ7AYJTWk7pIaSapjbnQss4THHQG58Omih76Gcm-rjBef1fToGnMlNhfNDZugv8pJyytqGsMnylSrz2xR28kngovFuZjekAfQdeOS_-Nrf-WPfl4XxoaOeD-wKyQwbJT6GrUAtfUEAfa3-0Eh_-je31gFcjMbqc"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Pak Budi S.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[280px] p-lg max-w-container-max-width">
+<!-- TopAppBar (Shared Component Equivalent for Web) -->
+<header class="flex justify-between items-center w-full mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Ringkasan Dashboard</h2>
+<p class="text-on-surface-variant font-body-sm">Selamat datang kembali di sistem manajemen keuangan PaySPP.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-base rounded-full text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-base rounded-full text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- KPI Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Card 1: Today's Revenue -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-primary">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">+12%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Pendapatan Hari Ini</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Rp 12.450.000</h3>
+<p class="text-xs text-on-surface-variant mt-xs">Dari 42 transaksi berhasil</p>
+</div>
+<!-- Card 2: Total Arrears -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-error">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<span class="text-xs font-bold text-error bg-error/10 px-2 py-1 rounded">-5%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Total Tunggakan</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Rp 84.200.000</h3>
+<p class="text-xs text-on-surface-variant mt-xs">156 siswa belum melunasi</p>
+</div>
+<!-- Card 3: Pending Verification -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="pending_actions">pending_actions</span>
+<span class="text-xs font-bold text-tertiary bg-tertiary/10 px-2 py-1 rounded">Baru</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Menunggu Verifikasi</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">24 Transaksi</h3>
+<p class="text-xs text-on-surface-variant mt-xs">Pembayaran manual (Transfer)</p>
+</div>
+</section>
+<!-- Main Tables Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-lg">
+<!-- Table: Recent Student Payments -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Pembayaran Terakhir</h4>
+<button class="text-primary font-label-md hover:underline">Lihat Semua</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm">
+<tr>
+<th class="px-lg py-md">Siswa</th>
+<th class="px-lg py-md">Kategori</th>
+<th class="px-lg py-md text-right">Jumlah</th>
+<th class="px-lg py-md">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-xs">AS</div>
+<div>
+<p class="font-label-md text-on-surface">Ahmad Sobari</p>
+<p class="text-xs text-on-surface-variant">X-MIPA 1</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm">SPP Oktober</td>
+<td class="px-lg py-md font-label-md text-right">Rp 450.000</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase">Sukses</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">MA</div>
+<div>
+<p class="font-label-md text-on-surface">Maria Angel</p>
+<p class="text-xs text-on-surface-variant">XII-IPS 2</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm">Uang Gedung</td>
+<td class="px-lg py-md font-label-md text-right">Rp 2.500.000</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 uppercase">Proses</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-xs">RP</div>
+<div>
+<p class="font-label-md text-on-surface">Rizky Putra</p>
+<p class="text-xs text-on-surface-variant">XI-MIPA 4</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm">SPP Oktober</td>
+<td class="px-lg py-md font-label-md text-right">Rp 450.000</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase">Sukses</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Table: Installment Monitoring -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Monitoring Cicilan</h4>
+<div class="flex gap-sm">
+<button class="p-xs rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="p-lg space-y-md">
+<!-- Progress Item 1 -->
+<div class="space-y-xs">
+<div class="flex justify-between items-end">
+<p class="font-label-md text-on-surface">Total Pelunasan SPP 2023/2024</p>
+<p class="font-label-md text-primary">68%</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 68%"></div>
+</div>
+<p class="text-xs text-on-surface-variant">Target: Rp 2.450.000.000 / Terkumpul: Rp 1.660.000.000</p>
+</div>
+<!-- Small List of Arrears -->
+<div class="mt-lg">
+<p class="font-label-sm text-on-surface-variant uppercase mb-sm">Prioritas Penagihan</p>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error" data-icon="history_edu">history_edu</span>
+<div>
+<p class="font-label-md text-on-surface">Siswa Nunggak &gt; 3 Bulan</p>
+<p class="text-xs text-on-surface-variant">42 Siswa terdeteksi</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary text-xs font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all">
+                                    Kirim Notif
+                                </button>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-tertiary" data-icon="event_busy">event_busy</span>
+<div>
+<p class="font-label-md text-on-surface">Batas Akhir Cicilan Buku</p>
+<p class="text-xs text-on-surface-variant">Deadline: 25 Okt 2023</p>
+</div>
+</div>
+<button class="px-4 py-2 border border-primary text-primary text-xs font-bold rounded-lg hover:bg-primary/5 active:scale-95 transition-all">
+                                    Detail
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Bottom Section -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="md:col-span-2 bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-md mb-lg">
+<div class="p-sm bg-primary-container/10 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Analitik Pembayaran Mingguan</h4>
+<p class="text-body-sm text-on-surface-variant">Visualisasi arus kas masuk seminggu terakhir.</p>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-48 w-full flex items-end justify-between gap-base px-md border-b border-outline-variant pb-base">
+<div class="bg-surface-container-high w-full rounded-t-sm h-1/4"></div>
+<div class="bg-primary w-full rounded-t-sm h-2/4"></div>
+<div class="bg-primary w-full rounded-t-sm h-3/4"></div>
+<div class="bg-surface-container-high w-full rounded-t-sm h-2/5"></div>
+<div class="bg-primary w-full rounded-t-sm h-full"></div>
+<div class="bg-primary w-full rounded-t-sm h-4/5"></div>
+<div class="bg-primary w-full rounded-t-sm h-3/5"></div>
+</div>
+<div class="flex justify-between px-md pt-sm text-xs text-on-surface-variant">
+<span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+</div>
+</div>
+<!-- Quick Action Box -->
+<div class="bg-primary-container p-lg rounded-xl shadow-lg flex flex-col justify-between text-on-primary-container">
+<div>
+<h4 class="font-headline-md text-headline-md mb-sm">Butuh Laporan Cepat?</h4>
+<p class="font-body-sm opacity-90">Ekspor data tunggakan siswa ke PDF atau Excel hanya dengan satu klik untuk rapat hari ini.</p>
+</div>
+<div class="mt-lg space-y-sm">
+<button class="w-full flex items-center justify-center gap-sm bg-surface-container-lowest text-primary py-md rounded-xl font-label-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+                        Cetak Laporan PDF
+                    </button>
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container border border-on-primary-container py-md rounded-xl font-label-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="table_view">table_view</span>
+                        Ekspor ke Excel
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Shared Component Behavior) -->
+<button class="fixed bottom-lg right-lg w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-all z-50">
+<span class="material-symbols-outlined text-[32px]" data-icon="add">add</span>
+</button>
+</body></html>

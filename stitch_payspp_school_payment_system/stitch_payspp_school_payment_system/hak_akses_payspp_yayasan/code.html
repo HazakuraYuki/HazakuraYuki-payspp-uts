@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hak Akses - PaySPP Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface-variant": "#3e494b",
+                  "primary-fixed": "#9eefff",
+                  "background": "#f6fafb",
+                  "outline-variant": "#bdc8cb",
+                  "secondary": "#5c5f60",
+                  "inverse-on-surface": "#eef1f2",
+                  "on-secondary-fixed": "#191c1e",
+                  "secondary-container": "#dee0e2",
+                  "primary-fixed-dim": "#77d4e5",
+                  "on-surface": "#181c1d",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-fixed-variant": "#6f3801",
+                  "tertiary": "#894c16",
+                  "on-secondary": "#ffffff",
+                  "surface-variant": "#dfe3e4",
+                  "primary-container": "#028090",
+                  "tertiary-fixed": "#ffdcc5",
+                  "tertiary-container": "#a7642d",
+                  "surface-container-low": "#f1f4f5",
+                  "on-background": "#181c1d",
+                  "outline": "#6e797b",
+                  "on-primary": "#ffffff",
+                  "on-tertiary-container": "#fffbff",
+                  "surface-dim": "#d7dbdc",
+                  "secondary-fixed": "#e1e2e4",
+                  "on-error-container": "#93000a",
+                  "error-container": "#ffdad6",
+                  "on-primary-fixed": "#001f24",
+                  "secondary-fixed-dim": "#c5c6c8",
+                  "error": "#ba1a1a",
+                  "inverse-primary": "#77d4e5",
+                  "on-primary-container": "#f6fdff",
+                  "on-secondary-container": "#606365",
+                  "inverse-surface": "#2d3132",
+                  "on-secondary-fixed-variant": "#444749",
+                  "on-error": "#ffffff",
+                  "surface-tint": "#006876",
+                  "on-tertiary-fixed": "#301400",
+                  "tertiary-fixed-dim": "#ffb782",
+                  "primary": "#006572",
+                  "surface-container-highest": "#dfe3e4",
+                  "surface-bright": "#f6fafb",
+                  "on-primary-fixed-variant": "#004e59",
+                  "surface-container-high": "#e5e9ea",
+                  "surface-container": "#ebeeef",
+                  "on-tertiary": "#ffffff",
+                  "surface": "#f6fafb"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "lg": "24px",
+                  "mobile-margin": "16px",
+                  "sm": "8px",
+                  "container-max-width": "1200px",
+                  "md": "16px",
+                  "base": "4px",
+                  "xs": "4px",
+                  "xl": "32px",
+                  "desktop-gutter": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "label-md": ["Inter"],
+                  "body-sm": ["Inter"],
+                  "label-sm": ["Inter"],
+                  "headline-md": ["Inter"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                  "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f6fafb;
+    }
+    .custom-shadow {
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar Anchor -->
+<aside class="hidden lg:flex flex-col gap-sm py-xl w-72 h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface-container-highest dark:bg-inverse-surface z-40">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">PaySPP Admin</h1>
+<p class="text-label-sm text-on-surface-variant">Academic Year 2023/2024</p>
+</div>
+<nav class="flex-grow flex flex-col gap-sm">
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</div>
+<div class="flex items-center gap-md bg-primary text-on-primary rounded-lg mx-md px-md py-sm cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span class="font-label-md text-label-md">User Management</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer active:translate-x-1 duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+</nav>
+<div class="px-md mt-auto">
+<div class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed px-md py-sm hover:bg-error-container hover:text-on-error-container rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar Anchor -->
+<header class="flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm">
+<div class="flex items-center gap-md">
+<span class="lg:hidden material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Manajemen Hak Akses</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 rounded-full hover:bg-surface-container-high transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 rounded-full hover:bg-surface-container-high transition-colors" data-icon="help">help</span>
+</div>
+<div class="flex items-center gap-md border-l border-outline-variant pl-lg">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-on-surface">Admin Yayasan</p>
+<p class="text-label-sm text-on-surface-variant">Administrator</p>
+</div>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="A professional headshot of a middle-aged male administrator in a clean office setting. He is wearing a sharp, tailored business suit with a neutral-toned shirt. The lighting is soft and even, highlighting a trustworthy and experienced expression. The background is a slightly blurred, modern office interior with subtle teal accents that align with the corporate fintech branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7sDv1Dpi3EzO2c9EqRFr95ppAzAdvzRiBw2y9IqpWkjlL4u2ru7KUs90T_Qg-y3x3MUA8_kX4Gyi9OwRD09fbbcAakLIoYY-vNOk9Li2JKBfL_N6Rc6zJSC2iKb-HUGkuK_HUPAX6kLalOUeqJGQSxhxa1JM_4Eg9ref1bY0agZfgOwqoKkUj0iFlevIgOGMo-kbnG6T-BPkbJgfD0YuMvpm-AgqziWiTGo2LtbyRY4JOS3PrPAS5qoRJNmy2s4SqtTQIhQi7B-4"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<section class="p-lg md:p-xl max-w-container-max-width mx-auto w-full">
+<!-- Welcome Header -->
+<div class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Konfigurasi Peran &amp; Izin</h3>
+<p class="text-body-lg text-on-surface-variant mt-sm">Tentukan hak akses spesifik untuk setiap tingkatan pengguna di lingkungan sekolah.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-md rounded-xl font-label-md flex items-center gap-md custom-shadow hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Tambah Peran Baru
+          </button>
+</div>
+</div>
+<!-- Bento Grid for Roles -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Role Card: Admin -->
+<div class="bg-surface-container-lowest rounded-xl p-lg custom-shadow border border-outline-variant/30 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[64px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Admin</h4>
+<p class="text-label-sm text-on-surface-variant">Full Access Control</p>
+</div>
+</div>
+<div class="space-y-md flex-grow">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Modul Keuangan</span>
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-[10px] font-bold">FULL</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Manajemen User</span>
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-[10px] font-bold">FULL</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Laporan Strategis</span>
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-[10px] font-bold">FULL</span>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">1 Active Account</span>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+              Edit Izin <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Role Card: Kepala Sekolah -->
+<div class="bg-surface-container-lowest rounded-xl p-lg custom-shadow border border-outline-variant/30 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[64px]" data-icon="school">school</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Kepala Sekolah</h4>
+<p class="text-label-sm text-on-surface-variant">Strategic Monitor</p>
+</div>
+</div>
+<div class="space-y-md flex-grow">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Modul Keuangan</span>
+<span class="bg-blue-100 text-blue-700 px-sm py-xs rounded-full text-[10px] font-bold">VIEW ONLY</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Manajemen User</span>
+<span class="bg-red-100 text-red-700 px-sm py-xs rounded-full text-[10px] font-bold">NO ACCESS</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Laporan Strategis</span>
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-[10px] font-bold">FULL</span>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">1 Active Account</span>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+              Edit Izin <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Role Card: Staff -->
+<div class="bg-surface-container-lowest rounded-xl p-lg custom-shadow border border-outline-variant/30 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[64px]" data-icon="badge">badge</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Staff Tata Usaha</h4>
+<p class="text-label-sm text-on-surface-variant">Operational Entry</p>
+</div>
+</div>
+<div class="space-y-md flex-grow">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Modul Keuangan</span>
+<span class="bg-amber-100 text-amber-700 px-sm py-xs rounded-full text-[10px] font-bold">OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Manajemen User</span>
+<span class="bg-red-100 text-red-700 px-sm py-xs rounded-full text-[10px] font-bold">NO ACCESS</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface">Laporan Strategis</span>
+<span class="bg-red-100 text-red-700 px-sm py-xs rounded-full text-[10px] font-bold">NO ACCESS</span>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">4 Active Accounts</span>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+              Edit Izin <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Module Toggles Detailed View -->
+<div class="bg-surface-container-lowest rounded-2xl custom-shadow border border-outline-variant/30 overflow-hidden">
+<div class="bg-surface-container-low px-lg py-md border-b border-outline-variant/30 flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Rincian Izin Modul</h4>
+<div class="flex items-center gap-md">
+<div class="relative">
+<input class="pl-10 pr-lg py-sm rounded-lg border border-outline bg-white text-body-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-64" placeholder="Cari izin..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-md" data-icon="search">search</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container text-label-md text-on-surface-variant">
+<tr>
+<th class="px-lg py-md font-semibold">Nama Modul &amp; Fitur</th>
+<th class="px-lg py-md font-semibold text-center">Admin</th>
+<th class="px-lg py-md font-semibold text-center">Kepala Sekolah</th>
+<th class="px-lg py-md font-semibold text-center">Staff TU</th>
+<th class="px-lg py-md font-semibold text-center">Bendahara</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm">
+<!-- Billing Module -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="receipt_long">receipt_long</span>
+<div>
+<p class="font-bold text-on-surface">Penagihan (Billing)</p>
+<p class="text-xs text-on-surface-variant">Membuat &amp; mengedit invoice SPP bulanan</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container/20 rounded-full relative mx-auto cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+</tr>
+<!-- Reports Module -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="bar_chart">bar_chart</span>
+<div>
+<p class="font-bold text-on-surface">Laporan Keuangan</p>
+<p class="text-xs text-on-surface-variant">Export data pembayaran &amp; tunggakan</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container/20 rounded-full relative mx-auto cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+</tr>
+<!-- User Management -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="group_add">group_add</span>
+<div>
+<p class="font-bold text-on-surface">Manajemen User</p>
+<p class="text-xs text-on-surface-variant">Mengelola akun staff &amp; administrator</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container rounded-full relative mx-auto cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container/20 rounded-full relative mx-auto cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container/20 rounded-full relative mx-auto cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+<td class="px-lg py-md text-center">
+<div class="w-12 h-6 bg-primary-container/20 rounded-full relative mx-auto cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-lg bg-surface-container-low border-t border-outline-variant/30 flex justify-between items-center">
+<p class="text-body-sm text-on-surface-variant italic">Terakhir diperbarui oleh SuperAdmin pada 12 Okt 2023</p>
+<div class="flex gap-md">
+<button class="px-lg py-md rounded-xl font-label-md text-primary border border-primary hover:bg-primary/5 transition-colors">Batalkan</button>
+<button class="px-xl py-md rounded-xl font-label-md bg-primary text-on-primary custom-shadow hover:brightness-110 transition-all">Simpan Perubahan</button>
+</div>
+</div>
+</div>
+<!-- Professional Security Banner -->
+<div class="mt-xl p-lg rounded-2xl bg-on-surface text-white flex flex-col md:flex-row items-center gap-lg">
+<div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex-grow">
+<h5 class="font-headline-md text-headline-md">Sistem Keamanan Berlapis</h5>
+<p class="text-body-lg opacity-80 mt-xs">Seluruh perubahan hak akses dicatat dalam log aktivitas audit. Pastikan Anda memberikan akses minimal yang diperlukan (Principle of Least Privilege) untuk menjaga keamanan data finansial sekolah.</p>
+</div>
+<button class="bg-white text-on-surface px-lg py-md rounded-xl font-label-md whitespace-nowrap hover:bg-opacity-90 transition-all">
+          Lihat Log Aktivitas
+        </button>
+</div>
+</section>
+</main>
+<!-- Mobile Navigation Placeholder -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant grid grid-cols-4 h-16 items-center px-sm z-50">
+<div class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-medium">Billing</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-primary">
+<span class="material-symbols-outlined" data-icon="manage_accounts" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+<span class="text-[10px] font-bold">Access</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</div>
+</nav>
+</body></html>

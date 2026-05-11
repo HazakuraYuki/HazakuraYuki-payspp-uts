@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Riwayat Pembayaran - PaySPP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f1f4f5",
+                        "surface-container": "#ebeeef",
+                        "surface-container-high": "#e5e9ea",
+                        "on-secondary-container": "#606365",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "primary-container": "#028090",
+                        "inverse-on-surface": "#eef1f2",
+                        "on-tertiary-fixed": "#301400",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-primary-container": "#f6fdff",
+                        "secondary": "#5c5f60",
+                        "outline": "#6e797b",
+                        "surface-tint": "#006876",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#e1e2e4",
+                        "surface-bright": "#f6fafb",
+                        "primary-fixed-dim": "#77d4e5",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary-fixed": "#9eefff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#dfe3e4",
+                        "inverse-primary": "#77d4e5",
+                        "primary": "#006572",
+                        "on-surface": "#181c1d",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "tertiary-container": "#a7642d",
+                        "on-primary-fixed-variant": "#004e59",
+                        "outline-variant": "#bdc8cb",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f6fafb",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001f24",
+                        "secondary-container": "#dee0e2",
+                        "on-surface-variant": "#3e494b",
+                        "tertiary": "#894c16",
+                        "surface-dim": "#d7dbdc",
+                        "background": "#f6fafb",
+                        "inverse-surface": "#2d3132",
+                        "error-container": "#ffdad6",
+                        "on-background": "#181c1d",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "desktop-gutter": "24px",
+                        "mobile-margin": "16px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 z-40">
+<div class="flex justify-between items-center w-full px-mobile-margin h-16 max-w-container-max-width mx-auto">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container/20 flex items-center justify-center">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a friendly Indonesian parent, smiling warmly against a soft-focus modern architectural background. The lighting is bright and natural, reinforcing a sense of digital trust and accessibility. The color palette incorporates subtle teal accents consistent with the PaySPP brand identity for a cohesive UI experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsLEj7CEf41WLzIMGCoKwNnIdN606QnOTDdB5vgiWhb-PUPp0PSGsoQrOW7PrNGo_I7LNeCwE09VemwdpKvEuiMDKrLjsjSkWqAur3V9IcxmRBgXb_QAPD9tnU5LwOGFRHAA-J5Gz8UhTNcwD9T6JonY0wbepZQLKjxeh2SEDKOxUrQji8NeoFyRE_evXGu35p3D8JrsPfpbptr8jWN0ro-ExYBp2F6uue9AlPQGM1m4WPFePmTn6N9l8ocfzEx5Xdbuw1zWkzWnw"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">PaySPP</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-container-max-width mx-auto w-full px-mobile-margin py-lg space-y-lg">
+<!-- Header & Search -->
+<section class="space-y-md">
+<div class="flex flex-col gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Riwayat Pembayaran</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pantau semua transaksi biaya pendidikan Anda di sini.</p>
+</div>
+<!-- Modern Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-sm text-body-sm" placeholder="Cari bulan atau kategori tagihan..." type="text"/>
+</div>
+<!-- Filter Tabs (Horizontal Scrollable) -->
+<div class="flex gap-sm overflow-x-auto pb-xs no-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap active:scale-95 transition-transform">Semua</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant active:scale-95 transition-transform">Lunas</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant active:scale-95 transition-transform">Cicilan</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant active:scale-95 transition-transform">Menunggak</button>
+</div>
+</section>
+<!-- Transaction List -->
+<section class="space-y-md pb-24">
+<!-- Transaction Card 1 (Lunas) -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex flex-col items-center justify-center text-primary">
+<span class="font-bold text-[10px] leading-tight uppercase">Okt</span>
+<span class="font-bold text-headline-md leading-tight">12</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">SPP &amp; Kegiatan Ekstrakurikuler</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+                                Transfer Bank BCA
+                            </p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-md bg-green-100 text-green-700 text-[11px] font-bold uppercase tracking-wider">Lunas</span>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/30 flex justify-between items-center">
+<div>
+<p class="text-on-surface-variant text-[11px] font-medium">Total Bayar</p>
+<p class="font-headline-md text-headline-md text-primary">Rp 1.250.000</p>
+</div>
+<button class="flex items-center gap-sm px-4 py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-lg transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+<span class="font-label-md text-label-md">Unduh Kwitansi</span>
+</button>
+</div>
+</div>
+<!-- Transaction Card 2 (Cicilan) -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex flex-col items-center justify-center text-tertiary">
+<span class="font-bold text-[10px] leading-tight uppercase">Sep</span>
+<span class="font-bold text-headline-md leading-tight">28</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Uang Gedung Semester 1</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="payments">payments</span>
+                                Tunai (Kasir Sekolah)
+                            </p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-md bg-amber-100 text-amber-700 text-[11px] font-bold uppercase tracking-wider">Cicilan</span>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/30">
+<div class="flex justify-between items-center mb-sm">
+<p class="text-on-surface-variant text-[11px] font-medium">Progres Pembayaran</p>
+<p class="text-primary text-[11px] font-bold">60%</p>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mb-md">
+<div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-on-surface-variant text-[11px] font-medium">Sisa Tagihan</p>
+<p class="font-headline-md text-headline-md text-tertiary">Rp 2.000.000</p>
+</div>
+<button class="flex items-center gap-sm px-4 py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-lg transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+<span class="font-label-md text-label-md">Kwitansi</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Transaction Card 3 (Menunggak) -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-error-container/20 flex flex-col items-center justify-center text-error">
+<span class="font-bold text-[10px] leading-tight uppercase">Agu</span>
+<span class="font-bold text-headline-md leading-tight">15</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Uang Buku Paket Kelas 10</h3>
+<p class="font-body-sm text-body-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+                                Melewati Jatuh Tempo
+                            </p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-md bg-red-100 text-red-700 text-[11px] font-bold uppercase tracking-wider">Menunggak</span>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/30 flex justify-between items-center">
+<div>
+<p class="text-on-surface-variant text-[11px] font-medium">Total Tagihan</p>
+<p class="font-headline-md text-headline-md text-error">Rp 850.000</p>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:shadow-md active:scale-95 transition-all">
+                        Bayar Sekarang
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-all duration-150 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-all duration-150 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Tagihan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history" data-weight="fill" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-label-sm text-label-sm">Riwayat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-all duration-150 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<!-- FAB Suppression: Not rendered on Riwayat screen per instructions -->
+</body></html>

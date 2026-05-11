@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Admin - Generate Tagihan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3e494b",
+                        "primary-fixed": "#9eefff",
+                        "background": "#f6fafb",
+                        "outline-variant": "#bdc8cb",
+                        "secondary": "#5c5f60",
+                        "inverse-on-surface": "#eef1f2",
+                        "on-secondary-fixed": "#191c1e",
+                        "secondary-container": "#dee0e2",
+                        "primary-fixed-dim": "#77d4e5",
+                        "on-surface": "#181c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "tertiary": "#894c16",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "primary-container": "#028090",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#a7642d",
+                        "surface-container-low": "#f1f4f5",
+                        "on-background": "#181c1d",
+                        "outline": "#6e797b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-dim": "#d7dbdc",
+                        "secondary-fixed": "#e1e2e4",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001f24",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#77d4e5",
+                        "on-primary-container": "#f6fdff",
+                        "on-secondary-container": "#606365",
+                        "inverse-surface": "#2d3132",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#006876",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "primary": "#006572",
+                        "surface-container-highest": "#dfe3e4",
+                        "surface-bright": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container": "#ebeeef",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f6fafb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "mobile-margin": "16px",
+                        "sm": "8px",
+                        "container-max-width": "1200px",
+                        "md": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "desktop-gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">PaySPP</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-label-md focus:ring-2 focus:ring-primary w-64" placeholder="Search..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer active:scale-95 duration-200">notifications</button>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer active:scale-95 duration-200">help</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5uy6fK5gHP2a1AKszSADmcgpVWr5yEeswJfAOcQtHjb1hQq8PYA7CzargW2VmUDXUcBr8gMtA7n7TmLAOiedCdvnAM3J2aUr1Db1wD_zjBDbbdg7b9k4KO75alr_ib_5E3Ll2k9Bh1OK883qqAwVIcSbZE5cw-tqEA7Oi3aTrJR-60u4byCcU3KyONKp-lwIgDH5mrHXTOZtj5oVP74iqvx1S4sSzze4j_usee4UCBg7_Y2aIIbHzQq5mYHGPYCSHHzsWJSE8R8U"/>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col gap-sm py-xl w-72 h-[calc(100vh-64px)] fixed left-0 top-16 border-r border-outline-variant bg-surface-container-highest dark:bg-inverse-surface">
+<div class="px-lg mb-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">school</span>
+</div>
+<div>
+<h2 class="font-headline-md text-label-md text-primary dark:text-primary-fixed">PaySPP Admin</h2>
+<p class="text-label-sm text-on-surface-variant opacity-80">Academic Year 2023/2024</p>
+</div>
+</div>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md bg-primary text-on-primary rounded-lg mx-md px-md py-sm active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Payments</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">Students</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-secondary-fixed mx-md px-md py-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-md mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md py-sm rounded-lg mb-lg hover:brightness-110 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">add</span>
+                    Quick Payment
+                </button>
+<a class="flex items-center gap-md text-error mx-md px-md py-sm hover:bg-error-container rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-72 p-lg md:p-xl max-w-[1200px] mx-auto">
+<!-- Breadcrumbs / Title Section -->
+<div class="mb-xl">
+<div class="flex items-center gap-sm text-label-sm text-on-surface-variant mb-sm">
+<span>Payments</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Generate Tagihan</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Generate Student Bill</h1>
+<p class="font-body-sm text-on-surface-variant mt-xs">Create new invoices for individual students or entire classes.</p>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Main Form Section (8 Cols) -->
+<div class="md:col-span-8 space-y-lg">
+<div class="bg-surface-container-lowest rounded-xl p-lg custom-shadow border border-outline-variant/30">
+<h3 class="font-headline-md text-on-surface mb-lg">Billing Information</h3>
+<form class="space-y-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Class Selection -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Class Selection</label>
+<div class="relative">
+<select class="w-full h-12 rounded-lg border border-outline bg-surface px-md text-body-lg focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none outline-none">
+<option value="">Select a Class</option>
+<option value="10a">Class 10-A</option>
+<option value="10b">Class 10-B</option>
+<option value="11a">Class 11-A</option>
+<option value="12c">Class 12-C</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Payment Category -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Payment Category</label>
+<div class="relative">
+<select class="w-full h-12 rounded-lg border border-outline bg-surface px-md text-body-lg focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none outline-none">
+<option value="">Select Category</option>
+<option value="spp">SPP (Monthly Tuition)</option>
+<option value="building">Building Fee</option>
+<option value="uniform">Uniform Fee</option>
+<option value="exam">Examination Fee</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">category</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Nominal Amount -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Nominal Amount (IDR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-label-md text-on-surface-variant">Rp</span>
+<input class="w-full h-12 rounded-lg border border-outline bg-surface pl-12 pr-md text-body-lg focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="0" type="number"/>
+</div>
+</div>
+<!-- Date Picker -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Payment Deadline</label>
+<div class="relative">
+<input class="w-full h-12 rounded-lg border border-outline bg-surface px-md text-body-lg focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" type="date"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">calendar_today</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Note / Description (Optional)</label>
+<textarea class="w-full rounded-lg border border-outline bg-surface p-md text-body-lg focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Enter specific details about this bill..." rows="3"></textarea>
+</div>
+<div class="pt-md flex items-center justify-end gap-md">
+<button class="px-xl h-12 rounded-lg bg-surface-container-high text-primary font-label-md hover:bg-surface-container-highest transition-colors" type="button">Cancel</button>
+<button class="px-xl h-12 rounded-lg bg-primary text-on-primary font-label-md hover:brightness-110 active:scale-95 transition-all shadow-md" type="submit">Generate Tagihan</button>
+</div>
+</form>
+</div>
+<!-- Recent Actions Section -->
+<div class="bg-surface-container-low rounded-xl p-lg custom-shadow border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-headline-md text-on-surface">Recent Generation Batch</h4>
+<a class="text-label-md text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface-container-lowest rounded-lg border border-outline-variant/50">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">history</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Batch SPP - October 2023</p>
+<p class="text-label-sm text-on-surface-variant">Class 10, 11, 12 • 450 Students</p>
+</div>
+</div>
+<div class="text-right">
+<span class="px-sm py-1 rounded-pill bg-green-100 text-green-800 text-label-sm">Success</span>
+<p class="text-label-sm text-on-surface-variant mt-1">2 mins ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Info/Summary Section (4 Cols) -->
+<div class="md:col-span-4 space-y-lg">
+<!-- Instruction Card -->
+<div class="bg-primary text-on-primary rounded-xl p-lg custom-shadow overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-headline-md mb-md">Quick Summary</h4>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<span class="text-label-md opacity-80">Target Group</span>
+<span class="font-label-md">Unselected</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-md opacity-80">Total Students</span>
+<span class="font-label-md">0</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-md opacity-80">Estimated Total</span>
+<span class="font-headline-md">Rp 0</span>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-on-primary/20">
+<p class="text-label-sm italic opacity-70">"Bills generated will be instantly visible on parents' PaySPP app once confirmed."</p>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+</div>
+</div>
+<!-- Image/Illustration Card -->
+<div class="rounded-xl overflow-hidden custom-shadow aspect-square border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A clean and professional workspace featuring a modern tablet displaying a financial dashboard with charts and tables. The lighting is soft and natural, coming from a nearby window, creating a focused and dependable atmosphere for school administration. The environment is minimalist with teal and white accents, reflecting the digital trust and security of the PaySPP brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1NnrGwrypGszTkdU-643DOo7sDCclIqPORxF7MjEsSy2E3c0MG6ulSc35qY5NpyDSQUYGCvPovNvfaH4u1g2M5Jh4TzAD5dO2eLxEDnkTLmapZoQ7bjxjHzKzrRPlU3QxcbUNGP_7HcFBdJvrRsQtrmih1h3BsO_0ZqUhNInK_MHDDcsxxm6kKfe_IGsKmWklrZThm06uH6vAco3BEgL0b8hY9RpcQtOv2RLK__SGH0VuT78wI0fSbPG9HG1ObG8QSzVy-6QxYNg"/>
+</div>
+<!-- Help Card -->
+<div class="bg-surface-container-highest rounded-xl p-lg border border-outline-variant/30">
+<h4 class="font-label-md text-on-surface mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">info</span>
+                            Billing Guidelines
+                        </h4>
+<ul class="space-y-sm">
+<li class="flex items-start gap-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mt-0.5">check_circle</span>
+<span>Double-check student nominals for recurring SPP.</span>
+</li>
+<li class="flex items-start gap-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mt-0.5">check_circle</span>
+<span>Deadlines must be at least 7 days from today.</span>
+</li>
+<li class="flex items-start gap-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mt-0.5">check_circle</span>
+<span>Categories help parents identify payment priority.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
