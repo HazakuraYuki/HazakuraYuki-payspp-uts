@@ -1,1 +1,1 @@
-# HazakuraYuki-payspp-uts
+# payspp-uts
