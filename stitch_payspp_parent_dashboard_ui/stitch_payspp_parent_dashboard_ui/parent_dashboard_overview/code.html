@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP — Parent Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline": "#6e797b",
+                  "surface-dim": "#d7dbdc",
+                  "error": "#ba1a1a",
+                  "inverse-surface": "#2d3132",
+                  "on-surface": "#181c1d",
+                  "on-tertiary-fixed": "#301400",
+                  "primary-fixed": "#9eefff",
+                  "tertiary-fixed": "#ffdcc5",
+                  "tertiary-fixed-dim": "#ffb782",
+                  "on-tertiary": "#ffffff",
+                  "on-secondary-container": "#5c6263",
+                  "primary-fixed-dim": "#77d4e5",
+                  "surface-container-highest": "#dfe3e4",
+                  "primary-container": "#028090",
+                  "surface-container": "#ebeeef",
+                  "inverse-primary": "#77d4e5",
+                  "surface-container-low": "#f1f4f5",
+                  "outline-variant": "#bdc8cb",
+                  "surface-container-lowest": "#ffffff",
+                  "tertiary": "#894c16",
+                  "secondary-container": "#d9dedf",
+                  "surface-tint": "#006876",
+                  "on-primary": "#ffffff",
+                  "on-secondary-fixed-variant": "#424849",
+                  "secondary-fixed-dim": "#c2c7c8",
+                  "surface-bright": "#f6fafb",
+                  "inverse-on-surface": "#eef1f2",
+                  "surface-container-high": "#e5e9ea",
+                  "primary": "#006572",
+                  "on-error": "#ffffff",
+                  "on-primary-fixed-variant": "#004e59",
+                  "secondary": "#5a5f60",
+                  "secondary-fixed": "#dee3e4",
+                  "on-surface-variant": "#3e494b",
+                  "on-background": "#181c1d",
+                  "on-primary-container": "#f6fdff",
+                  "on-tertiary-fixed-variant": "#6f3801",
+                  "tertiary-container": "#a7642d",
+                  "surface-variant": "#dfe3e4",
+                  "surface": "#f6fafb",
+                  "error-container": "#ffdad6",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#001f24",
+                  "on-secondary-fixed": "#171c1e",
+                  "background": "#f6fafb",
+                  "on-tertiary-container": "#fffbff",
+                  "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-mobile": "16px",
+                  "stack-md": "12px",
+                  "container-max": "1280px",
+                  "gutter": "24px",
+                  "stack-sm": "4px",
+                  "stack-lg": "24px",
+                  "base": "8px",
+                  "margin-desktop": "40px"
+          },
+          "fontFamily": {
+                  "headline-xl": ["Manrope"],
+                  "body-md": ["Hanken Grotesk"],
+                  "headline-md": ["Manrope"],
+                  "caption": ["Hanken Grotesk"],
+                  "body-lg": ["Hanken Grotesk"],
+                  "headline-lg": ["Manrope"],
+                  "label-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+                  "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+    }
+    .custom-shadow {
+      box-shadow: 0px 4px 20px rgba(2, 128, 144, 0.05);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="w-72 h-screen sticky top-0 left-0 bg-surface-container-lowest flex flex-col py-stack-lg shadow-[0px_4px_20px_rgba(2,128,144,0.05)] z-40 hidden md:flex">
+<div class="px-margin-desktop mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">PaySPP</h1>
+<p class="font-label-md text-label-md text-secondary">Parent Portal</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg border-l-4 border-primary bg-surface-container text-primary font-bold transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">My Children</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md">Bills &amp; Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-label-md">Installments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md">Payment History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-md">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-md">Download Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Profile &amp; Settings</span>
+</a>
+</nav>
+<div class="px-8 mt-auto pt-8 border-t border-outline-variant/30">
+<div class="flex items-center gap-3">
+<img alt="Siti Aminah" class="w-10 h-10 rounded-full border-2 border-primary-fixed-dim" data-alt="A professional close-up portrait of a middle-aged Indonesian woman with a warm, friendly smile, set against a blurred office background. The lighting is soft and natural, emphasizing a modern corporate aesthetic. She is dressed in modest, elegant business attire that fits the high-end financial services theme. The image uses a clean, bright, and trustworthy color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHp9QZaOI-W_IklWtHBoHToC2r0O_AXvuhlqDv_PrwpgDyoi1LgS_8jGKVce2KgltCBL46VN1YtHDL4GptDQn5Ll26ZOlVPwSRh9RPHnFUXBhQTEVP2liLpE9mIMbc-jrqEHmTCgJXzGxbn8PN7gWHwoy4LaQhjmLUnycct9y5A5ARcqvcv1lf7HMbFI20CIVmd54RP0EUW1XiX_wIOgpZ8fR5vGN_aNlhFzWLoeQbrR3V94mkrXGCPnHAcxdfs7Y3Qjg2mXMGdk"/>
+<div>
+<p class="font-label-md text-on-surface">Siti Aminah</p>
+<p class="text-[10px] text-outline">Parent Account</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar (Shared Component) -->
+<header class="h-[72px] sticky top-0 z-50 w-full glass-header flex justify-between items-center px-margin-mobile md:px-margin-desktop border-b border-outline-variant/30">
+<div class="flex items-center gap-6">
+<span class="md:hidden material-symbols-outlined text-primary cursor-pointer">menu</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">PaySPP</span>
+<div class="hidden md:flex gap-4 ml-8 items-center">
+<div class="px-3 py-1 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center gap-2 cursor-pointer">
+<span class="font-label-md text-primary">Child: Ahmad Fauzi</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="font-label-md text-primary border-b-2 border-primary">AY 2023/2024</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md active:opacity-80 transition-all shadow-md">Pay Now</button>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop space-y-stack-lg max-w-7xl mx-auto w-full">
+<!-- Welcome Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Halo, Ibu Siti Aminah</h2>
+<p class="text-on-surface-variant font-body-md">Berikut ringkasan tagihan pendidikan untuk Ahmad Fauzi.</p>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-highest px-4 py-2 rounded-xl flex items-center gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-md">Oktober 2023</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid: Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Total Outstanding -->
+<div class="md:col-span-2 bg-white p-6 rounded-xl custom-shadow border border-outline-variant/10 flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Total Outstanding Bills</p>
+<h3 class="font-headline-xl text-headline-xl text-primary">Rp 4.250.000</h3>
+</div>
+<div class="flex items-center gap-2 text-error mt-4">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-caption">3 unpaid invoices remaining</span>
+</div>
+</div>
+<!-- Next Due -->
+<div class="bg-white p-6 rounded-xl custom-shadow border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Next Due Payment</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">Rp 1.500.000</h4>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-center mb-1">
+<span class="font-caption text-secondary">Due: 15 Oct 2023</span>
+<span class="font-caption text-error font-bold">In 5 Days</span>
+</div>
+<div class="w-full bg-surface-container-low h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-4/5"></div>
+</div>
+</div>
+</div>
+<!-- Total Children -->
+<div class="bg-white p-6 rounded-xl custom-shadow border border-outline-variant/10 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Active Children</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">02</h4>
+</div>
+<div class="bg-primary-fixed p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">group</span>
+</div>
+</div>
+<div class="mt-4 flex -space-x-2">
+<img alt="Ahmad" class="w-8 h-8 rounded-full border-2 border-white" data-alt="A portrait of a cheerful young Indonesian boy in a school uniform, looking confidently at the camera. The background is a clean school setting with soft, bright lighting. The aesthetic is professional and high-quality, emphasizing educational success and reliability. The color palette is modern and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAmmv7eO8vDJW1nNnjHpCFhwikXswrA854EQTs0kxSWSYUPs6yNKuXIjCrsQndjTbTWb9jDF3ZLyHYMhLeHDsU5Cq_CsfBhXzeMK0tSQ9uGCh1KQKIhmfi_oY8z9M4x-7Dlv8IFhMH5j6pLK6CCiRiNPyrn1doFEVgzifJ9E7DmGMWBeJxQpq43l3OjAH8dy6VEQCazACUAT7opVGxeA3OC9Q3x20rs5QM_iZ4dMDU10IHqdPV6JLPUazp6_-UF_zLaNavI7TblL8"/>
+<img alt="Aisyah" class="w-8 h-8 rounded-full border-2 border-white" data-alt="A bright and optimistic portrait of a young Indonesian girl in a school uniform, smiling warmly. The setting is an educational environment with high-key lighting that creates a clean, light-mode feel. The visual style is professional, high-fidelity, and trustworthy, fitting for a premium financial portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVHlLr5cZ_pNJ2xiGL13hUvDDfwVl_uRO3ShWaaxfBzadooWE5fHrx7KNlY6P8uLbGFj0WZF2uxZTe6GfX7i4KYfDymZQ8R98ViEqp5IZibZ6CZZum-s7l2-K8luUnf447rb3GGSZPSY2FokDVuWJzx1iAiKaFd6cPTHAPJPSpN1j-ZM9uPtOzgv7b-3jutUT2bCjHD7q1lg8Fnsv-LWHH8wBOZOzcXXjB9cLmPScoMKGyx0KsD6KcW-s85w9pccB14hMLBBpELZE"/>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Column: Transactions & Overview -->
+<div class="lg:col-span-2 space-y-stack-lg">
+<!-- Billing Progress Card -->
+<section class="bg-white rounded-xl custom-shadow border border-outline-variant/10 overflow-hidden">
+<header class="glass-header px-6 py-4 flex justify-between items-center border-b border-outline-variant/30">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Payment Overview</h4>
+<span class="material-symbols-outlined text-secondary cursor-pointer">more_horiz</span>
+</header>
+<div class="p-6 space-y-6">
+<!-- SPP Progress -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-on-surface">SPP Monthly - Oct 2023</span>
+<span class="font-label-md text-primary">85% Paid</span>
+</div>
+<div class="grid grid-cols-12 gap-1 h-3">
+<div class="col-span-10 bg-primary rounded-l-full"></div>
+<div class="col-span-2 bg-surface-container rounded-r-full"></div>
+</div>
+</div>
+<!-- Installment Progress -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-on-surface">Annual Development Fee</span>
+<span class="font-label-md text-tertiary">Installment 3/6</span>
+</div>
+<div class="grid grid-cols-6 gap-2">
+<div class="h-3 bg-primary rounded-full"></div>
+<div class="h-3 bg-primary rounded-full"></div>
+<div class="h-3 bg-primary rounded-full"></div>
+<div class="h-3 bg-surface-container rounded-full"></div>
+<div class="h-3 bg-surface-container rounded-full"></div>
+<div class="h-3 bg-surface-container rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Transactions Table -->
+<section class="bg-white rounded-xl custom-shadow border border-outline-variant/10">
+<header class="glass-header px-6 py-4 flex justify-between items-center border-b border-outline-variant/30">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Recent Transactions</h4>
+<a class="text-primary font-label-md hover:underline" href="#">View All</a>
+</header>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant/30">
+<tr>
+<th class="px-6 py-4 font-label-md text-secondary">Invoice #</th>
+<th class="px-6 py-4 font-label-md text-secondary">Service</th>
+<th class="px-6 py-4 font-label-md text-secondary">Amount</th>
+<th class="px-6 py-4 font-label-md text-secondary">Status</th>
+<th class="px-6 py-4 font-label-md text-secondary text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="px-6 py-4 font-label-md text-on-surface">#INV-88210</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">SPP Monthly Sept</td>
+<td class="px-6 py-4 font-label-md">Rp 1.500.000</td>
+<td class="px-6 py-4">
+<span class="bg-[#E7F5F0] text-[#1D7E5A] px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1D7E5A]"></span> PAID
+                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">download</span>
+</td>
+</tr>
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="px-6 py-4 font-label-md text-on-surface">#INV-88192</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Extracurricular Fee</td>
+<td class="px-6 py-4 font-label-md">Rp 250.000</td>
+<td class="px-6 py-4">
+<span class="bg-[#FFF4E5] text-[#B25E09] px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B25E09]"></span> PENDING
+                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-outline-variant cursor-not-allowed">download</span>
+</td>
+</tr>
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="px-6 py-4 font-label-md text-on-surface">#INV-87955</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Uniform Fee</td>
+<td class="px-6 py-4 font-label-md">Rp 750.000</td>
+<td class="px-6 py-4">
+<span class="bg-[#E7F5F0] text-[#1D7E5A] px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1D7E5A]"></span> PAID
+                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">download</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column: Quick Pay & Profile -->
+<div class="space-y-stack-lg">
+<!-- Quick Payment Section -->
+<section class="bg-white rounded-xl custom-shadow border border-outline-variant/10 p-6">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider mb-6">Quick Payment</h4>
+<div class="bg-surface-container-low rounded-xl p-4 mb-6">
+<p class="text-secondary font-caption mb-1">Total to Pay</p>
+<p class="font-headline-md text-headline-md text-on-surface">Rp 1.500.000</p>
+<p class="text-[10px] text-outline mt-2 italic">*Includes SPP Oct &amp; Admin Fee</p>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md shadow-lg active:scale-[0.98] transition-transform mb-8">
+                Pay Now
+              </button>
+<div class="space-y-4">
+<p class="font-caption text-secondary text-center">Accepted Payment Methods</p>
+<div class="grid grid-cols-3 gap-4 items-center">
+<!-- QRIS Mock Logo -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-headline-md italic text-on-secondary-container">QRIS</span>
+</div>
+<!-- Bank BCA Mock -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-on-secondary-container">BCA</span>
+</div>
+<!-- Bank Mandiri Mock -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-on-secondary-container">Mandiri</span>
+</div>
+<!-- GoPay Mock -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-on-secondary-container">GoPay</span>
+</div>
+<!-- OVO Mock -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-on-secondary-container">OVO</span>
+</div>
+<!-- More -->
+<div class="bg-surface-container h-10 rounded flex items-center justify-center p-2">
+<span class="font-bold text-outline text-xs">+10</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Dues Timeline -->
+<section class="bg-white rounded-xl custom-shadow border border-outline-variant/10 p-6">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider mb-6">Upcoming Timeline</h4>
+<div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant/30">
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-primary-fixed"></div>
+<p class="font-label-md text-on-surface">15 Oct</p>
+<p class="text-on-surface-variant font-caption">SPP Oct Payment Due</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-outline-variant"></div>
+<p class="font-label-md text-secondary">01 Nov</p>
+<p class="text-outline font-caption">New Bill Generated</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-outline-variant"></div>
+<p class="font-label-md text-secondary">15 Nov</p>
+<p class="text-outline font-caption">SPP Nov Payment Due</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Mobile Bottom Navigation (Responsive Pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white glass-header border-t border-outline-variant/30 px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Bills</span>
+</a>
+<div class="-mt-12">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold">Kids</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</a>
+</nav>
+</body></html>

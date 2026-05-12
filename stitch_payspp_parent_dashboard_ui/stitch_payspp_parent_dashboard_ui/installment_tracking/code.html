@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        body {
+            background-color: #f6fafb;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#6e797b",
+                        "surface-dim": "#d7dbdc",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2d3132",
+                        "on-surface": "#181c1d",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-fixed": "#9eefff",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5c6263",
+                        "primary-fixed-dim": "#77d4e5",
+                        "surface-container-highest": "#dfe3e4",
+                        "primary-container": "#028090",
+                        "surface-container": "#ebeeef",
+                        "inverse-primary": "#77d4e5",
+                        "surface-container-low": "#f1f4f5",
+                        "outline-variant": "#bdc8cb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#894c16",
+                        "secondary-container": "#d9dedf",
+                        "surface-tint": "#006876",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#424849",
+                        "secondary-fixed-dim": "#c2c7c8",
+                        "surface-bright": "#f6fafb",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-high": "#e5e9ea",
+                        "primary": "#006572",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004e59",
+                        "secondary": "#5a5f60",
+                        "secondary-fixed": "#dee3e4",
+                        "on-surface-variant": "#3e494b",
+                        "on-background": "#181c1d",
+                        "on-primary-container": "#f6fdff",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "tertiary-container": "#a7642d",
+                        "surface-variant": "#dfe3e4",
+                        "surface": "#f6fafb",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f24",
+                        "on-secondary-fixed": "#171c1e",
+                        "background": "#f6fafb",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "stack-md": "12px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-sm": "4px",
+                        "stack-lg": "24px",
+                        "base": "8px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Manrope"],
+                        "caption": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-72 h-screen sticky top-0 left-0 bg-surface-container-lowest shadow-[0px_4px_20px_rgba(2,128,144,0.05)] flex flex-col py-stack-lg z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">PaySPP</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Parent Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>My Children</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Bills &amp; Payments</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 border-l-4 border-primary bg-surface-container text-primary font-bold font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span>Installments</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Payment History</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notifications</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span>Download Documents</span>
+</a>
+<div class="pt-10">
+<a class="flex items-center px-6 py-3 gap-4 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Profile &amp; Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="h-[72px] sticky top-0 z-40 w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 cursor-pointer bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px]">child_care</span>
+<span class="font-label-md text-on-surface">Amanda Putri</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<span class="font-label-md text-primary font-bold border-b-2 border-primary py-1">AY 2023/2024</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md hover:opacity-90 transition-all shadow-sm">
+                        Pay Now
+                    </button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="p-margin-desktop space-y-stack-lg max-w-[1200px]">
+<!-- Header & Tracker Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Status Tracker -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(2,128,144,0.05)] border border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Installment Plan</h2>
+<p class="font-body-md text-on-surface-variant">Academic Year 2023/2024 - Grade 8A</p>
+</div>
+<span class="bg-primary/10 text-primary px-4 py-1 rounded-full font-label-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                Active Request
+                            </span>
+</div>
+<div class="relative pt-4 pb-8">
+<div class="absolute top-[3.5rem] left-0 w-full h-1 bg-surface-container rounded-full">
+<div class="h-full bg-primary w-[66%] rounded-full"></div>
+</div>
+<div class="relative flex justify-between">
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<p class="mt-3 font-label-md text-on-surface">Requested</p>
+<p class="text-[11px] text-on-surface-variant">Oct 12, 2023</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="mt-3 font-label-md text-on-surface">Approved</p>
+<p class="text-[11px] text-on-surface-variant">Oct 14, 2023</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg border-4 border-white">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<p class="mt-3 font-label-md text-primary font-bold">Ongoing</p>
+<p class="text-[11px] text-on-surface-variant">Next: Nov 15</p>
+</div>
+<div class="flex flex-col items-center text-center opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<p class="mt-3 font-label-md">Completed</p>
+<p class="text-[11px]">Est. Mar 2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Next Installment Card -->
+<div class="bg-primary rounded-xl p-6 text-on-primary shadow-xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div>
+<div class="flex items-center gap-2 mb-4 opacity-90">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-label-md">Next Due Date</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-1">Nov 15, 2023</h3>
+<p class="font-body-md opacity-80">Remaining: 12 Days left</p>
+</div>
+<div class="mt-6 pt-6 border-t border-white/20">
+<p class="font-label-md opacity-80 mb-1">Installment Amount</p>
+<h2 class="font-headline-md text-headline-md font-bold">IDR 2.450.000</h2>
+<button class="w-full mt-4 bg-white text-primary py-3 rounded-lg font-bold font-label-md active:scale-95 transition-transform">
+                                Pay This Installment
+                            </button>
+</div>
+</div>
+</div>
+<!-- Balance Tracker & Progress Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+<p class="font-label-md text-on-surface-variant mb-1">Total Amount</p>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold">IDR 14.700k</h4>
+<div class="mt-4 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span class="text-[12px] font-medium">6 Monthly Payments</span>
+</div>
+</div>
+<div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+<p class="font-label-md text-on-surface-variant mb-1">Total Paid</p>
+<h4 class="font-headline-md text-headline-md text-primary font-bold">IDR 4.900k</h4>
+<div class="mt-4 flex items-center gap-2 text-green-600">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="text-[12px] font-medium">2 of 6 Paid</span>
+</div>
+</div>
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm flex flex-col justify-center">
+<div class="flex justify-between items-end mb-2">
+<p class="font-label-md text-on-surface font-bold">Payment Progress</p>
+<span class="font-headline-md text-headline-md text-primary font-extrabold">33%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-1/3 shadow-[0_0_8px_rgba(2,128,144,0.4)]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[11px] text-on-surface-variant font-medium">Started Oct 2023</span>
+<span class="text-[11px] text-on-surface-variant font-medium">Est. Mar 2024</span>
+</div>
+</div>
+</div>
+<!-- Timeline / Schedule Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(2,128,144,0.05)] border border-outline-variant/10 overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 glass-header flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Installment Schedule</h3>
+<button class="flex items-center gap-2 text-primary font-label-md hover:underline">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Download PDF
+                        </button>
+</div>
+<div class="p-0">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-secondary-container/30">
+<th class="px-6 py-4 text-left font-label-md text-on-surface-variant uppercase tracking-wider text-[11px]">Installment</th>
+<th class="px-6 py-4 text-left font-label-md text-on-surface-variant uppercase tracking-wider text-[11px]">Due Date</th>
+<th class="px-6 py-4 text-left font-label-md text-on-surface-variant uppercase tracking-wider text-[11px]">Amount</th>
+<th class="px-6 py-4 text-left font-label-md text-on-surface-variant uppercase tracking-wider text-[11px]">Status</th>
+<th class="px-6 py-4 text-right font-label-md text-on-surface-variant uppercase tracking-wider text-[11px]">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-secondary/5 transition-colors">
+<td class="px-6 py-5 font-label-md text-on-surface">1st Payment</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Sep 15, 2023</td>
+<td class="px-6 py-5 font-label-md text-on-surface">IDR 2.450.000</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-700 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-700"></span>
+                                            Paid
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-label-md text-[13px]">View Receipt</button>
+</td>
+</tr>
+<tr class="hover:bg-secondary/5 transition-colors">
+<td class="px-6 py-5 font-label-md text-on-surface">2nd Payment</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Oct 15, 2023</td>
+<td class="px-6 py-5 font-label-md text-on-surface">IDR 2.450.000</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-700 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-700"></span>
+                                            Paid
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-label-md text-[13px]">View Receipt</button>
+</td>
+</tr>
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors">
+<td class="px-6 py-5 font-label-md text-on-surface font-bold">3rd Payment</td>
+<td class="px-6 py-5 font-body-md text-primary font-bold">Nov 15, 2023</td>
+<td class="px-6 py-5 font-label-md text-on-surface font-bold">IDR 2.450.000</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-700"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-primary text-white px-4 py-1.5 rounded-lg font-label-md text-[13px] hover:shadow-md transition-all">Pay Now</button>
+</td>
+</tr>
+<tr class="hover:bg-secondary/5 transition-colors opacity-70">
+<td class="px-6 py-5 font-label-md text-on-surface">4th Payment</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Dec 15, 2023</td>
+<td class="px-6 py-5 font-label-md text-on-surface">IDR 2.450.000</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                            Upcoming
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-outline font-label-md text-[13px] cursor-not-allowed">Locked</button>
+</td>
+</tr>
+<tr class="hover:bg-secondary/5 transition-colors opacity-70">
+<td class="px-6 py-5 font-label-md text-on-surface">5th Payment</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Jan 15, 2024</td>
+<td class="px-6 py-5 font-label-md text-on-surface">IDR 2.450.000</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                            Upcoming
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-outline font-label-md text-[13px] cursor-not-allowed">Locked</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Info Banner -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-primary/20 flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary text-[24px]">info</span>
+<div>
+<h4 class="font-label-md text-on-surface font-bold">About your Installment Plan</h4>
+<p class="font-body-md text-on-surface-variant mt-1 leading-relaxed">
+                            Your installment plan was approved based on your request on Oct 12, 2023. Payments are due on the 15th of every month. Late payments may incur a nominal fee as per the school's financial policy. You can request to pay off the entire remaining balance at any time to receive a 2% early-payment rebate.
+                        </p>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

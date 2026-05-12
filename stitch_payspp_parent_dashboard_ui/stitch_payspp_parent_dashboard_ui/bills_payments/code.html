@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bills &amp; Payments | PaySPP Parent Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#6e797b",
+                        "surface-dim": "#d7dbdc",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2d3132",
+                        "on-surface": "#181c1d",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-fixed": "#9eefff",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5c6263",
+                        "primary-fixed-dim": "#77d4e5",
+                        "surface-container-highest": "#dfe3e4",
+                        "primary-container": "#028090",
+                        "surface-container": "#ebeeef",
+                        "inverse-primary": "#77d4e5",
+                        "surface-container-low": "#f1f4f5",
+                        "outline-variant": "#bdc8cb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#894c16",
+                        "secondary-container": "#d9dedf",
+                        "surface-tint": "#006876",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#424849",
+                        "secondary-fixed-dim": "#c2c7c8",
+                        "surface-bright": "#f6fafb",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-high": "#e5e9ea",
+                        "primary": "#006572",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004e59",
+                        "secondary": "#5a5f60",
+                        "secondary-fixed": "#dee3e4",
+                        "on-surface-variant": "#3e494b",
+                        "on-background": "#181c1d",
+                        "on-primary-container": "#f6fdff",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "tertiary-container": "#a7642d",
+                        "surface-variant": "#dfe3e4",
+                        "surface": "#f6fafb",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f24",
+                        "on-secondary-fixed": "#171c1e",
+                        "background": "#f6fafb",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "stack-md": "12px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-sm": "4px",
+                        "stack-lg": "24px",
+                        "base": "8px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Manrope"],
+                        "caption": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .custom-shadow {
+            shadow: 0px 4px 20px rgba(2, 128, 144, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="w-72 h-screen sticky top-0 left-0 bg-surface-container-lowest flex flex-col py-stack-lg shadow-[0px_4px_20px_rgba(2,128,144,0.05)] z-50">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">PaySPP</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Parent Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">My Children</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg border-l-4 border-primary bg-surface-container text-primary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Bills &amp; Payments</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">Installments</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">Payment History</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-md text-label-md">Notifications</span>
+</a>
+<div class="pt-4 mt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label-md text-label-md">Download Documents</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Profile &amp; Settings</span>
+</a>
+</div>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="font-label-md text-label-md text-primary mb-2">Need help?</p>
+<button class="w-full py-2 bg-primary text-white rounded-lg font-label-md text-label-md active:scale-[0.98] transition-transform">Contact Support</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-[72px] sticky top-0 z-40 w-full glass-header flex justify-between items-center px-margin-desktop border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-outline">
+<img alt="Child Portrait" data-alt="A close-up high-quality portrait of a young school-age boy with a bright smile, wearing a clean white school shirt. The background is a soft-focus classroom setting with warm, natural sunlight filtering through windows. The lighting is bright and cheerful, matching a modern educational fintech application aesthetic. Professional commercial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3jf51zpx7_jIDgb5Sz_SYVh1UpYSwoS6dHMrOEZ2FfmY8dFoSCe8g4XUby-TVKb-NU8Tkrn10OQrTOEvhZNh4PHrsEY6I03y-kDVYRnJgp-oAuyfb6hMREyoXIyWbrpGlEzXKOPgIh1fV_a279vwk59c71ZhpWHZ3ldZghUBaRrdC_PZphU3PL9ZAf2gc8CqB2seZ_12DkZqR0VogMUq-Y_mCVb0aEYy2i8ajJ4CNJqq685WYy-bOSNKY0CU7dXQoIAzBANJECG4"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Budi Santoso</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/50"></div>
+<span class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary py-6">AY 2023/2024</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<!-- Header Actions -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Bills &amp; Payments</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage your child's educational expenses and tuition fees.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="file_download">file_download</span>
+                            Statement
+                        </button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+                            Pay Selected
+                        </button>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Summary Card (Bento Item 1) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(2,128,144,0.05)] border border-primary/5">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-4">Total Outstanding</h3>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">Rp 4.250.000</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-error font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+                                2 Overdue Bills
+                            </div>
+<div class="mt-6 pt-6 border-t border-outline-variant/30">
+<div class="flex justify-between items-center mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Regular Tuition</span>
+<span class="font-label-md text-label-md text-on-surface">Rp 1.500.000</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Other Fees</span>
+<span class="font-label-md text-label-md text-on-surface">Rp 2.750.000</span>
+</div>
+</div>
+</div>
+<!-- Scholarship/Discount Section -->
+<div class="bg-gradient-to-br from-tertiary/10 to-tertiary-container/5 rounded-xl p-6 border border-tertiary/20">
+<div class="flex items-center gap-3 mb-4 text-tertiary">
+<span class="material-symbols-outlined" data-icon="redeem">redeem</span>
+<h3 class="font-headline-md text-headline-md">Active Discounts</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="mt-1 w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Sibling Discount (5%)</p>
+<p class="font-caption text-caption text-on-surface-variant">Applied to Monthly SPP</p>
+</div>
+<span class="ml-auto font-label-md text-label-md text-tertiary">-Rp 75.000</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="mt-1 w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Academic Scholarship</p>
+<p class="font-caption text-caption text-on-surface-variant">Building Fee Reduction</p>
+</div>
+<span class="ml-auto font-label-md text-label-md text-tertiary">-Rp 500.000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bills Table (Bento Item 2) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(2,128,144,0.05)] border border-primary/5 overflow-hidden">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center glass-header">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<h3 class="font-headline-md text-headline-md text-on-surface">Active Bills</h3>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-md text-label-md">Sort by:</span>
+<select class="bg-transparent border-none font-label-md text-label-md text-primary focus:ring-0 cursor-pointer">
+<option>Due Date</option>
+<option>Amount</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="py-4 px-6"></th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Bill Name</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Amount</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Due Date</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1: Overdue -->
+<tr class="hover:bg-secondary-container/10 transition-colors group">
+<td class="py-5 px-6">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-5 px-6">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Monthly SPP - October</p>
+<p class="font-caption text-caption text-on-surface-variant">Tuition &amp; Operations</p>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-label-md text-label-md text-error">Rp 1.425.000</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-body-md text-body-md">Oct 10, 2023</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="mx-auto flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md">Overdue</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: Overdue -->
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="py-5 px-6">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-5 px-6">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Uniform Package</p>
+<p class="font-caption text-caption text-on-surface-variant">Batik, Sportswear, Formal</p>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-label-md text-label-md text-error">Rp 825.000</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-body-md text-body-md">Oct 15, 2023</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="mx-auto flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md">Overdue</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: Upcoming -->
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="py-5 px-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-5 px-6">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Monthly SPP - November</p>
+<p class="font-caption text-caption text-on-surface-variant">Tuition &amp; Operations</p>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-label-md text-label-md text-on-surface">Rp 1.500.000</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-body-md text-body-md">Nov 10, 2023</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="mx-auto flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary-container"></span>
+<span class="font-label-md text-label-md">Pending</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: Installment -->
+<tr class="hover:bg-secondary-container/10 transition-colors">
+<td class="py-5 px-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Building Fee - Installment 2/4</p>
+<p class="font-caption text-caption text-on-surface-variant">Annual Infrastructure</p>
+</div>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded leading-none">Installment</span>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-label-md text-label-md text-on-surface">Rp 500.000</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-body-md text-body-md">Nov 25, 2023</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="mx-auto flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary-container"></span>
+<span class="font-label-md text-label-md">Pending</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Quick Summary -->
+<div class="p-6 bg-surface-container-low flex justify-between items-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Selected <span class="text-primary font-bold">2 items</span>
+</p>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="font-caption text-caption text-on-surface-variant">Total Selected</p>
+<p class="font-headline-md text-headline-md text-primary">Rp 2.250.000</p>
+</div>
+<button class="px-8 py-3 bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+                                    Pay Now
+                                </button>
+</div>
+</div>
+</div>
+<!-- Payment Methods Hint (Bento Item 3) -->
+<div class="col-span-12 lg:col-span-12 bg-white rounded-xl p-8 border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Secure Fintech Payments</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Choose from Virtual Accounts, E-Wallets, or Credit Cards with instant confirmation.</p>
+</div>
+</div>
+<div class="flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-[32px]" data-icon="credit_card">credit_card</span>
+<span class="material-symbols-outlined text-[32px]" data-icon="account_balance">account_balance</span>
+<span class="material-symbols-outlined text-[32px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for Quick Actions - Only visible on mobile/contextual -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center md:hidden">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>
