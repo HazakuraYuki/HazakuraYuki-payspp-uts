@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP - Notifications &amp; Reminders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e4e1e9",
+                    "secondary-container": "#0070eb",
+                    "on-tertiary-container": "#f09b63",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efedf4",
+                    "secondary": "#0058bc",
+                    "on-surface": "#1b1b21",
+                    "on-secondary-fixed": "#001a41",
+                    "inverse-surface": "#303036",
+                    "on-primary-fixed": "#000d60",
+                    "primary-container": "#2e3a8c",
+                    "surface-bright": "#fbf8ff",
+                    "background": "#fbf8ff",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#dfe0ff",
+                    "inverse-primary": "#bcc3ff",
+                    "tertiary-fixed-dim": "#ffb689",
+                    "inverse-on-surface": "#f2eff7",
+                    "on-secondary-container": "#fefcff",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e9e7ef",
+                    "surface-container-highest": "#e4e1e9",
+                    "on-tertiary-fixed": "#311300",
+                    "primary": "#142175",
+                    "tertiary": "#4b2000",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004493",
+                    "surface": "#fbf8ff",
+                    "on-primary-fixed-variant": "#333f91",
+                    "primary-fixed-dim": "#bcc3ff",
+                    "surface-dim": "#dbd9e1",
+                    "outline-variant": "#c6c5d3",
+                    "tertiary-container": "#6d3200",
+                    "surface-container-low": "#f5f2fa",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "outline": "#767682",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdbc7",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-surface-variant": "#454651",
+                    "on-primary-container": "#9ea9ff",
+                    "on-tertiary-fixed-variant": "#723603",
+                    "surface-tint": "#4b57aa",
+                    "on-background": "#1b1b21"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "title-sm": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background-color: #e4e1e9;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] border-r border-outline-variant bg-surface/70 backdrop-blur-xl flex flex-col p-md z-50">
+<div class="flex items-center gap-sm mb-xl px-sm">
+<span class="text-headline-md font-headline-md font-bold text-primary">PaySPP</span>
+</div>
+<div class="flex flex-col gap-xs flex-grow overflow-y-auto">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-caps text-label-caps">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-caps text-label-caps">Payment Bills</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Transactions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps">Installments</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-caps text-label-caps">Payment Validation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">error_outline</span>
+<span class="font-label-caps text-label-caps">Arrears Monitoring</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container font-semibold rounded-lg flex items-center gap-md px-md py-sm transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-caps text-label-caps">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-label-caps text-label-caps">User Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-caps text-label-caps">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</div>
+<button class="mt-xl w-full bg-primary text-on-primary py-md rounded-lg font-title-sm text-title-sm hover:opacity-90 transition-all shadow-sm">
+            Create New Bill
+        </button>
+</aside>
+<!-- TopAppBar -->
+<header class="sticky top-0 right-0 z-40 w-full backdrop-blur-xl bg-surface/70 border-b border-outline-variant flex items-center justify-between h-16 px-xl ml-[280px] max-w-[calc(100%-280px)]">
+<div class="flex items-center gap-xl">
+<h1 class="font-display-lg text-display-lg text-primary">Notifications</h1>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary" href="#">Overview</a>
+<a class="text-primary border-b-2 border-primary font-bold font-body-sm text-body-sm" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative flex items-center bg-surface-container px-md py-xs rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm placeholder:text-outline py-xs" placeholder="Search templates..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant p-sm hover:bg-surface-container rounded-full cursor-pointer">school</span>
+<span class="material-symbols-outlined text-on-surface-variant p-sm hover:bg-surface-container rounded-full cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin User Profile" data-alt="A professional headshot of a female administrator in a clean office environment, featuring soft, diffused natural lighting and a neutral professional background. The style is modern corporate with high clarity and a friendly, approachable atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRN3LtxAo1HRe600xdrShjtYgyIFM5RVFBjO1geGYtvq6GTuSIwLTIKNJw_SOzyECyeNm_7YE-J-5r71Z1qlE9U5TOKbl2-0lMaEYgsB5qQto8HxZebV-15fmH8g-sbIBnA83LxC5dcuqr5oiq406cLdxzZ8rEodIGL4Dbyaxz-8FNFks1UADoYKkXRZ1cxDjZBsubHI-mpwYOqMGyPwD3nSOzWwJyqUlsWoC9xl5e2Zm8rFQNDbPpWtLRJXroWP_rDTdn6pzD95U"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] p-xl grid grid-cols-12 gap-lg">
+<!-- Communication Center (Bento Slot 1) -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-lg">
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-primary">Communication Center</h2>
+<div class="flex bg-surface-container-high p-xs rounded-lg">
+<button class="px-md py-sm bg-white rounded-md shadow-sm text-primary font-title-sm text-title-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">chat</span> WhatsApp
+                        </button>
+<button class="px-md py-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">mail</span> Email
+                        </button>
+<button class="px-md py-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span> In-app
+                        </button>
+</div>
+</div>
+<!-- Messaging Interface Simulator -->
+<div class="border border-outline-variant rounded-xl overflow-hidden bg-white">
+<div class="bg-surface-container px-lg py-md flex items-center justify-between border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center font-bold">W</div>
+<div>
+<p class="font-title-sm text-title-sm">WhatsApp Service (API v2.1)</p>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-xs text-on-surface-variant">Live Connection</p>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="h-64 p-lg overflow-y-auto bg-slate-50 flex flex-col gap-md">
+<div class="self-start max-w-[80%] bg-white border border-outline-variant p-md rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm">
+<p class="text-body-sm font-body-sm">Welcome to PaySPP Notification Engine. Select a template to start broadcasting reminders.</p>
+<span class="text-[10px] text-outline mt-xs block">System • 09:00 AM</span>
+</div>
+<div class="self-end max-w-[80%] bg-primary text-on-primary p-md rounded-tl-xl rounded-br-xl rounded-bl-xl shadow-md">
+<p class="text-body-sm font-body-sm">Remind all Grade 10 students about the semester installment due tomorrow.</p>
+<span class="text-[10px] text-primary-fixed block mt-xs text-right">Admin • 10:45 AM • Read</span>
+</div>
+</div>
+<div class="p-md bg-white border-t border-outline-variant flex gap-md items-center">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">attach_file</span>
+<input class="flex-grow bg-surface-container-low border-none focus:ring-1 focus:ring-primary rounded-lg text-body-sm px-md py-sm" placeholder="Type a manual broadcast message..." type="text"/>
+<button class="bg-primary text-on-primary p-sm rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bulk Action Panel -->
+<div class="bg-gradient-to-r from-primary to-primary-container rounded-xl p-lg text-on-primary shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-lg">
+<div class="bg-white/20 p-md rounded-full">
+<span class="material-symbols-outlined text-[32px]">campaign</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-white">Bulk Reminders</h3>
+<p class="text-primary-fixed opacity-90 font-body-sm text-body-sm">Send urgent payment reminders to 142 students with overdue balances.</p>
+</div>
+</div>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-xl py-md rounded-xl font-title-sm text-title-sm hover:brightness-110 transition-all flex items-center gap-sm">
+<span class="material-symbols-outlined">bolt</span>
+                    Send Now
+                </button>
+</div>
+</section>
+<!-- Reminder Templates (Bento Slot 2) -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-lg">
+<div class="glass-card rounded-xl p-lg">
+<div class="flex justify-between items-center mb-xl">
+<h2 class="font-title-sm text-title-sm text-primary">Templates</h2>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-primary-fixed rounded-full p-xs">add</span>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Template Card -->
+<div class="group p-md border border-outline-variant rounded-xl hover:border-primary hover:bg-primary-fixed/30 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-sm py-xs bg-blue-100 text-blue-700 text-[10px] font-bold rounded uppercase tracking-wider">Payment Due</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">edit_square</span>
+</div>
+<h4 class="font-title-sm text-body-md text-on-surface mb-xs">Upcoming Installment</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 italic">"Dear parent, this is a reminder that the installment for {{month}} is due on {{date}}..."</p>
+</div>
+<!-- Template Card -->
+<div class="group p-md border border-outline-variant rounded-xl hover:border-error hover:bg-error-container transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-sm py-xs bg-error-container text-error text-[10px] font-bold rounded uppercase tracking-wider">Overdue Reminder</span>
+<span class="material-symbols-outlined text-outline group-hover:text-error">edit_square</span>
+</div>
+<h4 class="font-title-sm text-body-md text-on-surface mb-xs">Immediate Attention Required</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 italic">"URGENT: The payment for {{student_name}} is now {{days}} days overdue. Please settle..."</p>
+</div>
+<!-- Template Card -->
+<div class="group p-md border border-outline-variant rounded-xl hover:border-green-600 hover:bg-green-50 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-sm py-xs bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase tracking-wider">Payment Received</span>
+<span class="material-symbols-outlined text-outline group-hover:text-green-700">edit_square</span>
+</div>
+<h4 class="font-title-sm text-body-md text-on-surface mb-xs">Success Confirmation</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 italic">"Thank you! We have successfully received payment of {{amount}} for {{invoice_no}}..."</p>
+</div>
+</div>
+</div>
+<!-- Delivery Stats -->
+<div class="glass-card rounded-xl p-lg">
+<h2 class="font-title-sm text-title-sm text-primary mb-lg">Success Rates</h2>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<div class="flex-grow">
+<div class="flex justify-between text-xs mb-xs">
+<span class="font-semibold">WhatsApp Delivery</span>
+<span class="text-on-surface-variant">98.2%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-green-500 w-[98%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex-grow">
+<div class="flex justify-between text-xs mb-xs">
+<span class="font-semibold">Email Open Rate</span>
+<span class="text-on-surface-variant">64.5%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[64%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Notification Timeline (Wide Bento Slot) -->
+<section class="col-span-12 glass-card rounded-xl p-lg relative timeline-line">
+<h2 class="font-headline-md text-headline-md text-primary mb-xl pl-md">Recent Activity Log</h2>
+<div class="flex flex-col gap-lg">
+<!-- Timeline Item -->
+<div class="relative pl-xl flex items-start gap-lg">
+<div class="absolute left-0 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div class="flex-grow bg-white border border-outline-variant p-md rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-title-sm text-body-md text-on-surface">Bulk Email Sent: Grade 12 Invoices</p>
+<p class="text-body-sm text-on-surface-variant">Recipient: 45 Students • Template: Payment Due</p>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-sm justify-end text-green-600 font-bold mb-xs">
+<span class="material-symbols-outlined text-[18px]">verified</span> Delivered
+                            </div>
+<span class="text-xs text-outline">Today, 10:15 AM</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-xl flex items-start gap-lg">
+<div class="absolute left-0 w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<div class="flex-grow bg-white border border-outline-variant p-md rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-title-sm text-body-md text-on-surface">WhatsApp Alert: Overdue Balance</p>
+<p class="text-body-sm text-on-surface-variant">Recipient: Marcus Aurelius (ID: 9928) • Template: Overdue Reminder</p>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-sm justify-end text-on-tertiary-container font-bold mb-xs">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Read
+                            </div>
+<span class="text-xs text-outline">Today, 09:42 AM</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-xl flex items-start gap-lg">
+<div class="absolute left-0 w-10 h-10 rounded-full bg-error text-white flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">report</span>
+</div>
+<div class="flex-grow bg-white border border-outline-variant p-md rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-title-sm text-body-md text-on-surface">Failed Delivery Notification</p>
+<p class="text-body-sm text-on-surface-variant">Recipient: Sarah Connor (ID: 1102) • Error: Invalid Phone Number</p>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-sm justify-end text-error font-bold mb-xs">
+<span class="material-symbols-outlined text-[18px]">error</span> Failed
+                            </div>
+<span class="text-xs text-outline">Yesterday, 04:30 PM</span>
+</div>
+</div>
+</div>
+<!-- View More -->
+<div class="pl-xl">
+<button class="text-primary font-bold text-body-sm hover:underline flex items-center gap-xs">
+                        View Complete Audit Log <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

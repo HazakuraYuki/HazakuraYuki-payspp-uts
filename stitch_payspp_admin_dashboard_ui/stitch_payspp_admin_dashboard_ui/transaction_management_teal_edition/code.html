@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction Management - PaySPP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-secondary-container": "#006f63",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "primary-container": "#028090",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dee8ff",
+                        "outline": "#6e797b",
+                        "on-background": "#111c2d",
+                        "on-primary-fixed": "#001f24",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-variant": "#d8e3fb",
+                        "inverse-surface": "#263143",
+                        "surface-container": "#e7eeff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary": "#006b5f",
+                        "tertiary-container": "#a7642d",
+                        "secondary-container": "#76f4e0",
+                        "on-surface-variant": "#3e494b",
+                        "tertiary": "#894c16",
+                        "inverse-primary": "#77d4e5",
+                        "primary-fixed": "#9eefff",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#59dbc7",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#77d4e5",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface": "#f9f9ff",
+                        "on-surface": "#111c2d",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#f6fdff",
+                        "secondary-fixed": "#79f7e3",
+                        "primary": "#006572",
+                        "surface-dim": "#cfdaf2",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bdc8cb",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "surface-tint": "#006876",
+                        "on-primary-fixed-variant": "#004e59",
+                        "surface-container-highest": "#d8e3fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "3xl": "64px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "md": "16px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "h1": ["Hanken Grotesk"],
+                        "h3": ["Hanken Grotesk"],
+                        "h2": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "display": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h2": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #bdc8cb;
+        }
+        body {
+            background-color: #f9f9ff;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 overflow-y-auto bg-white/85 backdrop-blur-xl border-r border-outline-variant flex flex-col gap-1 p-md z-50">
+<div class="flex items-center gap-sm mb-xl">
+<span class="material-symbols-outlined text-primary text-h2 font-black" style="font-variation-settings: 'FILL' 1;">payments</span>
+<div class="flex flex-col">
+<span class="text-h2 font-h2 font-black text-primary">PaySPP</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">School Finance System</span>
+</div>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto pr-xs">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Payment Bills</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Payment Validation</span>
+</a>
+<div class="pt-xl pb-sm px-md font-label-md text-label-md text-outline uppercase tracking-wider">Reports &amp; Management</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span>User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-sm bg-primary text-on-primary py-md rounded-xl font-label-md hover:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Create New Bill
+            </button>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-[280px] min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[280px] h-16 z-40 bg-white/85 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center px-lg h-full shadow-sm">
+<div class="flex items-center gap-xl flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-[48px] pr-md py-sm bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary-container font-body-sm" placeholder="Search transactions, students, or IDs..." type="text"/>
+</div>
+<nav class="flex items-center gap-lg">
+<a class="text-primary border-b-2 border-primary font-label-md text-label-md px-sm py-xs" href="#">Overview</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all px-sm py-xs" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:block font-label-md text-on-surface-variant mr-md">Academic Year 2023/2024</div>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-sm right-sm w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<div class="text-right">
+<div class="font-label-md text-primary leading-tight">Admin User</div>
+<div class="text-[10px] uppercase tracking-wider text-outline font-bold">System Auditor</div>
+</div>
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1aSElhyJve_prsyxRA2N-UduAMW4RCBgAfDmu0x-Hxmyk9YAq9YirMSzZvwM5y3iAnBAcBBtOml4GpkbsduN1MblKHfb-8vuiIkomDGAgYj7Jsfx9TSlnIz6Ko_FVhUfJeG1baVvXqm3icmSF2BbluAgAMUFxy0Q7GW9KCSGkd9hyfOU26DMgEbdl5kGRmKyjaa2NuwboYOvbJ4keG2_E-Zzsu4JGa6zT6Xu9NDt-yFbaHx9fra4ywe4HEN67oGYTID1bYWAa-gY"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-16 p-xl space-y-xl">
+<!-- Header Section -->
+<div class="flex items-end justify-between">
+<div>
+<h1 class="font-display text-display text-primary">Transaction Management</h1>
+<p class="text-on-surface-variant font-body-md">Monitor and validate all incoming tuition payments across all channels.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-sm px-lg py-sm border border-outline text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-sm px-lg py-sm bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Dashboard Bento Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Validation Workspace (The Bento Hero) -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<div class="glass-card rounded-xl overflow-hidden shadow-sm">
+<div class="px-xl py-lg border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<h2 class="font-h3 text-h3">Manual Validation Workspace</h2>
+</div>
+<span class="px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed rounded font-label-sm text-label-sm">3 PENDING APPROVALS</span>
+</div>
+<div class="p-xl grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Image Preview Area -->
+<div class="relative group cursor-zoom-in rounded-lg overflow-hidden bg-surface-container-highest border border-outline-variant aspect-[4/3]">
+<img alt="Payment Proof" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHh52MkWrX9NWugfg_T06p-sLkhUrw9LJ-re74ccg4zeW03bggBhS1eHKkbWjOd7IEyNtb-wMoQ_9mbOerVGL_XV3QWgQjL2-DvFAV205wj4xCaxoFVxE2qwR5PnKqWS2OzHwWwwp4waCoqhuDoWg_lsIZd4QMNB0JX5RuxOCxbezQg3jPzBZmuHKcUJA7RKVeDt_zzepYCTOyid1GpS2qpR9kCd71D7WTq1gM7QmNf9AtV89HPimhFn9drDcmQzTSvLXzwxzBvX0"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="zoom_in">zoom_in</span>
+</div>
+</div>
+<!-- Validation Form -->
+<div class="flex flex-col justify-between">
+<div class="space-y-md">
+<div>
+<div class="font-label-sm text-label-sm text-outline mb-xs">STUDENT NAME</div>
+<div class="font-h3 text-on-surface">Adrian Alexander (Grade 11-B)</div>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<div class="font-label-sm text-label-sm text-outline mb-xs">AMOUNT UPLOADED</div>
+<div class="font-h2 text-primary font-bold">Rp 1.450.000</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-outline mb-xs">DATE UPLOADED</div>
+<div class="font-body-md text-on-surface">Oct 12, 2023 • 14:22</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="text-body-sm text-on-surface-variant italic">"Monthly tuition for October. Transfer from BCA account 902-XXX."</p>
+</div>
+</div>
+<div class="flex gap-md mt-xl">
+<button class="flex-1 py-md border border-error text-error rounded-lg font-label-md hover:bg-error-container transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+                                        Reject
+                                    </button>
+<button class="flex-1 py-md bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-opacity flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                                        Verify &amp; Post
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Incoming Payment List Table -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="px-xl py-lg border-b border-outline-variant flex items-center justify-between">
+<h2 class="font-h3 text-h3">Incoming Transactions</h2>
+<div class="flex items-center gap-md">
+<span class="flex items-center gap-xs font-body-sm text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-secondary"></span> Automated</span>
+<span class="flex items-center gap-xs font-body-sm text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Manual</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-xl py-md font-label-sm text-label-sm text-outline uppercase tracking-wider">TRANSACTION ID</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-outline uppercase tracking-wider">STUDENT</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-outline uppercase tracking-wider">METHOD</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-outline uppercase tracking-wider">AMOUNT</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-outline text-right uppercase tracking-wider">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-xl py-md font-body-sm text-primary font-bold">#TXN-88012</td>
+<td class="px-xl py-md">
+<div class="font-body-md font-semibold">Sarah Jenkins</div>
+<div class="text-label-sm text-outline">Grade 12-A</div>
+</td>
+<td class="px-xl py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline" data-icon="account_balance">account_balance</span>
+<span class="text-body-sm">Virtual Account (Mandiri)</span>
+</div>
+</td>
+<td class="px-xl py-md font-bold text-on-surface">Rp 2.100.000</td>
+<td class="px-xl py-md text-right">
+<span class="inline-flex items-center gap-sm px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Success
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer bg-primary-container/5">
+<td class="px-xl py-md font-body-sm text-primary font-bold">#TXN-88011</td>
+<td class="px-xl py-md">
+<div class="font-body-md font-semibold">Adrian Alexander</div>
+<div class="text-label-sm text-outline">Grade 11-B</div>
+</td>
+<td class="px-xl py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-body-sm">Bank Transfer (BCA)</span>
+</div>
+</td>
+<td class="px-xl py-md font-bold text-on-surface">Rp 1.450.000</td>
+<td class="px-xl py-md text-right">
+<span class="inline-flex items-center gap-sm px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed rounded-full text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Pending
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-xl py-md font-body-sm text-primary font-bold">#TXN-88010</td>
+<td class="px-xl py-md">
+<div class="font-body-md font-semibold">Michael Chen</div>
+<div class="text-label-sm text-outline">Grade 10-C</div>
+</td>
+<td class="px-xl py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline" data-icon="qr_code_2">qr_code_2</span>
+<span class="text-body-sm">QRIS (Gopay)</span>
+</div>
+</td>
+<td class="px-xl py-md font-bold text-on-surface">Rp 850.000</td>
+<td class="px-xl py-md text-right">
+<span class="inline-flex items-center gap-sm px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Success
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-xl py-md font-body-sm text-primary font-bold">#TXN-88009</td>
+<td class="px-xl py-md">
+<div class="font-body-md font-semibold">Elena Rodriguez</div>
+<div class="text-label-sm text-outline">Grade 12-A</div>
+</td>
+<td class="px-xl py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline" data-icon="payments">payments</span>
+<span class="text-body-sm">Cash Settlement</span>
+</div>
+</td>
+<td class="px-xl py-md font-bold text-on-surface">Rp 2.100.000</td>
+<td class="px-xl py-md text-right">
+<span class="inline-flex items-center gap-sm px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Success
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-xl py-md bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">Showing 1-10 of 1,240 transactions</span>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-xs bg-primary text-on-primary rounded transition-colors w-8 h-8 flex items-center justify-center font-label-md">1</button>
+<button class="p-xs hover:bg-surface-container-high rounded transition-colors w-8 h-8 flex items-center justify-center font-label-md">2</button>
+<button class="p-xs hover:bg-surface-container-high rounded transition-colors w-8 h-8 flex items-center justify-center font-label-md">3</button>
+<button class="p-xs hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction Details Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<div class="glass-card rounded-xl p-xl shadow-sm border border-outline-variant h-full">
+<div class="flex items-center justify-between mb-xl">
+<h2 class="font-h2 text-primary">Transaction Detail</h2>
+<button class="p-sm text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+<!-- Detail Card Breakdown -->
+<div class="space-y-xl">
+<div class="p-md bg-surface-container-low rounded-xl border border-dashed border-outline">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<div class="font-h3 text-h3">Adrian Alexander</div>
+<div class="text-label-sm text-outline">Student ID: 2023114521</div>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Program</span>
+<span class="font-semibold">Bilingual Science Stream</span>
+</div>
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Class</span>
+<span class="font-semibold">Grade 11-B</span>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider">Financial Breakdown</h3>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Monthly Tuition (Oct)</span>
+<span>Rp 1.400.000</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Development Fee</span>
+<span>Rp 50.000</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Technology Tax (2%)</span>
+<span>Rp 29.000</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Platform Fee</span>
+<span>Rp 2.500</span>
+</div>
+<div class="pt-md mt-md border-t border-outline-variant flex justify-between items-center">
+<span class="font-h3 text-primary">Total Amount</span>
+<span class="font-h2 text-primary font-bold">Rp 1.481.500</span>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider">Timeline</h3>
+<div class="space-y-lg relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<div class="relative pl-xl">
+<div class="absolute left-0 top-1 w-[24px] h-[24px] bg-white rounded-full border-2 border-primary flex items-center justify-center z-10">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<div class="font-body-md font-bold">Invoice Generated</div>
+<div class="text-label-sm text-on-surface-variant">Oct 01, 2023 • 08:00 AM</div>
+</div>
+<div class="relative pl-xl">
+<div class="absolute left-0 top-1 w-[24px] h-[24px] bg-white rounded-full border-2 border-primary flex items-center justify-center z-10">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<div class="font-body-md font-bold">Proof Uploaded</div>
+<div class="text-label-sm text-on-surface-variant">Oct 12, 2023 • 02:22 PM</div>
+</div>
+<div class="relative pl-xl">
+<div class="absolute left-0 top-1 w-[24px] h-[24px] bg-surface-container-low rounded-full border-2 border-outline-variant flex items-center justify-center z-10">
+</div>
+<div class="font-body-md font-bold text-outline">Awaiting Admin Validation</div>
+<div class="text-label-sm text-outline">Est. Processing: 24 Hours</div>
+</div>
+</div>
+</div>
+<button class="w-full py-md bg-surface-container-high text-primary rounded-xl font-label-md hover:bg-outline-variant transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="print">print</span>
+                                Print Provisional Receipt
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-xl right-xl w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add_card" style="font-variation-settings: 'FILL' 1;">add_card</span>
+</button>
+</body></html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Executive Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#dfe3e4",
+                    "on-secondary-container": "#5c6274",
+                    "outline-variant": "#bdc8cb",
+                    "outline": "#6e797b",
+                    "secondary-container": "#d9dff5",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3e494b",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-container": "#a7642d",
+                    "surface-tint": "#006876",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#894c16",
+                    "surface-bright": "#f6fafb",
+                    "primary": "#006572",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#77d4e5",
+                    "surface-dim": "#d7dbdc",
+                    "secondary-fixed-dim": "#c0c6db",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "on-primary-fixed": "#001f24",
+                    "error": "#ba1a1a",
+                    "on-background": "#181c1d",
+                    "surface-container-highest": "#dfe3e4",
+                    "surface-container-low": "#f1f4f5",
+                    "on-surface": "#181c1d",
+                    "on-primary-container": "#f6fdff",
+                    "inverse-on-surface": "#eef1f2",
+                    "inverse-surface": "#2d3132",
+                    "surface-container-high": "#e5e9ea",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#028090",
+                    "on-secondary-fixed-variant": "#404758",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#dce2f7",
+                    "on-secondary-fixed": "#141b2b",
+                    "secondary": "#575e70",
+                    "surface-container": "#ebeeef",
+                    "surface": "#f6fafb",
+                    "primary-fixed": "#9eefff",
+                    "inverse-primary": "#77d4e5",
+                    "background": "#f6fafb",
+                    "on-primary-fixed-variant": "#004e59",
+                    "tertiary-fixed-dim": "#ffb782"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "data-table": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-metric": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .sparkline-svg { height: 32px; width: 100px; stroke-width: 2; fill: none; }
+        .heatmap-cell { aspect-ratio: 1/1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col h-full py-4 space-y-2 z-50">
+<div class="px-6 mb-8 flex flex-col">
+<span class="text-headline-md font-headline-md font-extrabold text-primary">PaySPP</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant opacity-70">Executive Dashboard</span>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 space-y-1">
+<a class="bg-primary text-on-primary rounded-lg flex items-center gap-3 px-4 py-3 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Principal Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-label-caps font-label-caps">Financial Overview</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-label-caps font-label-caps">Payment Compliance</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="error_outline">error_outline</span>
+<span class="text-label-caps font-label-caps">Student Arrears</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span class="text-label-caps font-label-caps">Class Performance</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="text-label-caps font-label-caps">Revenue Analytics</span>
+</a>
+<div class="pt-4 pb-2 px-4 text-label-caps text-outline opacity-60">SYSTEM</div>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="text-label-caps font-label-caps">Notifications &amp; Alerts</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-label-caps font-label-caps">Reports</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg flex items-center gap-3 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<div class="px-6 py-4 mt-auto border-t border-outline-variant flex items-center gap-3">
+<img alt="Principal Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional portrait of an Indonesian school principal in a modern corporate setting, wearing a tailored navy batik suit. The lighting is soft and professional, with a clean architectural background of a private academy. The overall image exudes authority, wisdom, and institutional leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtSs0ajOtyCVxX2s50tz1oCFB3puDU0saRvXW0fGTBJOj5OIUesoP6eAkF_XCogK9jls-izyJnriobEq25SVdnXt0_D2HaRZ-8P8YolDGou4idaHpzv4lv0u6y9Sqr7_cxnfr2tghM5F6-zp5tBEsyygaDESUqPJAbcuD9zcKkwWPj3roiL5Q0CxTwBI_9X5f6ntjnd1LnNZ-u6V1QZs7_yH8_T_Wv_th1Bv3N4DW5nuxmCQMTnxDARZi8eBzoPeMNVaJF4YLxbJw"/>
+<div class="flex flex-col">
+<span class="text-data-table font-bold">Budi Santoso</span>
+<span class="text-[11px] text-on-surface-variant uppercase tracking-wider">Executive Head</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-40 w-full ml-[280px] max-w-[calc(1440px-280px)] h-16 bg-surface/60 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center px-10">
+<div class="flex items-center gap-8">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-6 text-sm w-80 focus:ring-2 focus:ring-primary/20" placeholder="Search financials, students..." type="text"/>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-caps" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps" href="#">Financials</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps" href="#">Audit</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:opacity-90 active:scale-95 transition-all">Quick Insights</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined p-2 text-on-surface-variant cursor-pointer hover:bg-surface-variant rounded-full transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined p-2 text-on-surface-variant cursor-pointer hover:bg-surface-variant rounded-full transition-colors" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] p-10 max-w-[calc(1440px-280px)] min-h-screen">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">Executive Overview</h1>
+<p class="text-body-md text-on-surface-variant">Academic Year 2023/2024 • Term 2 Performance</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="filter_list">filter_list</span>
+<span class="text-data-table font-semibold">All Grade Levels</span>
+</div>
+<div class="bg-primary-container text-on-primary-container rounded-lg px-4 py-2 flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+<span class="text-data-table font-semibold">Sync Now</span>
+</div>
+</div>
+</div>
+<!-- KPI Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-10">
+<!-- Total Revenue -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="payments">payments</span>
+</div>
+<div class="flex items-center text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-xs mr-0.5" data-icon="trending_up">trending_up</span>
+                        +12%
+                    </div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Total Revenue (Month)</div>
+<div class="text-headline-md font-bold mb-3 text-primary">Rp 2.4B</div>
+<svg class="sparkline-svg stroke-primary">
+<path d="M0,25 Q10,15 20,20 T40,10 T60,22 T80,8 T100,15"></path>
+</svg>
+</div>
+<!-- Collection Rate -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex items-center text-error text-xs font-bold">
+<span class="material-symbols-outlined text-xs mr-0.5" data-icon="trending_down">trending_down</span>
+                        -2%
+                    </div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Collection Rate</div>
+<div class="text-headline-md font-bold mb-3 text-tertiary">88%</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary w-[88%] h-full"></div>
+</div>
+</div>
+<!-- Outstanding -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined text-xl" data-icon="warning">warning</span>
+</div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Outstanding Payments</div>
+<div class="text-headline-md font-bold mb-3 text-on-surface">Rp 450M</div>
+<div class="text-xs text-on-surface-variant">Focus: Grade 10-11</div>
+</div>
+<!-- Active Students -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-xl" data-icon="group">group</span>
+</div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Active Students</div>
+<div class="text-headline-md font-bold mb-3 text-on-surface">1,240</div>
+<div class="text-xs text-on-surface-variant">98.5% Re-enrolled</div>
+</div>
+<!-- Installment Cases -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-primary-container/10 rounded-lg text-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Installment Cases</div>
+<div class="text-headline-md font-bold mb-3 text-on-surface">42</div>
+<div class="text-xs text-on-surface-variant">8 New This Week</div>
+</div>
+<!-- Growth Percentage -->
+<div class="bg-surface border border-outline-variant p-5 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="auto_graph">auto_graph</span>
+</div>
+</div>
+<div class="text-label-caps text-on-surface-variant opacity-70 mb-1">Growth (YoY)</div>
+<div class="text-headline-md font-bold mb-3 text-primary">5.4%</div>
+<div class="text-xs text-on-surface-variant">Above Sector Avg</div>
+</div>
+</div>
+<!-- Analytical Depth Section -->
+<div class="grid grid-cols-12 gap-8 mb-10">
+<!-- Large Revenue Chart -->
+<div class="col-span-12 lg:col-span-8 bg-surface border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-headline-md font-bold">Monthly Revenue vs Target</h3>
+<p class="text-body-md text-on-surface-variant">Aggregated across all Indonesian branches</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-xs font-bold opacity-70">Actual</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="text-xs font-bold opacity-70">Target</span>
+</div>
+</div>
+</div>
+<div class="h-[300px] w-full flex items-end justify-between px-4 pb-8 border-b border-outline-variant relative">
+<!-- Placeholder Visual for Chart -->
+<div class="absolute inset-0 flex items-end justify-between px-10 pb-8">
+<div class="w-12 bg-primary/20 rounded-t h-[60%]"></div>
+<div class="w-12 bg-primary/20 rounded-t h-[65%]"></div>
+<div class="w-12 bg-primary/20 rounded-t h-[55%]"></div>
+<div class="w-12 bg-primary/20 rounded-t h-[80%]"></div>
+<div class="w-12 bg-primary/20 rounded-t h-[75%]"></div>
+<div class="w-12 bg-primary h-[90%]"></div>
+</div>
+<div class="absolute bottom-2 inset-x-10 flex justify-between text-[10px] text-on-surface-variant font-bold">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center bg-surface-container-low p-4 rounded-lg">
+<span class="text-data-table">Current Month Performance: <span class="font-bold text-primary">+12.4% above benchmark</span></span>
+<button class="text-primary text-xs font-bold flex items-center gap-1">VIEW DETAILED AUDIT <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+<!-- Revenue by Grade Level -->
+<div class="col-span-12 lg:col-span-4 bg-surface border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h3 class="text-headline-md font-bold mb-1">Revenue by Grade</h3>
+<p class="text-body-md text-on-surface-variant mb-8">Quarterly Contribution</p>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-data-table">
+<span>High School (10-12)</span>
+<span class="font-bold">Rp 1.2B</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[50%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-data-table">
+<span>Middle School (7-9)</span>
+<span class="font-bold">Rp 800M</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[33%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-data-table">
+<span>Primary School (1-6)</span>
+<span class="font-bold">Rp 400M</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[17%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center p-6 bg-surface-container rounded-lg border-2 border-dashed border-outline-variant">
+<div class="text-display-metric font-bold text-primary mb-1">54.2%</div>
+<div class="text-label-caps text-on-surface-variant">Total Budget Capacity Utilized</div>
+</div>
+</div>
+</div>
+<!-- Compliance Heatmap & Activity -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Payment Compliance Monitoring -->
+<div class="col-span-12 lg:col-span-8 bg-surface border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-headline-md font-bold">Compliance Heatmap</h3>
+<p class="text-body-md text-on-surface-variant">Class-wise collection status (Grade 1-12)</p>
+</div>
+<div class="flex gap-2 p-1 bg-surface-container rounded-lg">
+<button class="bg-surface shadow px-3 py-1 text-xs font-bold rounded">MONTHLY</button>
+<button class="px-3 py-1 text-xs font-bold rounded text-on-surface-variant opacity-60">QUARTERLY</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-3 mb-6">
+<!-- Heatmap Cells (Generated) -->
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary-fixed-dim"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary-fixed-dim"></div>
+<div class="heatmap-cell bg-error-container"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<!-- Row 2 -->
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary-fixed-dim"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-error-container"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary-fixed-dim"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+<div class="heatmap-cell bg-primary"></div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded bg-primary"></div>
+<span class="text-xs">Full Payment</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded bg-primary-fixed-dim"></div>
+<span class="text-xs">Partial</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded bg-error-container"></div>
+<span class="text-xs">Overdue</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<div class="text-headline-md font-bold text-on-surface">12%</div>
+<div class="text-[10px] text-on-surface-variant font-bold">TOTAL OVERDUE</div>
+</div>
+<div class="text-right">
+<div class="text-headline-md font-bold text-primary">88%</div>
+<div class="text-[10px] text-on-surface-variant font-bold">TOTAL PAID</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Important Activities Timeline -->
+<div class="col-span-12 lg:col-span-4 bg-surface border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h3 class="text-headline-md font-bold mb-6">Recent Activities</h3>
+<div class="relative space-y-8 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-px before:bg-outline-variant">
+<!-- Activity 1 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border-4 border-surface z-10">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-table font-bold">High Value Payment</span>
+<span class="text-[10px] font-bold text-on-surface-variant">10:45 AM</span>
+</div>
+<p class="text-body-md text-on-surface-variant text-sm">Parent of Ani Wijaya (Grade 12) paid Rp 25,500,000 for full semester.</p>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-error-container flex items-center justify-center border-4 border-surface z-10">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-table font-bold text-error">Overdue Alert</span>
+<span class="text-[10px] font-bold text-on-surface-variant">09:15 AM</span>
+</div>
+<p class="text-body-md text-on-surface-variant text-sm">Grade 10 Batch B collection rate dropped below 70% threshold.</p>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center border-4 border-surface z-10">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-table font-bold">Report Exported</span>
+<span class="text-[10px] font-bold text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-body-md text-on-surface-variant text-sm">Monthly Compliance Audit PDF generated for Board Meeting.</p>
+</div>
+</div>
+<!-- Activity 4 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border-4 border-surface z-10">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-table font-bold">Installment Approved</span>
+<span class="text-[10px] font-bold text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-body-md text-on-surface-variant text-sm">3 new payment plans approved for Grade 8 primary students.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-surface-container border border-outline-variant rounded-lg text-label-caps font-bold text-primary hover:bg-surface-variant transition-colors">VIEW ALL ACTIVITY LOGS</button>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on relevant screens) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="font-bold">New Record</span>
+</button>
+</div>
+</body></html>

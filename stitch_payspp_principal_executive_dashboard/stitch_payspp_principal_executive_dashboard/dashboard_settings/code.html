@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings — PaySPP Principal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dfe3e4",
+                        "on-secondary-container": "#5c6274",
+                        "outline-variant": "#bdc8cb",
+                        "outline": "#6e797b",
+                        "secondary-container": "#d9dff5",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3e494b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-container": "#a7642d",
+                        "surface-tint": "#006876",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#894c16",
+                        "surface-bright": "#f6fafb",
+                        "primary": "#006572",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#77d4e5",
+                        "surface-dim": "#d7dbdc",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-primary-fixed": "#001f24",
+                        "error": "#ba1a1a",
+                        "on-background": "#181c1d",
+                        "surface-container-highest": "#dfe3e4",
+                        "surface-container-low": "#f1f4f5",
+                        "on-surface": "#181c1d",
+                        "on-primary-container": "#f6fdff",
+                        "inverse-on-surface": "#eef1f2",
+                        "inverse-surface": "#2d3132",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#028090",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#dce2f7",
+                        "on-secondary-fixed": "#141b2b",
+                        "secondary": "#575e70",
+                        "surface-container": "#ebeeef",
+                        "surface": "#f6fafb",
+                        "primary-fixed": "#9eefff",
+                        "inverse-primary": "#77d4e5",
+                        "background": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#ffb782"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "data-table": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-metric": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Fixed Side Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface dark:bg-inverse-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col py-4 space-y-2 z-50">
+<div class="px-6 py-4">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant opacity-70">Executive Dashboard</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Principal Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Financial Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Revenue Analytics</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center px-4 py-3 bg-primary text-on-primary rounded-lg mx-2 my-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Settings</span>
+</a>
+<div class="pt-4 pb-2 px-4">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Administrative</span>
+</div>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">description</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Reports</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">history_edu</span>
+<span class="text-label-caps font-label-caps uppercase tracking-wider">Audit &amp; Activity Logs</span>
+</a>
+</nav>
+<div class="px-6 py-4 mt-auto border-t border-outline-variant">
+<div class="flex items-center space-x-3">
+<img alt="Principal" class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A professional headshot of a mature executive in a modern business environment. The lighting is soft and corporate, featuring a clean teal and white background that aligns with a high-end school administration aesthetic. The individual projects authority and trustworthiness for a financial management system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiEGsT-TAPGpL5EgTz0qJOQZ1PZhhS4HsY0gzFr0gtm_gMPLY8jIlQ-imJMZ5EjGhaU4gudGBr-xF47hdY4dmJJ2b2RikivrVszAHigx7pLNQJlzOXkhUDqbJp8n9kY82gKoaPFRzfZMOn8YHWOuOOG5B5hgukqQHV96-B8CNKM3_xCpebDLcZkJJTVD_D_9hNkwbO6WRAn_Up-BfZCMbgGU6JalLUZ8n_WuPn-5yjcC_24h0txeH4b4exjGwzLCGfTC-n-7XN7f4"/>
+<div>
+<p class="text-data-table font-bold">Budi Santoso</p>
+<p class="text-[10px] text-on-surface-variant">Chief Principal</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-[280px] min-h-screen">
+<!-- Top Nav Bar -->
+<header class="sticky top-0 z-40 w-full bg-surface/60 backdrop-blur-xl flex justify-between items-center px-10 h-16 border-b border-outline-variant">
+<div class="flex items-center space-x-4">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">Settings</span>
+<span class="text-outline text-sm">/ Configuration &amp; Preferences</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex space-x-2">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">calendar_today</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-caps flex items-center hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined mr-2 text-[18px]">sync</span>
+                    Sync Now
+                </button>
+</div>
+</header>
+<!-- Settings Content -->
+<div class="p-10 max-w-[1200px] mx-auto">
+<!-- Horizontal Sub-Tabs -->
+<div class="flex space-x-8 border-b border-outline-variant mb-10 overflow-x-auto">
+<button class="pb-4 text-primary font-bold border-b-2 border-primary text-label-caps flex items-center">
+<span class="material-symbols-outlined mr-2">person</span>
+                    PERSONALIZATION
+                </button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-label-caps flex items-center">
+<span class="material-symbols-outlined mr-2">analytics</span>
+                    KPI TARGETS
+                </button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-label-caps flex items-center">
+<span class="material-symbols-outlined mr-2">notifications_active</span>
+                    NOTIFICATION PREFERENCES
+                </button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-label-caps flex items-center">
+<span class="material-symbols-outlined mr-2">school</span>
+                    ACADEMIC YEAR CONFIG
+                </button>
+</div>
+<!-- Settings Bento Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- KPI Configuration Section -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-headline-md font-headline-md text-primary">KPI Configuration</h2>
+<span class="material-symbols-outlined text-outline cursor-help">info</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-8">Define the critical success factors for your institution's financial health. These targets will drive dashboard color-coding and alert logic.</p>
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-label-caps text-on-surface-variant mb-2">TARGET REVENUE (IDR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-outline font-bold">Rp</span>
+<input class="w-full bg-surface text-on-surface border-outline-variant rounded-lg pl-12 pr-4 py-3 focus:ring-primary focus:border-primary" type="text" value="12.500.000.000"/>
+</div>
+</div>
+<div>
+<label class="block text-label-caps text-on-surface-variant mb-2">ACCEPTABLE ARREARS %</label>
+<div class="relative">
+<input class="w-full bg-surface text-on-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-primary focus:border-primary" type="text" value="4.5"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-bold">%</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-label-caps text-on-surface-variant mb-2">DATA REFRESH FREQUENCY</label>
+<select class="w-full bg-surface text-on-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-primary focus:border-primary">
+<option>Real-time (Standard)</option>
+<option>Hourly Summary</option>
+<option>Daily Batch Processing</option>
+</select>
+</div>
+<div class="pt-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold text-label-caps hover:brightness-110 transition-all shadow-md">
+                                SAVE KPI CHANGES
+                            </button>
+</div>
+</form>
+</div>
+<!-- Dashboard Personalization -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-low p-8 rounded-xl border border-outline-variant">
+<h2 class="text-headline-md font-headline-md text-primary mb-6">Personalization</h2>
+<p class="text-body-md text-on-surface-variant mb-6">Select the modules you wish to see on your primary executive view.</p>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary-container mr-3">show_chart</span>
+<span class="text-body-md font-medium">Revenue Growth Chart</span>
+</div>
+<input checked="" class="w-10 h-6 rounded-full text-primary focus:ring-primary-container bg-surface-variant border-none cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary-container mr-3">group</span>
+<span class="text-body-md font-medium">Enrollment Distribution</span>
+</div>
+<input checked="" class="w-10 h-6 rounded-full text-primary focus:ring-primary-container bg-surface-variant border-none cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary-container mr-3">warning</span>
+<span class="text-body-md font-medium">High Arrears Alert Card</span>
+</div>
+<input class="w-10 h-6 rounded-full text-primary focus:ring-primary-container bg-surface-variant border-none cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary-container mr-3">history</span>
+<span class="text-body-md font-medium">Recent Audit Logs</span>
+</div>
+<input checked="" class="w-10 h-6 rounded-full text-primary focus:ring-primary-container bg-surface-variant border-none cursor-pointer" type="checkbox"/>
+</div>
+</div>
+</div>
+<!-- Branch Settings (Multi-school) -->
+<div class="col-span-12 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary">Multi-Branch Management</h2>
+<p class="text-on-surface-variant">Control access and visibility across institutional nodes.</p>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg text-label-caps hover:opacity-90">ADD BRANCH</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-4 text-label-caps text-on-surface-variant">BRANCH NAME</th>
+<th class="py-4 text-label-caps text-on-surface-variant">LOCATION</th>
+<th class="py-4 text-label-caps text-on-surface-variant">STUDENT COUNT</th>
+<th class="py-4 text-label-caps text-on-surface-variant">COLLECTION RATE</th>
+<th class="py-4 text-label-caps text-on-surface-variant">STATUS</th>
+<th class="py-4 text-label-caps text-on-surface-variant">ACTIONS</th>
+</tr>
+</thead>
+<tbody class="text-data-table">
+<tr class="border-b border-surface-container hover:bg-surface transition-colors">
+<td class="py-4 font-bold">Main Campus (Jakarta)</td>
+<td class="py-4 text-on-surface-variant">Senayan, Jakarta Pusat</td>
+<td class="py-4">1,240</td>
+<td class="py-4">
+<div class="flex items-center">
+<div class="w-24 h-2 bg-surface-variant rounded-full mr-3">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+                                            92%
+                                        </div>
+</td>
+<td class="py-4">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest">Active</span>
+</td>
+<td class="py-4">
+<button class="text-primary hover:underline font-bold">Configure</button>
+</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface transition-colors">
+<td class="py-4 font-bold">South Wing (Surabaya)</td>
+<td class="py-4 text-on-surface-variant">Darmo, Surabaya</td>
+<td class="py-4">860</td>
+<td class="py-4">
+<div class="flex items-center">
+<div class="w-24 h-2 bg-surface-variant rounded-full mr-3">
+<div class="h-full bg-primary rounded-full" style="width: 78%"></div>
+</div>
+                                            78%
+                                        </div>
+</td>
+<td class="py-4">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest">Active</span>
+</td>
+<td class="py-4">
+<button class="text-primary hover:underline font-bold">Configure</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Academic Year Configuration -->
+<div class="col-span-12 lg:col-span-4 bg-primary-container text-on-primary-container p-8 rounded-xl shadow-lg relative overflow-hidden">
+<!-- Subtle background graphic -->
+<div class="absolute -right-12 -bottom-12 opacity-10">
+<span class="material-symbols-outlined text-[180px]">calendar_month</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-4">Academic Year 2024/2025</h3>
+<p class="mb-6 opacity-80">You are currently managing the active fiscal cycle. Semester 2 transition is scheduled for July 15th.</p>
+<div class="space-y-4">
+<div class="bg-white/10 p-4 rounded-lg flex justify-between items-center">
+<span class="text-label-caps">FISCAL START</span>
+<span class="font-bold">JULY 01, 2024</span>
+</div>
+<div class="bg-white/10 p-4 rounded-lg flex justify-between items-center">
+<span class="text-label-caps">CURRENT SEMESTER</span>
+<span class="font-bold">ODD (SEM 1)</span>
+</div>
+</div>
+<button class="mt-8 w-full bg-white text-primary py-3 rounded-lg font-bold text-label-caps hover:bg-surface transition-colors">
+                        MANAGE CYCLES
+                    </button>
+</div>
+<!-- Security & Log Preview -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-high p-8 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-headline-md font-headline-md text-primary">System Access Security</h2>
+<span class="material-symbols-outlined text-outline">security</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="text-label-caps text-on-surface-variant mb-4">MFA ENFORCEMENT</h4>
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+<span class="text-body-md font-medium">Require for all admins</span>
+</div>
+<h4 class="text-label-caps text-on-surface-variant mb-4">AUDIT RETENTION</h4>
+<select class="w-full bg-surface-container-lowest border-outline-variant rounded-lg px-4 py-2">
+<option>3 Years (Compliance Standard)</option>
+<option>5 Years</option>
+<option>Indefinite</option>
+</select>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 border border-outline-variant">
+<h4 class="text-label-caps text-on-surface-variant mb-4">RECENT ACTIVITY</h4>
+<ul class="space-y-3 text-data-table">
+<li class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">update</span>
+<span>KPI target updated by <strong class="text-primary">Budi S.</strong></span>
+</li>
+<li class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">login</span>
+<span>New login from <strong class="text-primary">IP: 182.1.2.44</strong></span>
+</li>
+<li class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">settings_backup_restore</span>
+<span>Sync manually triggered</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

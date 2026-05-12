@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e4e1e9",
+                        "secondary-container": "#0070eb",
+                        "on-tertiary-container": "#f09b63",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#efedf4",
+                        "secondary": "#0058bc",
+                        "on-surface": "#1b1b21",
+                        "on-secondary-fixed": "#001a41",
+                        "inverse-surface": "#303036",
+                        "on-primary-fixed": "#000d60",
+                        "primary-container": "#2e3a8c",
+                        "surface-bright": "#fbf8ff",
+                        "background": "#fbf8ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#dfe0ff",
+                        "inverse-primary": "#bcc3ff",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "inverse-on-surface": "#f2eff7",
+                        "on-secondary-container": "#fefcff",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e9e7ef",
+                        "surface-container-highest": "#e4e1e9",
+                        "on-tertiary-fixed": "#311300",
+                        "primary": "#142175",
+                        "tertiary": "#4b2000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004493",
+                        "surface": "#fbf8ff",
+                        "on-primary-fixed-variant": "#333f91",
+                        "primary-fixed-dim": "#bcc3ff",
+                        "surface-dim": "#dbd9e1",
+                        "outline-variant": "#c6c5d3",
+                        "tertiary-container": "#6d3200",
+                        "surface-container-low": "#f5f2fa",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#767682",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdbc7",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-surface-variant": "#454651",
+                        "on-primary-container": "#9ea9ff",
+                        "on-tertiary-fixed-variant": "#723603",
+                        "surface-tint": "#4b57aa",
+                        "on-background": "#1b1b21"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "title-sm": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] border-r border-outline-variant dark:border-outline backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 flex flex-col p-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">PaySPP</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Academic Year 2023/24</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto pr-2 custom-scrollbar">
+<!-- Dashboard -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<!-- Students -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Students</span>
+</a>
+<!-- Classes -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-md text-body-md">Classes</span>
+</a>
+<!-- Payment Bills (ACTIVE) -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-semibold rounded-lg scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-body-md text-body-md">Payment Bills</span>
+</a>
+<!-- Transactions -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Transactions</span>
+</a>
+<!-- Installments -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Installments</span>
+</a>
+<!-- Remaining Nav Items clipped for brevity but conceptually present -->
+<div class="pt-xl pb-sm px-md">
+<span class="font-label-caps text-label-caps text-outline">System</span>
+</div>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-md">
+<button class="w-full py-md bg-primary text-on-primary font-title-sm text-title-sm rounded-xl shadow-sm hover:brightness-110 transition-all">
+                Create New Bill
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="sticky top-0 right-0 z-40 w-full border-b border-outline-variant dark:border-outline backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 flex items-center justify-between h-16 px-xl ml-[280px]">
+<div class="flex items-center gap-xl">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 text-body-sm focus:ring-2 focus:ring-primary ring-offset-2 transition-all" placeholder="Search bills, students..." type="text"/>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-bold px-2 py-4" href="#">Overview</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary px-2 py-4" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-md py-2 text-primary font-semibold border border-primary rounded-lg text-body-sm hover:bg-primary-fixed transition-colors">Quick Action</button>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden ml-2">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic administrator with a warm, confident expression. He is wearing a charcoal suit and a light blue shirt, set against a blurred office background with soft, natural lighting. The image conveys institutional trust and professional authority in a high-key, modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtniiEfmXF3PcYkehLfvDZrmhnhwgku2IQLRPywPn88IpzU3W58apUME05P0brKPCcf3ysUdfkuFnBSBgihIqHDcLKPfWrsDw9nu6bYZpa3q0dPTlThjOTlDkAlpCSmekcyFsmLkrcpM56Qy3lLv5WvFcIObxV34DE3UziWedicLLbi_DxGeYtGJKokEFJPeRRQh7lCxhob1jpZROUFcx-e9T7ZakuUz_G1PJtaX0oORFSj5WCWwP5ADDCxPCBwSpyTG0LIPsdGeo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[280px] p-xl">
+<div class="max-w-[1200px] mx-auto space-y-xl">
+<!-- Page Header & Distribution Status Tracking -->
+<div class="grid grid-cols-12 gap-lg items-end">
+<div class="col-span-12 lg:col-span-7">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Payment Bill Management</h2>
+<p class="text-on-surface-variant max-w-2xl">Configure, generate, and track educational invoices across all student levels and specific fee categories.</p>
+</div>
+<div class="col-span-12 lg:col-span-5 flex gap-md">
+<div class="flex-1 glass-card p-md rounded-xl flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined" data-icon="forward_to_inbox" data-weight="fill">forward_to_inbox</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">SENT</p>
+<p class="text-headline-md font-headline-md text-primary">1,248</p>
+</div>
+</div>
+<div class="flex-1 glass-card p-md rounded-xl flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">NOT SENT</p>
+<p class="text-headline-md font-headline-md text-on-surface">342</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Interactive Bento Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- 1. Billing Generation Section -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<section class="bg-white p-xl rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-xl">
+<h3 class="font-title-sm text-title-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+                                Bulk Bill Generation
+                            </h3>
+<span class="text-body-sm text-outline">Last generated: 2 days ago</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-md">
+<label class="block">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-2">TARGET LEVEL / CLASS</span>
+<select class="w-full rounded-lg border-outline-variant focus:border-primary focus:ring-primary bg-surface-container-lowest text-body-md">
+<option>All Students (Year 2023/24)</option>
+<option>Grade 10 - Science</option>
+<option>Grade 11 - Social</option>
+<option>Grade 12 - Advanced</option>
+</select>
+</label>
+<label class="block">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-2">BILL CATEGORY</span>
+<select class="w-full rounded-lg border-outline-variant focus:border-primary focus:ring-primary bg-surface-container-lowest text-body-md">
+<option>Monthly SPP (Tuition)</option>
+<option>Graduation Fee</option>
+<option>Annual Field Trip</option>
+<option>Lab &amp; Library Fees</option>
+</select>
+</label>
+</div>
+<div class="space-y-md">
+<label class="block">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-2">BILLING PERIOD</span>
+<input class="w-full rounded-lg border-outline-variant focus:border-primary focus:ring-primary bg-surface-container-lowest text-body-md" type="month" value="2023-11"/>
+</label>
+<label class="block">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-2">DUE DATE</span>
+<input class="w-full rounded-lg border-outline-variant focus:border-primary focus:ring-primary bg-surface-container-lowest text-body-md" type="date" value="2023-11-10"/>
+</label>
+</div>
+</div>
+<div class="mt-xl pt-xl border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant">Automatically send email notifications to parents</span>
+</div>
+<button class="bg-secondary text-on-secondary px-xl py-3 rounded-lg font-title-sm text-title-sm flex items-center gap-md hover:brightness-110 transition-all">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                                Generate 1,590 Bills
+                            </button>
+</div>
+</section>
+<!-- 2. Bill Categories -->
+<section class="space-y-md">
+<h3 class="font-title-sm text-title-sm px-1">Bill Types &amp; Global Settings</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between mb-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="more_vert">more_vert</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-1">Monthly SPP</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Recurring tuition fee</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">DEFAULT</span>
+<span class="text-body-md font-semibold text-primary">Rp 1.250.000</span>
+</div>
+</div>
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between mb-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="more_vert">more_vert</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-1">Graduation Fee</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">One-time final year fee</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">DEFAULT</span>
+<span class="text-body-md font-semibold text-primary">Rp 2.500.000</span>
+</div>
+</div>
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-start justify-between mb-md">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="more_vert">more_vert</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-1">Field Trip</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Variable destination cost</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">VARIABLE</span>
+<span class="text-body-md font-semibold text-primary">Adjustable</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- 3. Invoice Preview Card (Asymmetric Layout) -->
+<div class="col-span-12 lg:col-span-4">
+<div class="sticky top-24">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-outline-variant flex flex-col min-h-[600px]">
+<!-- Header Decor -->
+<div class="h-32 bg-primary relative p-xl overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+</div>
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<p class="text-on-primary/80 font-label-caps text-label-caps tracking-widest">LIVE PREVIEW</p>
+<h4 class="text-on-primary font-headline-md text-headline-md">Bill Invoice</h4>
+</div>
+<img alt="School Crest" class="h-12 w-12 object-contain brightness-0 invert" data-alt="A minimalist school emblem or crest logo in solid white, featuring a stylized book and a torch. The design is modern, professional, and elegant, set against a deep indigo background. The image is part of a high-end educational branding suite with clean lines and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwvDn3n4GVh0SrP3AI6J5NmMNKUBPCNiMPoRirYrSLEioDVMx9pNa-WJ6SFI88z5z384fqpJE3GZyRmHEXXjuxY1aJMQv8i_hqGQZOTIz0SPq_uP4qkXPSOGjO9PPKXmmk7g6Id1YGZ7bJzMa3r63F8soulYfouw7jLP0cEZ2cUO-u53zPeYoIIDHsVg1k6a2tn96X5vdOpnhNU2Cl7uHRo4Zt7htYYSIqiIf50W5zdMdTIKD49MP0rohntoOwCgzLqyENG2AzCBk"/>
+</div>
+</div>
+<!-- Invoice Content -->
+<div class="flex-1 p-xl -mt-8 bg-white rounded-t-3xl relative z-20 space-y-xl">
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-outline text-label-caps font-label-caps">STUDENT NAME</p>
+<p class="text-body-md font-semibold">Aditya Pratama Putra</p>
+</div>
+<div class="text-right">
+<p class="text-outline text-label-caps font-label-caps">STUDENT ID</p>
+<p class="text-body-md font-semibold text-primary">#2023-0042</p>
+</div>
+</div>
+<div class="flex justify-between">
+<div>
+<p class="text-outline text-label-caps font-label-caps">CLASS / LEVEL</p>
+<p class="text-body-md">Grade 12 - Science A</p>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<p class="text-label-caps font-label-caps text-outline pb-sm border-b border-outline-variant">BILLING DETAILS</p>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Monthly SPP (Nov 2023)</span>
+<span class="font-semibold">Rp 1.250.000</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Maintenance Fee</span>
+<span class="font-semibold">Rp 150.000</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Late Penalty</span>
+<span class="font-semibold">Rp 0</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border-2 border-dashed border-outline-variant">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-title-sm text-title-sm text-primary">Total Bill</span>
+<span class="font-display-lg text-display-lg text-primary">Rp 1.400.000</span>
+</div>
+<div class="flex items-center gap-sm text-error">
+<span class="material-symbols-outlined text-sm" data-icon="event_busy">event_busy</span>
+<span class="text-body-sm font-semibold">Due on Nov 10, 2023</span>
+</div>
+</div>
+<div class="space-y-md">
+<p class="text-label-caps font-label-caps text-outline">PAYMENT CHANNEL</p>
+<div class="flex gap-sm">
+<div class="flex-1 p-2 border border-outline-variant rounded-lg flex items-center justify-center">
+<img class="h-6 grayscale opacity-60" data-alt="A clean, minimalist logo of a major bank or financial institution, displayed in grayscale to fit a professional UI. The lighting is flat and neutral, emphasizing clarity and corporate trust. The background is a crisp white, suitable for a payment selection interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC_fMKV0FdvVV8yZA49a5xJYlpaP7GkJUlnG3UpP8WJtlelss4-wJKZlaTR4CkPkqHiWIyToRA4bsHQJMOH0KMWefOsAD5XO80ddBvevJ8y33mb1HBppE8A-Dda3DllgZrBShDuOnUPQpgKsbAB5OMb08bwGnE95qiMU6tNSJfvXsv5_Qg2Cz8HnGmyxIW-6YZ8oo-aP_8j3R2n18IpRw_-GZAVar_WivrbBMAdUlZZ847iNPpFvEfWKEFt4Pc3N-dRjxUYa8ZmNI"/>
+</div>
+<div class="flex-1 p-2 border border-outline-variant rounded-lg flex items-center justify-center">
+<img class="h-6 grayscale opacity-60" data-alt="The logo of a digital wallet or fintech provider, presented in a subtle monochromatic style. The visual focus is on the clean geometry of the brandmark, set against a soft gray background. The aesthetic is modern and fits seamlessly into a high-end financial management dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8HPR_AJbJfKy2gcZ7NiMw-Onp2oJueKgGPSO3l4CK2TK2V0WVF0g3e1eP4OO_PRB37CXIScaIDltM_1SKVrG-1LyFlH6ITg9xM3Wz--CnHRIS2s7ZsSMptxbANHf7PhBPO__hJLGvluS6dcYy7gJseNAor4_8Vs2OIAuQG4tP1-uN3DzZmDhmlNAirp_YGbYnN23pOhMoXFZ1Qvaw48OTVywmNNgn-I0OYAHAFnDpdcXnX0_hLNFSt4FbBd4yq_tAzjz0IRKwzu8"/>
+</div>
+<div class="flex-1 p-2 border border-outline-variant rounded-lg flex items-center justify-center">
+<img class="h-6 grayscale opacity-60" data-alt="A minimalist QR code payment brand logo, styled in black and white for a clean interface integration. The icon is sharp and high-resolution, conveying modern transaction efficiency and technological sophistication in a fintech environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnPvkFkodYmf6jJXaQOdzwOmPLkcg9B_5U2KeYxImgDlEcBFja8dWu23tsF-mXNemdfZlnpPksU3gb1bd244WQTAEvuYeuzMg5-PwKuUrDDp5scHMA0KInaarhpGRzRLUh-d8ag2h0RM4VjR-5-Bc6eEZHM68EF_Jnp1wO4fj59ZuTtfEtuqZpJzkRv6wVWpcdixT_Qj-Rw3k6F2-ye5Mu7Cvjo-OMYSKWIn_3PzSNHu68KMXlg92ejZFzGwuJP0uUZ8tQXyswksk"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="p-xl bg-surface-container-low border-t border-outline-variant">
+<button class="w-full bg-outline py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                                    Download Preview PDF
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Principal — Arrears &amp; Risk Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#dfe3e4",
+                      "on-secondary-container": "#5c6274",
+                      "outline-variant": "#bdc8cb",
+                      "outline": "#6e797b",
+                      "secondary-container": "#d9dff5",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#3e494b",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#301400",
+                      "tertiary-container": "#a7642d",
+                      "surface-tint": "#006876",
+                      "tertiary-fixed": "#ffdcc5",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#894c16",
+                      "surface-bright": "#f6fafb",
+                      "primary": "#006572",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#77d4e5",
+                      "surface-dim": "#d7dbdc",
+                      "secondary-fixed-dim": "#c0c6db",
+                      "on-tertiary-fixed-variant": "#6f3801",
+                      "on-primary-fixed": "#001f24",
+                      "error": "#ba1a1a",
+                      "on-background": "#181c1d",
+                      "surface-container-highest": "#dfe3e4",
+                      "surface-container-low": "#f1f4f5",
+                      "on-surface": "#181c1d",
+                      "on-primary-container": "#f6fdff",
+                      "inverse-on-surface": "#eef1f2",
+                      "inverse-surface": "#2d3132",
+                      "surface-container-high": "#e5e9ea",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#028090",
+                      "on-secondary-fixed-variant": "#404758",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#dce2f7",
+                      "on-secondary-fixed": "#141b2b",
+                      "secondary": "#575e70",
+                      "surface-container": "#ebeeef",
+                      "surface": "#f6fafb",
+                      "primary-fixed": "#9eefff",
+                      "inverse-primary": "#77d4e5",
+                      "background": "#f6fafb",
+                      "on-primary-fixed-variant": "#004e59",
+                      "tertiary-fixed-dim": "#ffb782"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "data-table": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-metric": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col py-4 z-50 overflow-y-auto">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant opacity-70">Executive Dashboard</p>
+</div>
+<nav class="flex flex-col space-y-1">
+<!-- Active Tab: Student Arrears (As per current page intent) -->
+<a class="flex items-center px-4 py-3 bg-primary text-on-primary rounded-lg mx-2 my-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">error_outline</span>
+<span class="text-label-caps font-label-caps">Student Arrears</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-caps font-label-caps">Principal Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-label-caps font-label-caps">Financial Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+<span class="text-label-caps font-label-caps">Revenue Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">history_edu</span>
+<span class="text-label-caps font-label-caps">Audit &amp; Activity Logs</span>
+</a>
+<div class="pt-4 mt-4 border-t border-outline-variant/30">
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</div>
+</nav>
+<div class="mt-auto px-6 py-4 flex items-center space-x-3 bg-surface-container-low mx-2 rounded-xl">
+<img alt="Principal Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional portrait of a senior academic executive with a confident and kind expression. He is wearing a dark charcoal blazer and a crisp light blue shirt. The background is a blurred office environment with bookshelves and warm ambient lighting. Professional, authoritative, and trustworthy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfEb7Jm8PtwwBfeJZaBShnFuNd384EfFrnL4A-1Kb8suKdHjPDl9FMGa58k7_AAFHZ_T0u3k2stF6QWXFShtLsRCB8jZFFiwFAoJS9dY6xLW_8QBcp_0UnG3voV7xk27XfJo-kC8sMDfxwl3RrjOoJskUF5IAbSBEhjnp4eNz-jSGUyKDjQfT-ts1O2Vf8RdVB-MhqzVio75zWG7UxMAjNsGC0kYqVsV_zswQIOc83v0Otf5WITvFabBral_0ALB1XBAzldyldoyY"/>
+<div class="overflow-hidden">
+<p class="text-label-caps font-bold truncate">Dr. Aris Setiawan</p>
+<p class="text-[10px] text-on-surface-variant truncate">Executive Principal</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] w-full min-h-screen flex flex-col">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-40 w-full bg-surface/60 backdrop-blur-xl border-b border-outline-variant h-16 flex justify-between items-center px-10">
+<div class="flex items-center space-x-8">
+<h2 class="text-headline-sm font-headline-sm font-extrabold text-primary">PaySPP Principal</h2>
+<div class="hidden lg:flex space-x-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-caps" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps" href="#">Financials</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps" href="#">Audit</a>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">location_city</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">calendar_today</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-caps font-bold transition-opacity hover:opacity-90">Quick Insights</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-[1440px] mx-auto w-full">
+<!-- Page Title & Global Filters -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-1">Arrears &amp; Risk Monitoring</h1>
+<p class="text-body-md text-on-surface-variant">Real-time fiscal exposure and stagnation analysis for Academic Year 2023/2024.</p>
+</div>
+<div class="flex space-x-3 bg-surface-container rounded-xl p-1.5 shadow-sm">
+<button class="px-4 py-2 bg-surface text-primary rounded-lg text-label-caps font-bold shadow-sm">ALL BRANCHES</button>
+<button class="px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-lg text-label-caps font-bold transition-colors">Q3 FY24</button>
+<button class="flex items-center px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-lg text-label-caps font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px] mr-2">filter_alt</span> FILTER
+                    </button>
+</div>
+</div>
+<!-- High-Risk Dashboard Bento Grid -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Severe Overdue Alert Card -->
+<div class="col-span-12 md:col-span-4 bg-error-container/20 border border-error/20 p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px] text-error">priority_high</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-bold text-error uppercase">Severe Overdue (&gt;90 Days)</span>
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="flex items-baseline space-x-2 mb-2">
+<h3 class="text-display-metric font-display-metric text-error">42</h3>
+<span class="text-body-md text-error/80">Students</span>
+</div>
+<p class="text-body-md font-medium text-error mb-4">Total Exposure: Rp 245.5M</p>
+<button class="w-full py-2 bg-error text-white rounded-lg text-label-caps font-bold hover:bg-error/90 transition-colors">INITIATE LEGAL REVIEW</button>
+</div>
+<!-- High Arrears Cluster Card -->
+<div class="col-span-12 md:col-span-4 bg-surface border border-outline-variant p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-bold text-primary uppercase">Risk Cluster Spotlight</span>
+<span class="material-symbols-outlined text-primary">group_work</span>
+</div>
+<div class="mb-4">
+<h4 class="text-headline-md font-headline-md text-on-surface">Grade 11-B</h4>
+<p class="text-body-md text-on-surface-variant">highest stagnation rate (18.4%)</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-label-caps">
+<span>Collection Rate</span>
+<span class="text-primary font-bold">72%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+<div class="mt-6 flex -space-x-2 overflow-hidden">
+<img alt="Student" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" data-alt="Close-up portrait of a student, light and modern photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIlCbKOrcOSldhyAv8CTqQmpJUMhoPm-B8ayA4LN-jn0gvZyP8cTKPXystnVh_uA2qTpR_9jwKGF0je_U4jk3Chne0ofWsG4Gvq8UtfEooKDRIEEXNsr71aN0P8y7uzxE4Je1J_Kziiwv3lnapEXNJ9-PprlUwIB9nfXudweLgOAdogoQ0VipoYPcIa-LHxQgR7Qkb7Q8NY3Rs-Wt89tcVZ6ND76-3xlh14D5FEdWhcifncGXCi1_1WG2lQS2Hz2bfBxmAdRr5q90"/>
+<img alt="Student" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" data-alt="Close-up portrait of a student, light and modern photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjNjf-08qYJjX-6XLTtHMEJqpZ78hQwj8vYUNhBDbFB8cVeay4busRCYweTliVfvAI4HqO4yZ9FEdTTWopuP4At9SYmU-V24GWBwbKEInjPCuuxY0wSHig72jJ7VquFXyzxZNGH-2yu8rjNUbeRAtjGMwRM59YnAAPkI5XKXrgvHjrLNQcspIL3-HERjZODAfFn11jv4-cSVuwjF_kL5jSZB4vYu2Hbq9UYDZD4XYKOxOkTZC3vbzq473UcsEJ3Ei4oGWMXBhh1Ko"/>
+<img alt="Student" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" data-alt="Close-up portrait of a student, light and modern photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz2e-WM0s9_q9cMbPXZYRWcrFl0ywD-V-gjc7-ow0aN8pchNZsNRVbeD8v7NwxvHeWLsR9jru3gFlAOlOOkdY1Sk3-rDKWezn5io_Rr_X-bljYBo8z2uLd8HYyKmFuorAax2zbuXd9I0cCfB3a7tLunu6ddulcUvDVF9iARO0gNUPo_-RKr5gLHzhpKgpjt2-oc_ymw5VH3i0nNQs0EY5Cb13mvEMMyn5X0MoYn-it4gEb6iQTwySI9ijzQ-jee4Gh3mH0LgQRtiA"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-surface-variant ring-2 ring-surface text-[10px] font-bold">+12</div>
+</div>
+</div>
+<!-- Stagnation Warning Card -->
+<div class="col-span-12 md:col-span-4 bg-tertiary-container/10 border border-tertiary/20 p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-bold text-tertiary uppercase">Stagnation Alerts (3+ Mo)</span>
+<span class="material-symbols-outlined text-tertiary">hourglass_empty</span>
+</div>
+<div class="flex items-baseline space-x-2 mb-2">
+<h3 class="text-display-metric font-display-metric text-tertiary">15</h3>
+<span class="text-body-md text-tertiary/80">Accounts</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">No payment activity since October 2023.</p>
+<div class="flex items-center text-tertiary font-bold text-label-caps group cursor-pointer">
+                        VIEW STAGNANT LIST <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Arrears Trends Line Chart -->
+<div class="col-span-12 lg:col-span-8 bg-surface border border-outline-variant p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-headline-md font-headline-md">Arrears Growth Trends</h3>
+<p class="text-body-md text-on-surface-variant">Comparison between cumulative debt vs recovery rate.</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<div class="w-3 h-3 bg-primary rounded-full mr-2"></div>
+<span class="text-label-caps text-on-surface-variant">Arrears</span>
+</div>
+<div class="flex items-center">
+<div class="w-3 h-3 bg-secondary rounded-full mr-2"></div>
+<span class="text-label-caps text-on-surface-variant">Target</span>
+</div>
+</div>
+</div>
+<!-- Mock Chart -->
+<div class="relative h-[240px] flex items-end justify-between px-2">
+<!-- Chart Lines (Stylized with Gradients) -->
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<span class="material-symbols-outlined text-[200px]">show_chart</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[40%] flex items-end justify-center group">
+<div class="w-8 bg-primary/20 h-full rounded-t-md transition-all group-hover:bg-primary"></div>
+<div class="absolute -top-8 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block">Rp 110M</div>
+</div>
+<span class="text-label-caps text-on-surface-variant">OCT</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[55%] flex items-end justify-center group">
+<div class="w-8 bg-primary/30 h-full rounded-t-md transition-all group-hover:bg-primary"></div>
+</div>
+<span class="text-label-caps text-on-surface-variant">NOV</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[48%] flex items-end justify-center group">
+<div class="w-8 bg-primary/40 h-full rounded-t-md transition-all group-hover:bg-primary"></div>
+</div>
+<span class="text-label-caps text-on-surface-variant">DEC</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[70%] flex items-end justify-center group">
+<div class="w-8 bg-primary/60 h-full rounded-t-md transition-all group-hover:bg-primary"></div>
+<div class="absolute -top-8 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block">Rp 210M</div>
+</div>
+<span class="text-label-caps text-on-surface-variant">JAN</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[85%] flex items-end justify-center group">
+<div class="w-8 bg-primary/80 h-full rounded-t-md transition-all group-hover:bg-primary"></div>
+</div>
+<span class="text-label-caps text-on-surface-variant">FEB</span>
+</div>
+<div class="flex flex-col items-center flex-1 space-y-2">
+<div class="w-full bg-surface-variant/40 rounded-t-lg relative h-[95%] flex items-end justify-center group">
+<div class="w-8 bg-primary h-full rounded-t-md shadow-lg"></div>
+<div class="absolute -top-8 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] hidden group-hover:block">Rp 245M</div>
+</div>
+<span class="text-label-caps text-primary font-bold">MAR</span>
+</div>
+</div>
+</div>
+<!-- Recovery Strategy Quick Actions -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-on-primary p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<h3 class="text-headline-md font-headline-md mb-2">Recovery Strategy</h3>
+<p class="text-body-md opacity-80 mb-8">AI-driven intervention recommendations based on historical payment patterns.</p>
+<div class="space-y-4">
+<div class="flex items-center p-3 bg-on-primary/10 rounded-lg hover:bg-on-primary/20 transition-colors cursor-pointer border border-on-primary/20">
+<span class="material-symbols-outlined mr-4">mail</span>
+<div>
+<p class="text-label-caps font-bold">Bulk Reminder</p>
+<p class="text-[10px] opacity-70">Send to 42 high-risk parents</p>
+</div>
+</div>
+<div class="flex items-center p-3 bg-on-primary/10 rounded-lg hover:bg-on-primary/20 transition-colors cursor-pointer border border-on-primary/20">
+<span class="material-symbols-outlined mr-4">event_repeat</span>
+<div>
+<p class="text-label-caps font-bold">Installment Plan</p>
+<p class="text-[10px] opacity-70">Auto-suggest for severe cases</p>
+</div>
+</div>
+</div>
+</div>
+<img alt="Analytics Graphic" class="w-full h-24 object-cover rounded-lg mt-8 mix-blend-soft-light" data-alt="A sophisticated data visualization dashboard showing glowing blue and teal financial charts on a dark background. The lines are crisp and professional, suggesting advanced financial technology and precision analysis for corporate auditing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT40-IfikL1PmtD6N1wN661PleE4SHfbyHoVmCAFJABNDVZKWIL9_lItMZ1jti8ekhViFGajeZv6fo0bEnKuo0eGCD1T5Xo1lEOVPKIW6gaqjCNTk5Mfm3tWYbcScZKadauw0BFEX_W9yL4Xw7NWQebJDSOqrwc4Hw8u14PzVkJ3wcqm1R-JFVTFCvl5nz9-4R4UKIOb4Bh6Ophm-utzV3Q3zRsadcMvzPKYor31HzkkPHlNxOE0x0Z8MMNM09A4zq_mesVQCJ8n4"/>
+</div>
+</div>
+<!-- Financial Risk Panel: Top 20 High-Risk Students -->
+<div class="bg-surface border border-outline-variant rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<div>
+<h3 class="text-headline-md font-headline-md">Top 20 High-Risk Students</h3>
+<p class="text-body-md text-on-surface-variant">Manual review required for students in "Critical" status.</p>
+</div>
+<button class="flex items-center px-4 py-2 border border-outline text-on-surface-variant rounded-lg text-label-caps font-bold hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined mr-2">download</span> EXPORT REPORT
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-label-caps text-on-surface-variant sticky top-0">
+<tr>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">STUDENT NAME</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">CLASS</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">TOTAL DEBT</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">MOS. OVERDUE</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">STAGNATION</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant">RISK STATUS</th>
+<th class="px-6 py-4 font-bold border-b border-outline-variant"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1: Critical -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs mr-3">BP</div>
+<div class="text-data-table">Bambang Pamungkas</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-table text-on-surface-variant">12-IPA-1</td>
+<td class="px-6 py-4 text-data-table font-bold">Rp 18,450,000</td>
+<td class="px-6 py-4 text-data-table">5 Months</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-error font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px] mr-1">warning</span> CRITICAL
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-error text-white text-[10px] font-extrabold rounded-full">CRITICAL</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Row 2: High -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs mr-3">ST</div>
+<div class="text-data-table">Siti Thalita</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-table text-on-surface-variant">11-B</td>
+<td class="px-6 py-4 text-data-table font-bold">Rp 12,200,000</td>
+<td class="px-6 py-4 text-data-table">3 Months</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-tertiary font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px] mr-1">history</span> STAGNANT
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-tertiary text-white text-[10px] font-extrabold rounded-full">HIGH</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Row 3: High -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs mr-3">RA</div>
+<div class="text-data-table">Rizky Ananda</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-table text-on-surface-variant">11-B</td>
+<td class="px-6 py-4 text-data-table font-bold">Rp 9,800,000</td>
+<td class="px-6 py-4 text-data-table">3 Months</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-tertiary font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px] mr-1">history</span> STAGNANT
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-tertiary text-white text-[10px] font-extrabold rounded-full">HIGH</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Row 4: Critical -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs mr-3">DA</div>
+<div class="text-data-table">Dewi Anggraini</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-table text-on-surface-variant">10-IPS-2</td>
+<td class="px-6 py-4 text-data-table font-bold">Rp 22,500,000</td>
+<td class="px-6 py-4 text-data-table">6 Months</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-error font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px] mr-1">warning</span> CRITICAL
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-error text-white text-[10px] font-extrabold rounded-full">CRITICAL</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-outline-variant flex justify-center">
+<button class="text-primary font-bold text-label-caps hover:underline">VIEW ALL 156 HIGH-RISK PROFILES</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for Emergency Contact (Contextual to Risk Monitoring) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-error text-white rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined">emergency_share</span>
+</button>
+</body></html>

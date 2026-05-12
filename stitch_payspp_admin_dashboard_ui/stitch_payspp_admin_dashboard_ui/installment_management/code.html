@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e4e1e9",
+                      "secondary-container": "#0070eb",
+                      "on-tertiary-container": "#f09b63",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#efedf4",
+                      "secondary": "#0058bc",
+                      "on-surface": "#1b1b21",
+                      "on-secondary-fixed": "#001a41",
+                      "inverse-surface": "#303036",
+                      "on-primary-fixed": "#000d60",
+                      "primary-container": "#2e3a8c",
+                      "surface-bright": "#fbf8ff",
+                      "background": "#fbf8ff",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#dfe0ff",
+                      "inverse-primary": "#bcc3ff",
+                      "tertiary-fixed-dim": "#ffb689",
+                      "inverse-on-surface": "#f2eff7",
+                      "on-secondary-container": "#fefcff",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e9e7ef",
+                      "surface-container-highest": "#e4e1e9",
+                      "on-tertiary-fixed": "#311300",
+                      "primary": "#142175",
+                      "tertiary": "#4b2000",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#004493",
+                      "surface": "#fbf8ff",
+                      "on-primary-fixed-variant": "#333f91",
+                      "primary-fixed-dim": "#bcc3ff",
+                      "surface-dim": "#dbd9e1",
+                      "outline-variant": "#c6c5d3",
+                      "tertiary-container": "#6d3200",
+                      "surface-container-low": "#f5f2fa",
+                      "surface-container-lowest": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "outline": "#767682",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffdbc7",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-surface-variant": "#454651",
+                      "on-primary-container": "#9ea9ff",
+                      "on-tertiary-fixed-variant": "#723603",
+                      "surface-tint": "#4b57aa",
+                      "on-background": "#1b1b21"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "data-mono": ["Inter"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "title-sm": ["Inter"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] border-r border-outline-variant dark:border-outline backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 shadow-sm dark:shadow-none flex flex-col p-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Academic Year 2023/24</p>
+</div>
+<nav class="flex-1 space-y-sm overflow-y-auto pr-sm">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-md text-body-md">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Payment Bills</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Transactions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-semibold rounded-lg scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Installments</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md text-body-md">Payment Validation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">error_outline</span>
+<span class="font-body-md text-body-md">Arrears Monitoring</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-md rounded-xl font-bold flex items-center justify-center gap-sm shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                Create New Bill
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 right-0 z-40 w-full border-b border-outline-variant dark:border-outline backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 shadow-sm flex items-center justify-between h-16 px-xl ml-[280px] w-[calc(100%-280px)]">
+<div class="flex items-center gap-xl">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-xl pr-md py-xs text-body-sm w-64 focus:ring-2 focus:ring-primary ring-offset-2 transition-all" placeholder="Search transactions..." type="text"/>
+</div>
+<nav class="flex gap-lg">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-bold text-body-sm py-xs" href="#">Overview</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary text-body-sm py-xs" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-surface-container-high px-md py-xs rounded-full text-body-sm font-semibold text-primary">2023/2024</button>
+<div class="flex items-center gap-sm">
+<button class="p-xs hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6GIBl5BWOWc57wUVoxmbSt-F2KURbqP0gx0TOJ0NKN1krPLxv08stLrRhkCOFyXv5-5Gtr_cJ3A_ZiT2q6S4huOcb3pBXhsRwnQd-ibkrADTHm6OrQuDuKt8gBOquiRcUtbc-TTd1QNfDJ-ATOs3tkHtHX1KGbP8-0G1DOHxlePsVXG1_-pQN1oeJIbwW7CrPAeAjz8z4E3SrDApiMG1i7eWYHp7RvrEb4p4TZ3_LNdg82wjEKT8f8Zs4Ym7rzEAT4oOgtMmCRYc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] p-xl bg-slate-50 min-h-[calc(100vh-64px)]">
+<!-- Balance Tracker (Bento Grid Header) -->
+<div class="grid grid-cols-12 gap-lg mb-xl">
+<div class="col-span-12 md:col-span-8 glass-card rounded-xl p-xl flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant mb-xs">TOTAL OUTSTANDING INSTALLMENTS</h2>
+<div class="flex items-baseline gap-sm">
+<span class="text-display-lg font-display-lg text-primary">$428,500.00</span>
+<span class="text-body-sm text-error font-semibold">↑ 12% vs last month</span>
+</div>
+<div class="mt-xl grid grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
+<p class="text-label-caps text-on-surface-variant">NEXT 30 DAYS</p>
+<p class="text-title-sm font-bold text-secondary">$84,200</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
+<p class="text-label-caps text-on-surface-variant">OVERDUE</p>
+<p class="text-title-sm font-bold text-error">$12,450</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
+<p class="text-label-caps text-on-surface-variant">PROCESSED</p>
+<p class="text-title-sm font-bold text-on-tertiary-fixed-variant">$331,850</p>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[160px] text-primary">account_balance_wallet</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-primary rounded-xl p-xl text-on-primary shadow-lg flex flex-col justify-center">
+<h3 class="text-title-sm font-bold mb-md">Quick Summary</h3>
+<div class="space-y-md">
+<div class="flex justify-between items-center border-b border-primary-container pb-sm">
+<span class="text-body-sm opacity-80">Active Schedules</span>
+<span class="font-bold">1,240</span>
+</div>
+<div class="flex justify-between items-center border-b border-primary-container pb-sm">
+<span class="text-body-sm opacity-80">Pending Requests</span>
+<span class="font-bold">48</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm opacity-80">Avg. Repayment Rate</span>
+<span class="font-bold">94.2%</span>
+</div>
+</div>
+<button class="mt-xl w-full bg-white text-primary font-bold py-sm rounded-lg hover:bg-opacity-90 transition-all">
+                    View Delinquency Report
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-lg">
+<!-- Installment Requests (Left Section) -->
+<section class="col-span-12 lg:col-span-7 space-y-lg">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-primary">Approval Requests</h3>
+<span class="bg-error-container text-on-error-container px-sm py-xs rounded-full text-label-caps font-bold">48 PENDING</span>
+</div>
+<div class="space-y-md">
+<!-- Request Item 1 -->
+<div class="bg-white rounded-xl p-md border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden">
+<img alt="Student Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2o0KEKlgP3raVuH7XZ9tR2RvMTBq_DJhh68FjTVqI0ciG9u_MX6UokQfPEDE_xKB07qP6MxN4ha5vjtFHbB0gC3Qzux572kR59QVSkRvfimNze3bTUwQgwj0ouquyH8bGpvFYAAFcLSG8P-978qfGem8HB7C_5Hjoj7VTBhxU6vIR_1EDS6mpKPDV3xA0vfDHZbnlWXaAfRPB2BuCkqrjrP1ZOIJeDG-N7Fz3zxkXQG_V0bV2lh_y1zWUvM6CYIv8q9Ru7_SL7fM"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Alex Thompson</h4>
+<p class="text-body-sm text-on-surface-variant">ID: #SPP-2023-8842 • Grade 11</p>
+</div>
+<span class="text-title-sm font-bold text-primary">$3,200.00</span>
+</div>
+<div class="mt-md bg-surface-container-low p-sm rounded border-l-4 border-secondary">
+<p class="text-body-sm italic text-on-surface-variant">"Requesting 4-month installment plan due to temporary family medical expenses. Can provide documentation if required."</p>
+</div>
+<div class="mt-md flex justify-end gap-sm">
+<button class="px-md py-xs text-error font-semibold hover:bg-error-container rounded-lg transition-colors">Reject</button>
+<button class="px-md py-xs bg-secondary text-on-secondary font-semibold rounded-lg shadow-sm hover:opacity-90 transition-all">Approve Plan</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Item 2 -->
+<div class="bg-white rounded-xl p-md border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden">
+<img alt="Student Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCE4rb8PqYZAFnLHOHba6w6uvMDkpVhuTgQTGGJR0dIJRi1ZkzhrobjnJwTWmm2TzS6SuStBCNL5ZpclMEXpjnHjP2fx3ZJ_oXsXhNhTeNllq7jRtM0sdFXv2vw-HR0tiFS6oNYEzil3zlY4KPlF5fg60UQ4FdS2MelGamptkDeKLmTtgXHRNwPJOVAYUNSEVfLKAudgiGJtltZr1wPGbcDiG6-Gp_RKULFhkO9yga7Bhgj8Ec92NrDl60PwLtzhQBSG5pUXs76VI"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Sarah Jenkins</h4>
+<p class="text-body-sm text-on-surface-variant">ID: #SPP-2023-4102 • Grade 9</p>
+</div>
+<span class="text-title-sm font-bold text-primary">$1,850.00</span>
+</div>
+<div class="mt-md bg-surface-container-low p-sm rounded border-l-4 border-secondary">
+<p class="text-body-sm italic text-on-surface-variant">"Requesting split payment over 2 installments for the fall term tuition fee."</p>
+</div>
+<div class="mt-md flex justify-end gap-sm">
+<button class="px-md py-xs text-error font-semibold hover:bg-error-container rounded-lg transition-colors">Reject</button>
+<button class="px-md py-xs bg-secondary text-on-secondary font-semibold rounded-lg shadow-sm hover:opacity-90 transition-all">Approve Plan</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Item 3 -->
+<div class="bg-white rounded-xl p-md border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden">
+<img alt="Student Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtchNnMdec6ScxF3GZbOsBoxVABa7mm70TKNsrYJiDxV_-2Jwlx7qDAGQE5qGn0rPV6Klc45Lz0H6w7T1m14EEsIMCmoM7MEHaCKu916wTv7OGPzeHXXwOKKb3j7-gEDMJ6OjI2Widbj4zB2qmqX_r8PHKTXQctBUKK7gw_EupI5l7svwJfonbNKB5b3SRxfFR277WLCWmKVsDluNY_zcLq3lKfN4VidqVlY9OxmRvkq3XY7Ww8PctnZapVNOp7Vo1vYZKoDGoxls"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Michael Chen</h4>
+<p class="text-body-sm text-on-surface-variant">ID: #SPP-2023-7721 • Grade 12</p>
+</div>
+<span class="text-title-sm font-bold text-primary">$5,400.00</span>
+</div>
+<div class="mt-md bg-surface-container-low p-sm rounded border-l-4 border-secondary">
+<p class="text-body-sm italic text-on-surface-variant">"Extending current 3-month plan to 6-months due to unforeseen business downturn. First 2 installments were paid on time."</p>
+</div>
+<div class="mt-md flex justify-end gap-sm">
+<button class="px-md py-xs text-error font-semibold hover:bg-error-container rounded-lg transition-colors">Reject</button>
+<button class="px-md py-xs bg-secondary text-on-secondary font-semibold rounded-lg shadow-sm hover:opacity-90 transition-all">Approve Plan</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Progress (Right Section) -->
+<section class="col-span-12 lg:col-span-5 space-y-lg">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-primary">Active Progress</h3>
+<button class="text-primary text-label-caps font-bold hover:underline">VIEW ALL</button>
+</div>
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center">
+<span class="text-label-caps font-bold">STUDENT &amp; SCHEDULE</span>
+<span class="text-label-caps font-bold">PROGRESS</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- Progress Card 1 -->
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<p class="font-bold text-on-surface">Jessica Miller</p>
+<p class="text-body-sm text-on-surface-variant">Plan: 6 Installments</p>
+</div>
+<span class="text-body-sm font-data-mono text-secondary">3 / 6 Paid</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-xs">
+<div class="bg-secondary h-2 rounded-full" style="width: 50%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline">
+<span>PAID: $1,500</span>
+<span>REMAINING: $1,500</span>
+</div>
+</div>
+<!-- Progress Card 2 -->
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<p class="font-bold text-on-surface">David Wilson</p>
+<p class="text-body-sm text-on-surface-variant">Plan: 10 Installments</p>
+</div>
+<span class="text-body-sm font-data-mono text-on-tertiary-fixed-variant">8 / 10 Paid</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-xs">
+<div class="bg-on-tertiary-fixed-variant h-2 rounded-full" style="width: 80%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline">
+<span>PAID: $8,000</span>
+<span>REMAINING: $2,000</span>
+</div>
+</div>
+<!-- Progress Card 3 -->
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<p class="font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-body-sm text-on-surface-variant">Plan: 4 Installments</p>
+</div>
+<span class="text-body-sm font-data-mono text-error">1 / 4 Paid (Late)</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-xs">
+<div class="bg-error h-2 rounded-full" style="width: 25%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline">
+<span>PAID: $450</span>
+<span>REMAINING: $1,350</span>
+</div>
+</div>
+<!-- Progress Card 4 -->
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<p class="font-bold text-on-surface">Kevin Park</p>
+<p class="text-body-sm text-on-surface-variant">Plan: 12 Installments</p>
+</div>
+<span class="text-body-sm font-data-mono text-secondary">6 / 12 Paid</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-xs">
+<div class="bg-secondary h-2 rounded-full" style="width: 50%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline">
+<span>PAID: $3,600</span>
+<span>REMAINING: $3,600</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Timeline Micro-Component -->
+<div class="glass-card rounded-xl p-md">
+<h4 class="text-label-caps font-bold text-on-surface-variant mb-md">UPCOMING REVENUE TIMELINE</h4>
+<div class="flex items-end gap-sm h-32 px-sm">
+<div class="flex-1 bg-primary-container/20 rounded-t-lg relative group h-[40%]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold hidden group-hover:block">$45k</div>
+</div>
+<div class="flex-1 bg-primary-container/40 rounded-t-lg relative group h-[60%]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold hidden group-hover:block">$62k</div>
+</div>
+<div class="flex-1 bg-primary rounded-t-lg relative group h-[90%]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold hidden group-hover:block">$88k</div>
+</div>
+<div class="flex-1 bg-primary-container/60 rounded-t-lg relative group h-[70%]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold hidden group-hover:block">$71k</div>
+</div>
+<div class="flex-1 bg-primary-container/30 rounded-t-lg relative group h-[50%]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold hidden group-hover:block">$52k</div>
+</div>
+</div>
+<div class="flex justify-between mt-sm px-sm text-[10px] font-bold text-outline">
+<span>OCT</span>
+<span>NOV</span>
+<span>DEC</span>
+<span>JAN</span>
+<span>FEB</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per hierarchy for details/transactional-heavy pages, but shown here for rapid bill creation as requested by CTA) -->
+<button class="fixed bottom-xl right-xl bg-primary text-on-primary w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined !text-3xl">add</span>
+</button>
+</body></html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-variant": "#dfe3e4",
+                "on-secondary-container": "#5c6274",
+                "outline-variant": "#bdc8cb",
+                "outline": "#6e797b",
+                "secondary-container": "#d9dff5",
+                "on-primary": "#ffffff",
+                "on-surface-variant": "#3e494b",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed": "#301400",
+                "tertiary-container": "#a7642d",
+                "surface-tint": "#006876",
+                "tertiary-fixed": "#ffdcc5",
+                "on-tertiary": "#ffffff",
+                "tertiary": "#894c16",
+                "surface-bright": "#f6fafb",
+                "primary": "#006572",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary": "#ffffff",
+                "primary-fixed-dim": "#77d4e5",
+                "surface-dim": "#d7dbdc",
+                "secondary-fixed-dim": "#c0c6db",
+                "on-tertiary-fixed-variant": "#6f3801",
+                "on-primary-fixed": "#001f24",
+                "error": "#ba1a1a",
+                "on-background": "#181c1d",
+                "surface-container-highest": "#dfe3e4",
+                "surface-container-low": "#f1f4f5",
+                "on-surface": "#181c1d",
+                "on-primary-container": "#f6fdff",
+                "inverse-on-surface": "#eef1f2",
+                "inverse-surface": "#2d3132",
+                "surface-container-high": "#e5e9ea",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#028090",
+                "on-secondary-fixed-variant": "#404758",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "secondary-fixed": "#dce2f7",
+                "on-secondary-fixed": "#141b2b",
+                "secondary": "#575e70",
+                "surface-container": "#ebeeef",
+                "surface": "#f6fafb",
+                "primary-fixed": "#9eefff",
+                "inverse-primary": "#77d4e5",
+                "background": "#f6fafb",
+                "on-primary-fixed-variant": "#004e59",
+                "tertiary-fixed-dim": "#ffb782"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Inter"],
+                "label-caps": ["Inter"],
+                "data-table": ["Inter"],
+                "headline-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "display-metric": ["Inter"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      @media print {
+        .no-print { display: none; }
+        .print-only { display: block; }
+        body { background: white; }
+      }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Side Navigation Rail -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface dark:bg-inverse-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col py-4 space-y-2 no-print">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant opacity-70">Executive Dashboard</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-2">
+<!-- Active mapping to Reports -->
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Principal Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="payments">payments</span>
+<span class="text-label-caps font-label-caps">Financial Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 bg-primary text-on-primary rounded-lg mx-2 my-1 shadow-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+<span class="text-label-caps font-label-caps">Reports</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="verified_user">verified_user</span>
+<span class="text-label-caps font-label-caps">Payment Compliance</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="error_outline">error_outline</span>
+<span class="text-label-caps font-label-caps">Student Arrears</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="trending_up">trending_up</span>
+<span class="text-label-caps font-label-caps">Revenue Analytics</span>
+</a>
+</nav>
+<div class="px-6 pt-4 border-t border-outline-variant">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-label-caps font-bold">Drs. Handoko</p>
+<p class="text-[10px] text-on-surface-variant">Principal Executive</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-[280px] min-h-screen">
+<!-- Header -->
+<header class="flex justify-between items-center w-full px-10 h-16 bg-surface/60 dark:bg-inverse-surface/60 backdrop-blur-xl border-b border-outline-variant sticky top-0 z-40 no-print">
+<div class="flex items-center space-x-8">
+<h2 class="text-headline-sm font-headline-sm text-primary">Reports &amp; Insights</h2>
+<div class="flex items-center space-x-6">
+<a class="text-label-caps font-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Analytics</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Audit Logs</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Exports</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-2 bg-primary-container text-on-primary-container rounded-lg text-label-caps font-label-caps hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span>Quick Insights</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-10 space-y-8 max-w-[1440px]">
+<!-- Filters Section -->
+<section class="glass-card p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-wrap items-end gap-6 no-print">
+<div class="flex-1 min-w-[200px]">
+<label class="text-label-caps text-on-surface-variant mb-2 block">Academic Year</label>
+<select class="w-full rounded-lg border-outline-variant bg-surface-container-low text-body-md py-2 focus:ring-primary focus:border-primary">
+<option>2023/2024 (Current)</option>
+<option>2022/2023</option>
+<option>2021/2022</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="text-label-caps text-on-surface-variant mb-2 block">Grade / Class</label>
+<select class="w-full rounded-lg border-outline-variant bg-surface-container-low text-body-md py-2 focus:ring-primary focus:border-primary">
+<option>All Grades</option>
+<option>Grade 10 - Alpha</option>
+<option>Grade 11 - Beta</option>
+<option>Grade 12 - Gamma</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="text-label-caps text-on-surface-variant mb-2 block">Report Period</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-10 rounded-lg border-outline-variant bg-surface-container-low text-body-md py-2 focus:ring-primary focus:border-primary" type="text" value="Oct 2023 - Dec 2023"/>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-label-caps flex items-center hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined mr-2" data-icon="refresh">refresh</span>
+            Update Report
+          </button>
+<button class="p-2.5 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</section>
+<!-- Reporting Center Grid -->
+<section class="no-print">
+<h3 class="text-headline-md font-headline-md text-primary mb-6">Report Categories</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Financial Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<h4 class="text-body-lg font-bold mb-1">Financial Health</h4>
+<p class="text-label-caps text-on-surface-variant mb-4">P&amp;L, Cash Flow, Projections</p>
+<div class="flex items-center text-primary text-label-caps font-bold">
+<span>View Category</span>
+<span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Compliance Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-tertiary-container/20 rounded-lg flex items-center justify-center mb-4 text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+</div>
+<h4 class="text-body-lg font-bold mb-1">Compliance Audit</h4>
+<p class="text-label-caps text-on-surface-variant mb-4">Regulatory, Internal Standards</p>
+<div class="flex items-center text-primary text-label-caps font-bold">
+<span>View Category</span>
+<span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Arrears Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center mb-4 text-error group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+</div>
+<h4 class="text-body-lg font-bold mb-1">Arrears &amp; Recovery</h4>
+<p class="text-label-caps text-on-surface-variant mb-4">Aging reports, delinquency tracking</p>
+<div class="flex items-center text-primary text-label-caps font-bold">
+<span>View Category</span>
+<span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Yearly Summary Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-secondary-container/30 rounded-lg flex items-center justify-center mb-4 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="summarize">summarize</span>
+</div>
+<h4 class="text-body-lg font-bold mb-1">Annual Performance</h4>
+<p class="text-label-caps text-on-surface-variant mb-4">Year-over-year growth analytics</p>
+<div class="flex items-center text-primary text-label-caps font-bold">
+<span>View Category</span>
+<span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Print-Ready Preview Area -->
+<section class="space-y-6">
+<div class="flex justify-between items-end no-print">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary">Executive Summary Preview</h3>
+<p class="text-on-surface-variant">Live preview of the generated document for Q4 2023</p>
+</div>
+<div class="flex space-x-3">
+<button class="flex items-center px-4 py-2 border border-outline text-on-surface font-bold text-label-caps rounded-lg hover:bg-surface-variant transition-colors" onclick="window.print()">
+<span class="material-symbols-outlined mr-2" data-icon="print">print</span>
+              Print to PDF
+            </button>
+<button class="flex items-center px-4 py-2 bg-primary text-on-primary font-bold text-label-caps rounded-lg hover:opacity-90 shadow-lg">
+<span class="material-symbols-outlined mr-2" data-icon="download">download</span>
+              Export Excel (.xlsx)
+            </button>
+</div>
+</div>
+<!-- Document Canvas -->
+<div class="bg-white p-12 rounded-xl shadow-2xl border border-outline-variant min-h-[1000px] max-w-[1000px] mx-auto overflow-hidden relative">
+<!-- Letterhead -->
+<div class="flex justify-between border-b-2 border-primary pb-8 mb-10">
+<div>
+<h1 class="text-3xl font-extrabold text-primary tracking-tight">PaySPP STRATEGIC INSIGHTS</h1>
+<p class="text-label-caps text-on-surface-variant">Fiscal Period: Oct 2023 - Dec 2023</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-lg">Indonesian Private Academy</p>
+<p class="text-sm text-on-surface-variant">Jl. Sudirman No. 45, Jakarta Selatan</p>
+<p class="text-sm text-on-surface-variant">Reg ID: 9920-1120-X</p>
+</div>
+</div>
+<!-- Section 1: Financial Summary Cards -->
+<div class="grid grid-cols-3 gap-8 mb-12">
+<div class="p-6 bg-surface-container-low rounded-lg">
+<p class="text-label-caps text-on-surface-variant font-bold mb-2">Total Collections</p>
+<p class="text-headline-lg font-display-metric text-primary">Rp 4.2B</p>
+<div class="flex items-center text-sm text-primary-container font-bold mt-2">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="arrow_upward">arrow_upward</span>
+                12.4% vs Last Quarter
+              </div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<p class="text-label-caps text-on-surface-variant font-bold mb-2">Collection Rate</p>
+<p class="text-headline-lg font-display-metric text-primary">94.2%</p>
+<div class="flex items-center text-sm text-tertiary font-bold mt-2">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="trending_flat">trending_flat</span>
+                Steady from Nov
+              </div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<p class="text-label-caps text-on-surface-variant font-bold mb-2">Outstanding Arrears</p>
+<p class="text-headline-lg font-display-metric text-error">Rp 245M</p>
+<div class="flex items-center text-sm text-error font-bold mt-2">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="warning">warning</span>
+                34 Overdue &gt; 60 Days
+              </div>
+</div>
+</div>
+<!-- Section 2: Revenue Distribution (Visual) -->
+<div class="mb-12">
+<h4 class="text-headline-sm font-bold text-primary mb-6">Tuition Revenue by Grade Level</h4>
+<div class="h-64 bg-surface-container-lowest border border-outline-variant rounded-xl flex items-end justify-between px-10 pb-4 relative overflow-hidden">
+<!-- Mock Chart Bars -->
+<div class="w-16 bg-primary-container rounded-t-lg relative" style="height: 80%">
+<div class="absolute -top-6 left-0 right-0 text-center text-xs font-bold">1.2B</div>
+</div>
+<div class="w-16 bg-primary-container rounded-t-lg relative" style="height: 65%">
+<div class="absolute -top-6 left-0 right-0 text-center text-xs font-bold">980M</div>
+</div>
+<div class="w-16 bg-primary-container rounded-t-lg relative" style="height: 90%">
+<div class="absolute -top-6 left-0 right-0 text-center text-xs font-bold">1.4B</div>
+</div>
+<div class="w-16 bg-primary-container rounded-t-lg relative" style="height: 45%">
+<div class="absolute -top-6 left-0 right-0 text-center text-xs font-bold">620M</div>
+</div>
+<div class="w-16 bg-primary-container rounded-t-lg relative" style="height: 55%">
+<div class="absolute -top-6 left-0 right-0 text-center text-xs font-bold">780M</div>
+</div>
+</div>
+<div class="flex justify-between px-10 mt-2 text-label-caps text-on-surface-variant">
+<span>Grade 7</span>
+<span>Grade 8</span>
+<span>Grade 9</span>
+<span>Grade 10</span>
+<span>Grade 11</span>
+</div>
+</div>
+<!-- Section 3: Data Table -->
+<div class="mb-12">
+<h4 class="text-headline-sm font-bold text-primary mb-6">Payment Compliance Matrix</h4>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-outline text-label-caps">
+<th class="py-4 px-2">Compliance ID</th>
+<th class="py-4 px-2">Grade Level</th>
+<th class="py-4 px-2">Paid In Full</th>
+<th class="py-4 px-2">Partial Pay</th>
+<th class="py-4 px-2">Collection %</th>
+</tr>
+</thead>
+<tbody class="text-data-table">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-bold">#CMP-2023-A</td>
+<td class="py-4 px-2">Grade 12</td>
+<td class="py-4 px-2">142 Students</td>
+<td class="py-4 px-2">8 Students</td>
+<td class="py-4 px-2 text-primary font-bold">98.2%</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-bold">#CMP-2023-B</td>
+<td class="py-4 px-2">Grade 11</td>
+<td class="py-4 px-2">120 Students</td>
+<td class="py-4 px-2">15 Students</td>
+<td class="py-4 px-2 text-primary font-bold">92.4%</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-bold">#CMP-2023-C</td>
+<td class="py-4 px-2">Grade 10</td>
+<td class="py-4 px-2">115 Students</td>
+<td class="py-4 px-2">22 Students</td>
+<td class="py-4 px-2 text-tertiary font-bold">88.7%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer/Signature -->
+<div class="mt-20 flex justify-between items-center text-sm border-t border-outline-variant pt-8">
+<div>
+<p>Certified Accurate as of: Dec 31, 2023</p>
+<p class="text-on-surface-variant">Generated via PaySPP Executive Core</p>
+</div>
+<div class="text-center w-64 border-t border-black pt-2">
+<p class="font-bold">Drs. Handoko</p>
+<p class="text-label-caps text-on-surface-variant">Principal Executive</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Layout: Export History & Large CTA -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-20 no-print">
+<!-- Generate CTA -->
+<div class="lg:col-span-1 bg-primary p-8 rounded-xl text-on-primary flex flex-col justify-between shadow-xl">
+<div>
+<h3 class="text-headline-md font-bold mb-4">Need Custom Data?</h3>
+<p class="opacity-80 mb-8">Access our raw data engine to export specific parameters across all departments for deep dive analysis.</p>
+</div>
+<button class="w-full bg-surface-container-lowest text-primary font-bold py-4 rounded-xl flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined mr-2" data-icon="rocket_launch">rocket_launch</span>
+            Run Custom Report Builder
+          </button>
+</div>
+<!-- Recent Exports -->
+<div class="lg:col-span-2 glass-card p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-body-lg font-bold">Recent Exports</h3>
+<button class="text-primary text-label-caps font-bold hover:underline">Clear History</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-bold text-sm">Full_Compliance_Audit_Q4.pdf</p>
+<p class="text-[10px] text-on-surface-variant">Dec 28, 2023 • 4.2 MB • Drs. Handoko</p>
+</div>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="table_view">table_view</span>
+</div>
+<div>
+<p class="font-bold text-sm">Arrears_Aging_Report_Dec.xlsx</p>
+<p class="text-[10px] text-on-surface-variant">Dec 24, 2023 • 1.1 MB • Financial Dept</p>
+</div>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-bold text-sm">Year_End_Strategic_Summary.pdf</p>
+<p class="text-[10px] text-on-surface-variant">Dec 20, 2023 • 12.8 MB • System Auto</p>
+</div>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB for urgent report (Suppressed on details pages, but relevant for Reports Dashboard) -->
+<button class="fixed bottom-8 right-8 bg-tertiary text-on-tertiary w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all no-print z-50">
+<span class="material-symbols-outlined" data-icon="add_chart" style="font-variation-settings: 'FILL' 1;">add_chart</span>
+</button>
+</body></html>

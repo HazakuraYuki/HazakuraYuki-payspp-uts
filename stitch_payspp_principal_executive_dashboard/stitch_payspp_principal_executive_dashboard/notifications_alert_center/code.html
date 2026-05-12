@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PaySPP Principal — Notifications &amp; Alert Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#dfe3e4",
+                      "on-secondary-container": "#5c6274",
+                      "outline-variant": "#bdc8cb",
+                      "outline": "#6e797b",
+                      "secondary-container": "#d9dff5",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#3e494b",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#301400",
+                      "tertiary-container": "#a7642d",
+                      "surface-tint": "#006876",
+                      "tertiary-fixed": "#ffdcc5",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#894c16",
+                      "surface-bright": "#f6fafb",
+                      "primary": "#006572",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#77d4e5",
+                      "surface-dim": "#d7dbdc",
+                      "secondary-fixed-dim": "#c0c6db",
+                      "on-tertiary-fixed-variant": "#6f3801",
+                      "on-primary-fixed": "#001f24",
+                      "error": "#ba1a1a",
+                      "on-background": "#181c1d",
+                      "surface-container-highest": "#dfe3e4",
+                      "surface-container-low": "#f1f4f5",
+                      "on-surface": "#181c1d",
+                      "on-primary-container": "#f6fdff",
+                      "inverse-on-surface": "#eef1f2",
+                      "inverse-surface": "#2d3132",
+                      "surface-container-high": "#e5e9ea",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#028090",
+                      "on-secondary-fixed-variant": "#404758",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#dce2f7",
+                      "on-secondary-fixed": "#141b2b",
+                      "secondary": "#575e70",
+                      "surface-container": "#ebeeef",
+                      "surface": "#f6fafb",
+                      "primary-fixed": "#9eefff",
+                      "inverse-primary": "#77d4e5",
+                      "background": "#f6fafb",
+                      "on-primary-fixed-variant": "#004e59",
+                      "tertiary-fixed-dim": "#ffb782"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "grid_columns": "12",
+                      "gutter": "1.5rem",
+                      "container_max_width": "1440px",
+                      "margin_desktop": "2.5rem",
+                      "margin_mobile": "1rem",
+                      "section_gap": "2rem"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "data-table": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-metric": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface dark:bg-inverse-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col py-4 space-y-2 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Executive Dashboard</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-caps font-label-caps">Principal Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-label-caps font-label-caps">Financial Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="text-label-caps font-label-caps">Payment Compliance</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">error_outline</span>
+<span class="text-label-caps font-label-caps">Student Arrears</span>
+</a>
+<!-- Active State for Notifications -->
+<a class="flex items-center px-4 py-3 bg-primary text-on-primary rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<span class="text-label-caps font-label-caps">Notifications &amp; Alerts</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+<span class="text-label-caps font-label-caps">Revenue Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">description</span>
+<span class="text-label-caps font-label-caps">Reports</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">history_edu</span>
+<span class="text-label-caps font-label-caps">Audit &amp; Activity Logs</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<div class="px-6 pt-4 border-t border-outline-variant">
+<div class="flex items-center space-x-3">
+<img alt="Principal Avatar" class="w-10 h-10 rounded-full border border-primary/20" data-alt="A professional headshot of a mature executive male with graying hair and glasses, wearing a tailored navy blazer and white shirt. The background is a soft-focus office environment with warm morning lighting, conveying a sense of leadership and trust. The overall tone is professional, high-contrast, and clean for a modern enterprise dashboard profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm-6y2zGK7oTN9xgE-H1j0YHmsmyH6wpuBbt02c4DGQw6OCU3gPK0zpfP_1hYCbU91gXiKYz1oq4MDeo8xBq_uH-WfNMarSrNH_kUTkT_u_m9WZ7Qd-XjRpqMLTqd5rqY1Rtp-iEisrTH65asZHRqT2i9eA35v3DAbN038jBpg-csYzFk5QVbUFEF8I91E47sUbRqUTKa9jxv8pJmNxxxMX4y-NCKDexI0vWIjwfZsTRqlKd1mbZ90oVCtV1zZ-RKNEx7G-AILTnI"/>
+<div>
+<p class="text-label-caps font-label-caps text-on-surface">Dr. Budi Santoso</p>
+<p class="text-[10px] text-on-surface-variant">Principal Director</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-40 w-full bg-surface/60 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center px-10 h-16">
+<div class="flex items-center gap-8">
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">PaySPP Principal</h2>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search alerts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary-container text-on-primary-container rounded-full text-label-caps font-label-caps hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+                    Quick Insights
+                </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">sync</span></button>
+<button class="hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">calendar_today</span></button>
+</div>
+</div>
+</header>
+<!-- Notification Center Content -->
+<section class="p-10 max-w-[1440px] mx-auto w-full space-y-8">
+<!-- Page Header & Actions -->
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-headline-lg font-headline-lg text-on-surface mb-2">Notification &amp; Alert Center</h3>
+<p class="text-body-md text-on-surface-variant max-w-2xl">Monitor real-time school financial health and administrative milestones. All critical flags are audited for executive review.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 border border-outline text-on-surface rounded-xl text-label-caps font-label-caps hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">done_all</span>
+                        Mark as Read
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-on-primary rounded-xl text-label-caps font-label-caps shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">settings_suggest</span>
+                        Manage Alert Rules
+                    </button>
+</div>
+</div>
+<!-- Bento Layout: Alert Overview & Tabs -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Left Column: Categorized Feed -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Category Tabs -->
+<div class="bg-surface-container-low p-1.5 rounded-2xl flex gap-2 w-max">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-xl text-label-caps font-label-caps shadow-md transition-all">High Priority</button>
+<button class="px-6 py-2.5 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-label-caps font-label-caps transition-all">Financial Risks</button>
+<button class="px-6 py-2.5 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-label-caps font-label-caps transition-all">System</button>
+<button class="px-6 py-2.5 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-label-caps font-label-caps transition-all">Activity</button>
+</div>
+<!-- Real-time Timeline Feed -->
+<div class="space-y-4">
+<!-- Critical Alert Card -->
+<div class="bg-surface-container-lowest border-l-4 border-error p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex items-start gap-5 group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-bold text-on-surface">Critical Arrears Spike in Grade 10</h4>
+<span class="text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded uppercase">2 min ago</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">Total outstanding tuition for Grade 10-B has exceeded 15% of projected monthly revenue. Immediate board intervention or treasurer follow-up is recommended.</p>
+<div class="flex items-center gap-4">
+<button class="text-label-caps text-primary font-bold hover:underline">Review Delinquency Report</button>
+<button class="text-label-caps text-on-surface-variant font-bold hover:text-on-surface">Dismiss</button>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-outline cursor-pointer">more_vert</span>
+</div>
+</div>
+<!-- Warning Alert Card -->
+<div class="bg-surface-container-lowest border-l-4 border-tertiary p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex items-start gap-5 group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-bold text-on-surface">Audit Discrepancy: Petty Cash</h4>
+<span class="text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded uppercase">45 min ago</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">Manual log entry #AUD-2290 does not match digital receipt bank sync for Surabaya branch. Requires principal sign-off for adjustment.</p>
+<div class="flex items-center gap-4">
+<button class="text-label-caps text-primary font-bold hover:underline">Open Audit Log</button>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-outline cursor-pointer">more_vert</span>
+</div>
+</div>
+<!-- Success Alert Card -->
+<div class="bg-surface-container-lowest border-l-4 border-primary p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex items-start gap-5 group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-bold text-on-surface">Monthly Revenue Milestone Reached</h4>
+<span class="text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded uppercase">2 hours ago</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">Excellent collection rate. 92% of April tuition has been successfully processed, 5 days ahead of schedule.</p>
+<div class="flex items-center gap-4">
+<button class="text-label-caps text-primary font-bold hover:underline">View Collections Analytics</button>
+</div>
+</div>
+</div>
+<!-- Informational Card -->
+<div class="bg-surface-container-lowest border-l-4 border-outline p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex items-start gap-5 group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">update</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-bold text-on-surface">System Maintenance Scheduled</h4>
+<span class="text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded uppercase">5 hours ago</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">PaySPP backend will undergo routine optimization tonight at 02:00 WIB. Principal Dashboard may experience 10 minutes of downtime.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Priority Summary & Stats -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Alert Distribution Card -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<h5 class="text-label-caps font-label-caps text-on-surface-variant mb-6">Alert Distribution</h5>
+<div class="space-y-5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="text-body-md font-medium text-on-surface">Urgent Risk</span>
+</div>
+<span class="text-body-md font-bold text-error">12</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-error h-1.5 rounded-full" style="width: 25%"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="text-body-md font-medium text-on-surface">Pending Warnings</span>
+</div>
+<span class="text-body-md font-bold text-tertiary">28</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 55%"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-body-md font-medium text-on-surface">Operational Success</span>
+</div>
+<span class="text-body-md font-bold text-primary">145</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-surface text-primary border border-primary/20 rounded-xl text-label-caps font-label-caps hover:bg-primary-container hover:text-on-primary-container transition-all">
+                            Generate Incident Report
+                        </button>
+</div>
+<!-- Alert Configuration Preview -->
+<div class="bg-primary p-8 rounded-2xl shadow-xl relative overflow-hidden text-on-primary">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[32px] mb-4">notifications_paused</span>
+<h5 class="text-headline-md font-headline-md mb-2">Smart Suppression</h5>
+<p class="text-body-md opacity-90 mb-6">AI-driven filtering is currently hiding 14 low-priority administrative pings to reduce cognitive load.</p>
+<button class="px-6 py-2.5 bg-on-primary text-primary rounded-xl text-label-caps font-label-caps hover:bg-primary-fixed transition-all">
+                                Adjust Sensitivity
+                            </button>
+</div>
+<!-- Abstract Glassmorphism Decoration -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
+</div>
+<!-- Quick Contacts -->
+<div class="bg-surface-container-high p-8 rounded-2xl">
+<h5 class="text-label-caps font-label-caps text-on-surface-variant mb-6">Escalation Contacts</h5>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Treasurer" class="w-8 h-8 rounded-full" data-alt="Close up portrait of a clean-cut Indonesian professional man in his late 30s, wearing a modern business casual shirt. He is smiling warmly. The image has soft lighting and a blurred professional office background, maintaining a high-end corporate aesthetic consistent with the teal and neutral design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdk5biqCTP6ES3R15eqCeY8wmr1qed7tBRnzONPm_PhXfMAjUDnmHU8EaGNrW2HMVhWaoRMYWNc1285Z4AnxURCBdTXgHVO--gmnTUJMLLJuabXqfVULduIi8OY5TRZdq4tQfAzevWY-aRlhxh0vFCflMmY_soXCwOWG3HIboFHQpOomVxiMaeefkZHRJnNWFPQzI1gmoXoGUqOdbopdr_1axyxV2caOZasO-pBqtZhMvSRms_2bGf_MnKOjmhpJR8uiycRP6tll8"/>
+<div>
+<p class="text-data-table font-bold">Rian Wijaya</p>
+<p class="text-[10px] text-on-surface-variant">Treasurer</p>
+</div>
+</div>
+<button class="p-2 hover:bg-surface rounded-full text-primary transition-colors"><span class="material-symbols-outlined text-sm">chat_bubble</span></button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="IT Head" class="w-8 h-8 rounded-full" data-alt="Portrait of an Indonesian woman in business attire with a neutral, professional expression. She has short dark hair and is photographed against a bright, modern minimalist office backdrop. The lighting is high-key and soft, fitting a professional executive dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXDB8Kk084j-nMnldVPO2jRp9QTCGAQJG7wxNFCKWh_jBdHTTm-RdrnVfpdSwwhLvutq4ZmbYNSTduQcJQsRqA4i3ne1eXXhAaGBAdanoz8PCw0jQy-ZYGN-2qcwJJciKhNKT7xdYcX1Ag84lKQ2Cp9M3we0oN6USOB9UUibz7sYz_7dVjbeoBx-ysanYKJmWKRbEqCNATHHcRLXBXopDekTpdCBHhvIqyFfOKNQzW7PXYTP-rGgEPzbm-81qAb0In_mUr4Ju1pZE"/>
+<div>
+<p class="text-data-table font-bold">Sari Putri</p>
+<p class="text-[10px] text-on-surface-variant">IT Support</p>
+</div>
+</div>
+<button class="p-2 hover:bg-surface rounded-full text-primary transition-colors"><span class="material-symbols-outlined text-sm">chat_bubble</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Global Stats -->
+<footer class="mt-auto py-6 px-10 border-t border-outline-variant/30 text-on-surface-variant flex justify-between items-center text-[12px] bg-surface-container-lowest">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> System Live</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">history</span> Last Refreshed: 14:32:01 WIB</span>
+</div>
+<div class="flex gap-4">
+<a class="hover:text-primary underline" href="#">Security Policy</a>
+<a class="hover:text-primary underline" href="#">Technical Support</a>
+</div>
+</footer>
+</main>
+<!-- FAB for Emergency Alert Rules (Optional contextually) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined">add_alert</span>
+</button>
+</body></html>

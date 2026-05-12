@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e4e1e9",
+                    "secondary-container": "#0070eb",
+                    "on-tertiary-container": "#f09b63",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efedf4",
+                    "secondary": "#0058bc",
+                    "on-surface": "#1b1b21",
+                    "on-secondary-fixed": "#001a41",
+                    "inverse-surface": "#303036",
+                    "on-primary-fixed": "#000d60",
+                    "primary-container": "#2e3a8c",
+                    "surface-bright": "#fbf8ff",
+                    "background": "#fbf8ff",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#dfe0ff",
+                    "inverse-primary": "#bcc3ff",
+                    "tertiary-fixed-dim": "#ffb689",
+                    "inverse-on-surface": "#f2eff7",
+                    "on-secondary-container": "#fefcff",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e9e7ef",
+                    "surface-container-highest": "#e4e1e9",
+                    "on-tertiary-fixed": "#311300",
+                    "primary": "#142175",
+                    "tertiary": "#4b2000",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004493",
+                    "surface": "#fbf8ff",
+                    "on-primary-fixed-variant": "#333f91",
+                    "primary-fixed-dim": "#bcc3ff",
+                    "surface-dim": "#dbd9e1",
+                    "outline-variant": "#c6c5d3",
+                    "tertiary-container": "#6d3200",
+                    "surface-container-low": "#f5f2fa",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "outline": "#767682",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdbc7",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-surface-variant": "#454651",
+                    "on-primary-container": "#9ea9ff",
+                    "on-tertiary-fixed-variant": "#723603",
+                    "surface-tint": "#4b57aa",
+                    "on-background": "#1b1b21"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "title-sm": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Side Navigation Bar -->
+<nav class="fixed left-0 top-0 h-screen w-[280px] border-r border-outline-variant dark:border-outline backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 flex flex-col p-md z-50">
+<div class="mb-xl px-sm flex items-center gap-sm">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">PaySPP</span>
+</div>
+<div class="space-y-1 flex-grow overflow-y-auto">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-md text-body-md">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Payment Bills</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Transactions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Installments</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md text-body-md">Payment Validation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">error_outline</span>
+<span class="font-body-md text-body-md">Arrears Monitoring</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-body-md text-body-md">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-semibold rounded-lg scale-[0.98]" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-body-md text-body-md">User Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+<div class="mt-xl">
+<button class="w-full py-md px-lg bg-primary text-on-primary rounded-lg font-title-sm text-title-sm shadow-sm flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">add</span>
+                Create New Bill
+            </button>
+</div>
+</nav>
+<!-- Top App Bar -->
+<header class="sticky top-0 right-0 z-40 w-full backdrop-blur-xl border-b border-outline-variant flex items-center justify-between h-16 px-xl ml-[280px] bg-surface/70" style="width: calc(100% - 280px);">
+<div class="flex items-center gap-xl">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-sm font-body-sm w-64 focus:ring-2 focus:ring-primary outline-none" placeholder="Search accounts or roles..." type="text"/>
+</div>
+<div class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Overview</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">calendar_month</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2023/2024</span>
+</div>
+<div class="flex gap-md">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low px-2 py-1 rounded-lg transition-colors">
+<img alt="Admin User Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a senior administrator in a minimalist modern office setting. The lighting is bright and clean, emphasizing a professional yet approachable demeanor. The background features blurred architectural lines of a contemporary educational institution, maintaining a high-key light mode aesthetic with subtle corporate blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLQn63jKyKn6k7Gw2n_voEhIwdsPymQ0W6bszRw4F9oIsQi6qotPkV3X8o4LCw0p9ek8EMasz1Df5672j9ctghi6x94doD9MuwVCPBE-F8QKAg2CmHVeG2I63oemZdf8dagghMR1IhCcCYdLMv4vl8EtIkBjGhyIdCiM-tHohJqh0xm_qhxQ1j9UVx1B-NY1WGl0XnQrMnPzo0rmtzW2w7B4y3W9X0jNo0z0vlt7ipOPFsDaNMIB-cMtUVesbl7UYkbs5Qp5iJs0M"/>
+<span class="font-title-sm text-title-sm text-on-surface">Admin User</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[280px] p-xl bg-background min-h-screen">
+<div class="max-w-[1440px] mx-auto space-y-xl">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary">User Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage administrative access, permissions, and security logs.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-md border border-outline text-on-surface-variant rounded-lg font-title-sm text-title-sm hover:bg-surface-container-low transition-colors">Export Logs</button>
+<button class="px-lg py-md bg-primary text-on-primary rounded-lg font-title-sm text-title-sm shadow-sm flex items-center gap-sm">
+<span class="material-symbols-outlined">person_add</span>
+                        Invite Admin
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Admin Accounts List (Level 1 Surface) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Admin Accounts</h2>
+<div class="flex gap-sm">
+<span class="bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded-lg font-label-caps text-label-caps uppercase">12 Total Users</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="pb-md font-label-caps text-label-caps text-outline uppercase">User</th>
+<th class="pb-md font-label-caps text-label-caps text-outline uppercase">Role</th>
+<th class="pb-md font-label-caps text-label-caps text-outline uppercase">Status</th>
+<th class="pb-md font-label-caps text-label-caps text-outline uppercase">Last Login</th>
+<th class="pb-md"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">JD</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">John Doe</div>
+<div class="font-body-sm text-body-sm text-outline">john.doe@payspp.edu</div>
+</div>
+</div>
+</td>
+<td class="py-md">
+<span class="px-sm py-1 bg-primary-container text-on-primary-container rounded-lg font-body-sm text-body-sm">Super Admin</span>
+</td>
+<td class="py-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-md font-data-mono text-data-mono text-on-surface-variant">2 mins ago</td>
+<td class="py-md text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">SM</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Sarah Miller</div>
+<div class="font-body-sm text-body-sm text-outline">s.miller@payspp.edu</div>
+</div>
+</div>
+</td>
+<td class="py-md">
+<span class="px-sm py-1 bg-surface-container-high text-on-surface-variant rounded-lg font-body-sm text-body-sm">Treasurer</span>
+</td>
+<td class="py-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-md font-data-mono text-data-mono text-on-surface-variant">1 hour ago</td>
+<td class="py-md text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-bold">RB</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Robert Brown</div>
+<div class="font-body-sm text-body-sm text-outline">r.brown@payspp.edu</div>
+</div>
+</div>
+</td>
+<td class="py-md">
+<span class="px-sm py-1 bg-surface-container-high text-on-surface-variant rounded-lg font-body-sm text-body-sm">Registrar</span>
+</td>
+<td class="py-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Inactive</span>
+</div>
+</td>
+<td class="py-md font-data-mono text-data-mono text-on-surface-variant">2 days ago</td>
+<td class="py-md text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Activity Log Sidebar (Modern Timeline) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-lg overflow-hidden flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Activity Logs</h2>
+<button class="text-primary font-label-caps text-label-caps uppercase hover:underline">View All</button>
+</div>
+<div class="space-y-lg relative flex-grow">
+<div class="absolute left-4 top-0 bottom-0 w-0.5 bg-outline-variant"></div>
+<div class="relative pl-xl">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="font-title-sm text-title-sm text-on-surface">Admin Role Modified</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">John Doe updated permissions for 'Treasurer' role.</div>
+<div class="font-data-mono text-[12px] text-outline mt-1">Today, 10:42 AM</div>
+</div>
+<div class="relative pl-xl">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-error ring-4 ring-surface-container-lowest"></div>
+<div class="font-title-sm text-title-sm text-on-surface">Failed Login Attempt</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">3 failed attempts from IP: 192.168.1.45 (Account: r.brown).</div>
+<div class="font-data-mono text-[12px] text-outline mt-1">Today, 08:15 AM</div>
+</div>
+<div class="relative pl-xl">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-green-500 ring-4 ring-surface-container-lowest"></div>
+<div class="font-title-sm text-title-sm text-on-surface">New Admin Invited</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sarah Miller invited 'Jessica Chen' as Registrar.</div>
+<div class="font-data-mono text-[12px] text-outline mt-1">Yesterday, 04:55 PM</div>
+</div>
+<div class="relative pl-xl">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="font-title-sm text-title-sm text-on-surface">Bill Template Edited</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">System updated tuition bill template header.</div>
+<div class="font-data-mono text-[12px] text-outline mt-1">Yesterday, 11:20 AM</div>
+</div>
+</div>
+</div>
+<!-- Permissions Matrix (Advanced Grid) -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-lg">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Permissions Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Define module access for system roles. Changes apply instantly.</p>
+</div>
+<div class="flex bg-surface-container rounded-lg p-1">
+<button class="px-md py-1 bg-surface-container-lowest shadow-sm rounded-md font-label-caps text-label-caps uppercase">Super Admin</button>
+<button class="px-md py-1 text-outline font-label-caps text-label-caps uppercase hover:text-on-surface">Treasurer</button>
+<button class="px-md py-1 text-outline font-label-caps text-label-caps uppercase hover:text-on-surface">Registrar</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Module: Financials -->
+<div class="p-md rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<span class="font-title-sm text-title-sm text-on-surface">Financials</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Create Bills</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Refund Payments</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Override Fees</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+</ul>
+</div>
+<!-- Module: Reporting -->
+<div class="p-md rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="font-title-sm text-title-sm text-on-surface">Reporting</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>View Audit Trail</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Export Financials</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>PII Access</span>
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+</ul>
+</div>
+<!-- Module: Students -->
+<div class="p-md rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">person_search</span>
+<span class="font-title-sm text-title-sm text-on-surface">Students</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Bulk Import</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Edit Profiles</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Manage Arrears</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+</ul>
+</div>
+<!-- Module: Settings -->
+<div class="p-md rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+<span class="font-title-sm text-title-sm text-on-surface">Settings</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<ul class="space-y-sm">
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Change API Keys</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Manage SMTP</span>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+<li class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Database Maintenance</span>
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-xl flex justify-end gap-md">
+<button class="px-lg py-md border border-outline text-on-surface-variant rounded-lg font-title-sm text-title-sm hover:bg-surface-container-low transition-colors">Reset to Default</button>
+<button class="px-lg py-md bg-secondary text-on-secondary rounded-lg font-title-sm text-title-sm shadow-sm transition-all duration-200 active:scale-[0.98]">Save Matrix Changes</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Information Card (Asymmetric floating element) -->
+<div class="fixed bottom-lg right-lg w-80 bg-surface/80 backdrop-blur-md border border-primary-container p-md rounded-xl shadow-lg z-50">
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">Security Recommendation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">2FA is currently optional for Registrar roles. We recommend enforcing it for all administrative access levels.</p>
+<button class="mt-md text-secondary font-label-caps text-label-caps uppercase font-bold hover:underline">Enforce Now</button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings — PaySPP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e4e1e9",
+                        "secondary-container": "#0070eb",
+                        "on-tertiary-container": "#f09b63",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#efedf4",
+                        "secondary": "#0058bc",
+                        "on-surface": "#1b1b21",
+                        "on-secondary-fixed": "#001a41",
+                        "inverse-surface": "#303036",
+                        "on-primary-fixed": "#000d60",
+                        "primary-container": "#2e3a8c",
+                        "surface-bright": "#fbf8ff",
+                        "background": "#fbf8ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#dfe0ff",
+                        "inverse-primary": "#bcc3ff",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "inverse-on-surface": "#f2eff7",
+                        "on-secondary-container": "#fefcff",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e9e7ef",
+                        "surface-container-highest": "#e4e1e9",
+                        "on-tertiary-fixed": "#311300",
+                        "primary": "#142175",
+                        "tertiary": "#4b2000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004493",
+                        "surface": "#fbf8ff",
+                        "on-primary-fixed-variant": "#333f91",
+                        "primary-fixed-dim": "#bcc3ff",
+                        "surface-dim": "#dbd9e1",
+                        "outline-variant": "#c6c5d3",
+                        "tertiary-container": "#6d3200",
+                        "surface-container-low": "#f5f2fa",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#767682",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdbc7",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-surface-variant": "#454651",
+                        "on-primary-container": "#9ea9ff",
+                        "on-tertiary-fixed-variant": "#723603",
+                        "surface-tint": "#4b57aa",
+                        "on-background": "#1b1b21"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "title-sm": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] border-r border-outline-variant bg-surface/70 backdrop-blur-xl flex flex-col p-md z-50">
+<div class="mb-xl px-sm flex items-center gap-md">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">PaySPP</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Academic Year 2023/24</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto pr-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-md">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md">Payment Bills</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md">Transactions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md">Installments</span>
+</a>
+<div class="my-md border-t border-outline-variant/30"></div>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md">Payment Validation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">error_outline</span>
+<span class="font-body-md">Arrears Monitoring</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md">Reports</span>
+</a>
+<div class="my-md border-t border-outline-variant/30"></div>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-body-md">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="font-body-md">User Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container font-semibold rounded-lg scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-xl">
+<button class="w-full py-md bg-primary text-on-primary rounded-xl font-title-sm flex items-center justify-center gap-sm shadow-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                Create New Bill
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="sticky top-0 ml-[280px] z-40 h-16 bg-surface/70 backdrop-blur-xl border-b border-outline-variant flex items-center justify-between px-xl shadow-sm">
+<div class="flex items-center gap-xl">
+<h2 class="font-title-sm text-title-sm text-primary">Settings</h2>
+<div class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-primary border-b-2 border-primary font-bold py-base" href="#">Overview</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary py-base" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">school</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<div class="text-right hidden lg:block">
+<p class="text-body-sm font-semibold">Admin User</p>
+<p class="text-xs text-on-surface-variant">System Administrator</p>
+</div>
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full border-2 border-outline-variant object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhRCFrjcKFE3dx7QEuUeqR3oIAJ5o_CNssO4hfrLZImQ1Fr6JroI3Ts-qI8Ep2TKkt_qYZlHhvwf3-4Rmc75_CMMALSSJtYYRhTa1Ujr_v9lxJSzdcfHPCQ0bFsnk4s9EliJxSdNL-4oaG6JA1KoElQ5nHqdv53Z3QzAIprMguEu8o-R5m4GEDwcvFuk0rJiPyISGAdLbAOGwOBIDh2XrN2yJSCGJ2yvTzspBjg5QjmFgIOszamTwOwEvzxiq5xqz3Hvm2KYczd0U"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="ml-[280px] p-xl max-w-7xl mx-auto">
+<div class="mb-xl">
+<h1 class="font-display-lg text-display-lg text-primary">System Settings</h1>
+<p class="text-on-surface-variant mt-sm">Configure school identity, payment gateways, and system preferences.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Settings Navigation -->
+<div class="lg:col-span-3">
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant p-md space-y-sm">
+<button class="w-full flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container font-semibold rounded-lg">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-body-md text-left flex-1">General Settings</span>
+</button>
+<button class="w-full flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-body-md text-left flex-1">Payment Gateway</span>
+</button>
+<button class="w-full flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">tune</span>
+<span class="text-body-md text-left flex-1">Preferences</span>
+</button>
+<button class="w-full flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">shield</span>
+<span class="text-body-md text-left flex-1">Security</span>
+</button>
+</div>
+</div>
+<!-- Configuration Panels -->
+<div class="lg:col-span-9 space-y-xl">
+<!-- Section: General Settings -->
+<section class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-xl border-b border-outline-variant">
+<h3 class="font-title-sm text-title-sm text-primary">School Identity</h3>
+<p class="text-body-sm text-on-surface-variant">Update your school information and brand assets.</p>
+</div>
+<div class="p-xl space-y-xl">
+<!-- Logo Upload -->
+<div class="flex items-start gap-xl">
+<div class="w-24 h-24 bg-surface-container rounded-xl border-2 border-dashed border-outline flex flex-col items-center justify-center text-outline overflow-hidden">
+<span class="material-symbols-outlined text-3xl">add_a_photo</span>
+<span class="text-[10px] mt-1 font-semibold uppercase">Upload</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title-sm text-sm mb-xs">School Logo</h4>
+<p class="text-body-sm text-on-surface-variant mb-md">Recommended size: 512x512px. SVG or PNG preferred.</p>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-primary text-on-primary rounded-lg text-sm font-semibold">Change Logo</button>
+<button class="px-md py-sm bg-surface-container text-on-surface-variant rounded-lg text-sm font-semibold">Remove</button>
+</div>
+</div>
+</div>
+<!-- Form Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="block text-sm font-semibold text-on-surface-variant">School Name</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="text" value="SMA Nusantara Raya Jakarta"/>
+</div>
+<div class="space-y-sm">
+<label class="block text-sm font-semibold text-on-surface-variant">NPSN (National School ID)</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="text" value="20104567"/>
+</div>
+<div class="space-y-sm">
+<label class="block text-sm font-semibold text-on-surface-variant">Academic Year Configuration</label>
+<select class="w-full px-md py-sm rounded-lg border border-outline focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none">
+<option>2023/2024 (Active)</option>
+<option>2022/2023</option>
+<option>2024/2025 (Upcoming)</option>
+</select>
+</div>
+<div class="space-y-sm">
+<label class="block text-sm font-semibold text-on-surface-variant">Contact Email</label>
+<input class="w-full px-md py-sm rounded-lg border border-outline focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="email" value="admin@smanusantara.sch.id"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Payment Gateway -->
+<section class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-xl border-b border-outline-variant flex justify-between items-center">
+<div>
+<h3 class="font-title-sm text-title-sm text-primary">Payment Gateway Integration</h3>
+<p class="text-body-sm text-on-surface-variant">Manage your connection to Midtrans or Xendit for automated billing.</p>
+</div>
+<span class="px-md py-xs bg-green-100 text-green-800 text-xs font-bold rounded-full flex items-center gap-xs">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            CONNECTED
+                        </span>
+</div>
+<div class="p-xl space-y-lg">
+<!-- Gateway Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Virtual Accounts Card -->
+<div class="p-lg rounded-xl border border-outline-variant bg-surface-container-low">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<div>
+<h4 class="font-title-sm text-sm">Virtual Accounts</h4>
+<p class="text-xs text-on-surface-variant">BCA, Mandiri, BNI, BRI</p>
+</div>
+</div>
+<div class="h-6 w-10 bg-primary/20 rounded-full relative flex items-center px-1">
+<div class="h-4 w-4 bg-primary rounded-full translate-x-4"></div>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Transaction Fee</span>
+<span class="font-semibold">Rp 4.000 / tx</span>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full">
+<div class="w-full bg-primary h-1 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- QRIS Card -->
+<div class="p-lg rounded-xl border border-outline-variant bg-surface-container-low">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">qr_code_2</span>
+</div>
+<div>
+<h4 class="font-title-sm text-sm">QRIS</h4>
+<p class="text-xs text-on-surface-variant">Gopay, OVO, ShopeePay</p>
+</div>
+</div>
+<div class="h-6 w-10 bg-primary/20 rounded-full relative flex items-center px-1">
+<div class="h-4 w-4 bg-primary rounded-full translate-x-4"></div>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">MDR Fee</span>
+<span class="font-semibold">0.7% (Flat)</span>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full">
+<div class="w-full bg-primary h-1 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="block text-sm font-semibold text-on-surface-variant">API Key (Production)</label>
+<div class="flex gap-sm">
+<input class="flex-1 px-md py-sm rounded-lg border border-outline bg-surface-container focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-mono text-sm" readonly="" type="password" value="sk_production_823908412093841029384"/>
+<button class="px-md py-sm bg-surface-container-high text-on-surface-variant rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Preferences -->
+<section class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-xl border-b border-outline-variant">
+<h3 class="font-title-sm text-title-sm text-primary">Preferences &amp; Localization</h3>
+<p class="text-body-sm text-on-surface-variant">Tailor the user interface and system behavior.</p>
+</div>
+<div class="p-xl space-y-xl">
+<!-- Toggle Groups -->
+<div class="space-y-lg">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-sm">Automatic Reminders</h4>
+<p class="text-body-sm text-on-surface-variant">Send WhatsApp/Email notifications for overdue payments.</p>
+</div>
+<div class="h-6 w-10 bg-primary/20 rounded-full relative flex items-center px-1 cursor-pointer">
+<div class="h-4 w-4 bg-primary rounded-full translate-x-4"></div>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-sm">Indonesia Localization</h4>
+<p class="text-body-sm text-on-surface-variant">Enable Rupiah (IDR) and Indonesian bank formats.</p>
+</div>
+<div class="h-6 w-10 bg-primary/20 rounded-full relative flex items-center px-1 cursor-pointer">
+<div class="h-4 w-4 bg-primary rounded-full translate-x-4"></div>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-sm">Dark Mode</h4>
+<p class="text-body-sm text-on-surface-variant">Switch between light and dark visual interfaces.</p>
+</div>
+<div class="h-8 p-1 bg-surface-container rounded-full flex gap-1">
+<button class="px-4 py-1 bg-white shadow-sm rounded-full text-xs font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">light_mode</span>
+                                        Light
+                                    </button>
+<button class="px-4 py-1 text-on-surface-variant rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">dark_mode</span>
+                                        Dark
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex justify-end gap-md">
+<button class="px-xl py-md border border-outline-variant text-on-surface-variant rounded-xl font-title-sm hover:bg-surface-container-high transition-colors">Discard Changes</button>
+<button class="px-xl py-md bg-primary text-on-primary rounded-xl font-title-sm shadow-lg hover:opacity-90 transition-opacity">Save All Configuration</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="ml-[280px] p-xl text-center border-t border-outline-variant/30">
+<p class="text-body-sm text-on-surface-variant">© 2024 PaySPP Financial Ecosystem. Licensed for SMA Nusantara Raya. All rights reserved.</p>
+</footer>
+</body></html>

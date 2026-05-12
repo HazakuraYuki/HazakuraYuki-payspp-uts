@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit &amp; Activity Logs | PaySPP Principal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dfe3e4",
+                        "on-secondary-container": "#5c6274",
+                        "outline-variant": "#bdc8cb",
+                        "outline": "#6e797b",
+                        "secondary-container": "#d9dff5",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3e494b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-container": "#a7642d",
+                        "surface-tint": "#006876",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#894c16",
+                        "surface-bright": "#f6fafb",
+                        "primary": "#006572",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#77d4e5",
+                        "surface-dim": "#d7dbdc",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-primary-fixed": "#001f24",
+                        "error": "#ba1a1a",
+                        "on-background": "#181c1d",
+                        "surface-container-highest": "#dfe3e4",
+                        "surface-container-low": "#f1f4f5",
+                        "on-surface": "#181c1d",
+                        "on-primary-container": "#f6fdff",
+                        "inverse-on-surface": "#eef1f2",
+                        "inverse-surface": "#2d3132",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#028090",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#dce2f7",
+                        "on-secondary-fixed": "#141b2b",
+                        "secondary": "#575e70",
+                        "surface-container": "#ebeeef",
+                        "surface": "#f6fafb",
+                        "primary-fixed": "#9eefff",
+                        "inverse-primary": "#77d4e5",
+                        "background": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#ffb782"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "data-table": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-metric": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "data-table": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-metric": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface dark:bg-inverse-surface shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col py-4 space-y-2 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">PaySPP</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Executive Dashboard</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-2">
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-caps font-label-caps">Principal Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-label-caps font-label-caps">Financial Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="text-label-caps font-label-caps">Payment Compliance</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">error_outline</span>
+<span class="text-label-caps font-label-caps">Student Arrears</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">domain</span>
+<span class="text-label-caps font-label-caps">Class Performance</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+<span class="text-label-caps font-label-caps">Revenue Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">calendar_month</span>
+<span class="text-label-caps font-label-caps">Installment Monitoring</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">notifications_active</span>
+<span class="text-label-caps font-label-caps">Notifications &amp; Alerts</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">description</span>
+<span class="text-label-caps font-label-caps">Reports</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center px-4 py-3 bg-primary text-on-primary rounded-lg mx-2 my-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">history_edu</span>
+<span class="text-label-caps font-label-caps">Audit &amp; Activity Logs</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">event_note</span>
+<span class="text-label-caps font-label-caps">Academic Year Summary</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors duration-200 rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<div class="px-6 py-4 mt-auto border-t border-outline-variant flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                PR
+            </div>
+<div>
+<p class="text-label-caps font-label-caps text-on-surface">Principal</p>
+<p class="text-[10px] text-on-surface-variant">School Admin ID: 9021</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full bg-surface/60 dark:bg-inverse-surface/60 backdrop-blur-xl border-b border-outline-variant dark:border-outline flex justify-between items-center px-10 h-16 ml-[280px] max-w-[calc(1440px-280px)]">
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-md focus:ring-2 focus:ring-primary w-64" placeholder="Search logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Financials</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-caps font-label-caps" href="#">Audit</a>
+</nav>
+<div class="h-6 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">location_city</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">calendar_today</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-caps font-label-caps hover:opacity-90 transition-opacity">
+                Sync Now
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[280px] p-8 max-w-[calc(1440px-280px)]">
+<!-- Dashboard Header & High-Level Metrics -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Audit &amp; Activity Logs</h2>
+<p class="text-body-md text-on-surface-variant">Real-time surveillance of administrative and financial operations.</p>
+</div>
+<div class="flex space-x-3">
+<button class="flex items-center px-4 py-2 bg-surface-container-high border border-outline-variant rounded-lg text-label-caps font-label-caps hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">download</span> Export Audit PDF
+                    </button>
+<button class="flex items-center px-4 py-2 bg-surface-container-high border border-outline-variant rounded-lg text-label-caps font-label-caps hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">filter_list</span> Filter Range
+                    </button>
+</div>
+</div>
+<!-- Audit Dashboard Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">security</span>
+</span>
+<span class="text-label-caps font-label-caps text-primary">System Secure</span>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Last Security Audit</p>
+<p class="text-headline-md font-headline-md text-on-surface mt-1">2h 15m ago</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-tertiary/10 text-tertiary rounded-lg">
+<span class="material-symbols-outlined">group</span>
+</span>
+<span class="text-label-caps font-label-caps text-tertiary">Active Staff</span>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Personnel Monitoring</p>
+<p class="text-headline-md font-headline-md text-on-surface mt-1">12 Logged In</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-secondary/10 text-secondary rounded-lg">
+<span class="material-symbols-outlined">receipt_long</span>
+</span>
+<span class="text-label-caps font-label-caps text-secondary">Sensitive Actions</span>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Today's Transactions</p>
+<p class="text-headline-md font-headline-md text-on-surface mt-1">1,482 Logs</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-error-container text-on-error-container rounded-lg">
+<span class="material-symbols-outlined">report_problem</span>
+</span>
+<span class="text-label-caps font-label-caps text-error">Failed Attempts</span>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Unauthorized Access</p>
+<p class="text-headline-md font-headline-md text-on-surface mt-1">0 Alerts</p>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="bg-surface-container-low p-4 rounded-xl mb-6 border border-outline-variant flex flex-wrap items-center gap-4">
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 flex-1 min-w-[200px]">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full" placeholder="Filter by staff name or action..." type="text"/>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Staff:</span>
+<select class="bg-surface-container-lowest border-outline-variant rounded-lg text-body-md py-2 px-3 focus:ring-primary">
+<option>All Personnel</option>
+<option>Budi Santoso (Finance)</option>
+<option>Siti Aminah (Admissions)</option>
+<option>Dewi Lestari (Admin)</option>
+</select>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Activity:</span>
+<select class="bg-surface-container-lowest border-outline-variant rounded-lg text-body-md py-2 px-3 focus:ring-primary">
+<option>All Activities</option>
+<option>Payment Validation</option>
+<option>Report Export</option>
+<option>User Login</option>
+<option>Setting Changed</option>
+</select>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Date:</span>
+<input class="bg-surface-container-lowest border-outline-variant rounded-lg text-body-md py-2 px-3 focus:ring-primary" type="date"/>
+</div>
+</section>
+<!-- Comprehensive Logs Table -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Activity Timeline</h3>
+<span class="text-label-caps font-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full">Read-Only Mode</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">Timestamp</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">User (Finance Staff)</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">Activity Description</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">IP / Device Info</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Log Entry 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">Oct 24, 2023</p>
+<p class="text-[12px] text-on-surface-variant">14:32:05 WIB</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[12px] font-bold mr-3">BS</div>
+<div>
+<p class="text-data-table font-data-table text-on-surface">Budi Santoso</p>
+<p class="text-[12px] text-on-surface-variant">Senior Accountant</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-data-table font-data-table text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary mr-2">verified</span>
+                                    Validated Payment #SPP-99210
+                                </div>
+<p class="text-[12px] text-on-surface-variant mt-0.5">Amount: Rp 2,500,000 - Grade 11</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">192.168.1.45</p>
+<p class="text-[12px] text-on-surface-variant">Chrome v118 / Windows 11</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Success</span>
+</td>
+</tr>
+<!-- Log Entry 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">Oct 24, 2023</p>
+<p class="text-[12px] text-on-surface-variant">14:15:11 WIB</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center text-[12px] font-bold mr-3">SA</div>
+<div>
+<p class="text-data-table font-data-table text-on-surface">Siti Aminah</p>
+<p class="text-[12px] text-on-surface-variant">Admissions Staff</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-data-table font-data-table text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary mr-2">file_download</span>
+                                    Exported 'Quarterly Arrears Report'
+                                </div>
+<p class="text-[12px] text-on-surface-variant mt-0.5">Format: XLSX / All Classes</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">114.125.10.8</p>
+<p class="text-[12px] text-on-surface-variant">Safari / MacOS Sonoma</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Success</span>
+</td>
+</tr>
+<!-- Log Entry 3 (Warning Style) -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">Oct 24, 2023</p>
+<p class="text-[12px] text-on-surface-variant">13:58:20 WIB</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center text-[12px] font-bold mr-3">DL</div>
+<div>
+<p class="text-data-table font-data-table text-on-surface">Dewi Lestari</p>
+<p class="text-[12px] text-on-surface-variant">System Administrator</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-data-table font-data-table text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-error mr-2">settings_suggest</span>
+                                    Modified 'Global Discount %'
+                                </div>
+<p class="text-[12px] text-on-surface-variant mt-0.5">Value changed: 5% → 10%</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">192.168.1.12</p>
+<p class="text-[12px] text-on-surface-variant">Edge / Windows 11</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded uppercase">Flagged</span>
+</td>
+</tr>
+<!-- Log Entry 4 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">Oct 24, 2023</p>
+<p class="text-[12px] text-on-surface-variant">12:45:00 WIB</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[12px] font-bold mr-3">BS</div>
+<div>
+<p class="text-data-table font-data-table text-on-surface">Budi Santoso</p>
+<p class="text-[12px] text-on-surface-variant">Senior Accountant</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-data-table font-data-table text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant mr-2">login</span>
+                                    System Login
+                                </div>
+<p class="text-[12px] text-on-surface-variant mt-0.5">Session initiated successfully</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">192.168.1.45</p>
+<p class="text-[12px] text-on-surface-variant">Chrome v118 / Windows 11</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Success</span>
+</td>
+</tr>
+<!-- Log Entry 5 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">Oct 24, 2023</p>
+<p class="text-[12px] text-on-surface-variant">11:22:15 WIB</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[12px] font-bold mr-3">BS</div>
+<div>
+<p class="text-data-table font-data-table text-on-surface">Budi Santoso</p>
+<p class="text-[12px] text-on-surface-variant">Senior Accountant</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center text-data-table font-data-table text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary mr-2">verified</span>
+                                    Bulk Validation (12 entries)
+                                </div>
+<p class="text-[12px] text-on-surface-variant mt-0.5">Total Value: Rp 14,200,000</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-data-table font-data-table text-on-surface">192.168.1.45</p>
+<p class="text-[12px] text-on-surface-variant">Chrome v118 / Windows 11</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Success</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-low flex justify-between items-center border-t border-outline-variant">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Showing 5 of 1,482 logs</span>
+<div class="flex space-x-2">
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded text-label-caps font-label-caps">1</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant">2</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant">3</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Audit Insights Asymmetric Layout -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant">
+<h4 class="text-headline-sm font-headline-sm text-on-surface mb-6">Device Usage Distribution</h4>
+<div class="flex items-center h-48 space-x-4">
+<!-- Placeholder for Chart -->
+<div class="flex-1 h-full bg-gradient-to-t from-primary/20 to-primary/5 rounded-lg flex items-end justify-center p-4">
+<div class="flex space-x-6 items-end w-full h-full justify-around">
+<div class="w-12 bg-primary rounded-t-lg" style="height: 85%;"></div>
+<div class="w-12 bg-primary-container rounded-t-lg" style="height: 45%;"></div>
+<div class="w-12 bg-secondary rounded-t-lg" style="height: 15%;"></div>
+<div class="w-12 bg-outline rounded-t-lg" style="height: 5%;"></div>
+</div>
+</div>
+<div class="w-48 space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Desktop (Chrome)</span>
+<span class="text-data-table font-data-table">85%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Desktop (Edge)</span>
+<span class="text-data-table font-data-table">10%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Mobile (Safari)</span>
+<span class="text-data-table font-data-table">4%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Others</span>
+<span class="text-data-table font-data-table">1%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-6 rounded-xl text-on-primary-container flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-[32px] mb-4">gavel</span>
+<h4 class="text-headline-sm font-headline-sm mb-2">Compliance Rating</h4>
+<p class="text-body-md opacity-90">Your current system operation aligns 99.8% with standardized financial audit requirements.</p>
+</div>
+<div class="mt-6">
+<p class="text-display-metric font-display-metric">A+</p>
+<p class="text-label-caps font-label-caps opacity-80 uppercase">Auditor Certified</p>
+</div>
+</div>
+</section>
+<!-- Staff Interaction Map (Bento-style Decorative Element) -->
+<section class="mt-8">
+<div class="bg-surface-container-highest rounded-xl overflow-hidden relative h-[300px] border border-outline-variant">
+<img alt="Financial Data Analytics Overlay" class="w-full h-full object-cover mix-blend-overlay opacity-30" data-alt="A professional high-end business intelligence dashboard display showing complex data charts and financial metrics. The background is a clean, modern office setting with soft natural lighting and a teal and white color palette. The image conveys financial precision, technological advancement, and administrative authority suitable for an executive school board." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARAqHcSVWVyqoZ4a1hbnoX5bhrjCZQYDQAF9q5QmzqOdFpa-TteX353eXLWYIjGhovUM5DBmmopbMkIZhiiutTgpbG3-T8Z82nCCHdIuX8yEuCfUpzKdpqaM1D9ikdfL3x9mZIxDBzBHb-z32ogpMQT1NC8mUIqRBBtTOLwCdKJ1FsjUMrgB5JQLFsN0xB7uAoHUqwMha54kJrvjiioRbzFE2oZlf5rcuLtShxZZqGwAYfZ60umvb7w8Zo18UInYLqDVa_-mKTmx8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface to-transparent p-10 flex flex-col justify-center max-w-lg">
+<h4 class="text-headline-md font-headline-md text-on-surface mb-2">Security Perimeter Active</h4>
+<p class="text-body-md text-on-surface-variant mb-6">IP tracking and biometric session tokens are currently active for all administrative logins across your school network.</p>
+<div class="flex space-x-4">
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined mr-2">shield</span>
+<span class="text-label-caps font-label-caps">Encrypted Logs</span>
+</div>
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined mr-2">cloud_done</span>
+<span class="text-label-caps font-label-caps">Immutable Record</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB -->
+<!-- Suppressed based on "Audit & Activity Logs" page intent (monitoring focus, no creation) -->
+</body></html>
