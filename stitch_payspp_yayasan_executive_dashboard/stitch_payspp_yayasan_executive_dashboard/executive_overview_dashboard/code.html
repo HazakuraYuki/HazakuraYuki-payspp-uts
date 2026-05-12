@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#301400",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a7642d",
+                    "surface-tint": "#006876",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary": "#006572",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#894c16",
+                    "surface-bright": "#f6fafb",
+                    "on-secondary-container": "#57657a",
+                    "surface-variant": "#dfe3e4",
+                    "outline": "#6e797b",
+                    "outline-variant": "#bdc8cb",
+                    "secondary-container": "#d5e3fc",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3e494b",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "on-primary-fixed": "#001f24",
+                    "on-background": "#181c1d",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f1f4f5",
+                    "surface-container-highest": "#dfe3e4",
+                    "on-surface": "#181c1d",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d7dbdc",
+                    "primary-fixed-dim": "#77d4e5",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#f6fdff",
+                    "inverse-on-surface": "#eef1f2",
+                    "inverse-surface": "#2d3132",
+                    "surface-container-high": "#e5e9ea",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#028090",
+                    "surface-container": "#ebeeef",
+                    "surface": "#f6fafb",
+                    "primary-fixed": "#9eefff",
+                    "inverse-primary": "#77d4e5",
+                    "background": "#f6fafb",
+                    "on-primary-fixed-variant": "#004e59",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "secondary": "#515f74"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max-width": "1440px",
+                    "grid-columns": "12",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter", "sans-serif"],
+                    "title-lg": ["Inter", "sans-serif"],
+                    "display-lg": ["Manrope", "sans-serif"],
+                    "headline-md": ["Manrope", "sans-serif"],
+                    "headline-xl": ["Manrope", "sans-serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "data-mono": ["Inter", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bdc8cb;
+            border-radius: 10px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 sticky left-0 top-0 bg-surface-container-low border-r border-outline-variant/20 shadow-md py-gutter px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary">PaySPP Exec</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Strategic Oversight</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto custom-scrollbar">
+<!-- Active Tab: Overview -->
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps">Multi-School Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Financial Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+<span class="font-label-caps text-label-caps">Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-caps text-label-caps">Arrears</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-caps text-label-caps">Installments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">School Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps font-bold">Executive Profile</p>
+<p class="text-[10px] text-on-surface-variant">Admin Access</p>
+</div>
+<button class="ml-auto text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full glass-header border-b border-outline-variant/30 shadow-sm px-margin-desktop py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="md:hidden text-primary font-bold text-headline-md">PaySPP</div>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border border-outline-variant/50 rounded-full pl-10 pr-4 py-2 text-body-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all w-64" placeholder="Search school or report..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps font-bold shadow-sm hover:brightness-110 active:scale-95 transition-all">
+                    Quick Insights
+                </button>
+<div class="flex items-center gap-4">
+<button class="relative text-on-surface-variant hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<div class="p-margin-desktop max-w-container-max-width mx-auto w-full space-y-gutter">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary">Executive Dashboard</h2>
+<p class="text-on-surface-variant font-body-md">Yayasan Pendidikan Nusantara — Real-time Financial Oversight</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg flex items-center gap-2 font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Fiscal Year 2024/2025
+                    </div>
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface px-4 py-2 rounded-lg flex items-center gap-2 font-label-caps text-label-caps transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export PDF
+                    </button>
+</div>
+</div>
+<!-- Bento Grid KPI Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+<!-- KPI 1 -->
+<div class="xl:col-span-2 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Total Revenue</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary mb-2">Rp 42.5B</div>
+<div class="flex items-center gap-1 text-primary font-bold text-body-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +12.5% vs Last Year
+                    </div>
+</div>
+<!-- KPI 2 -->
+<div class="xl:col-span-1 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Collection Rate</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">92.4%</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92.4%"></div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="xl:col-span-1 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Outstanding</div>
+<div class="font-headline-xl text-headline-xl text-error mb-2">Rp 3.1B</div>
+<div class="text-on-surface-variant text-body-sm">Arrears Pending</div>
+</div>
+<!-- KPI 4 -->
+<div class="xl:col-span-1 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Total Students</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">12,450</div>
+<div class="text-on-surface-variant text-body-sm">Active Enrollment</div>
+</div>
+<!-- KPI 5 -->
+<div class="xl:col-span-1 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Installments</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">842</div>
+<div class="text-on-surface-variant text-body-sm">Active Plans</div>
+</div>
+<!-- KPI 6 -->
+<div class="xl:col-span-1 p-6 bg-primary-container text-on-primary-container rounded-xl shadow-lg flex flex-col justify-between">
+<div class="font-label-caps text-label-caps text-primary-fixed opacity-80">School Index</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-white">8.8<span class="text-lg opacity-60">/10</span></div>
+<div class="text-primary-fixed text-[10px] font-bold mt-1">EXCELLENT PERFORMANCE</div>
+</div>
+</div>
+</div>
+<!-- Main Analytics Section -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Area Chart: Monthly Revenue -->
+<div class="col-span-12 lg:col-span-8 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-title-lg text-title-lg">Monthly Revenue Trends</h3>
+<p class="text-body-sm text-on-surface-variant">Consolidated revenue across all 12 schools</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded text-body-sm cursor-pointer">6 Months</span>
+<span class="px-3 py-1 bg-primary text-on-primary rounded text-body-sm cursor-pointer">1 Year</span>
+</div>
+</div>
+<div class="h-64 relative flex items-end gap-2 group">
+<!-- Mock Area Chart using CSS Gradients/Divs -->
+<div class="flex-1 bg-primary/10 rounded-t h-[40%] hover:bg-primary/20 transition-all cursor-pointer relative group/bar">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp 2.1B</div>
+</div>
+<div class="flex-1 bg-primary/15 rounded-t h-[55%] hover:bg-primary/25 transition-all cursor-pointer relative group/bar">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-[10px] opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp 2.8B</div>
+</div>
+<div class="flex-1 bg-primary/20 rounded-t h-[48%] hover:bg-primary/30 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/30 rounded-t h-[70%] hover:bg-primary/40 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/25 rounded-t h-[65%] hover:bg-primary/35 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/40 rounded-t h-[85%] hover:bg-primary/50 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/45 rounded-t h-[92%] hover:bg-primary/55 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/40 rounded-t h-[78%] hover:bg-primary/50 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/50 rounded-t h-[95%] hover:bg-primary/60 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/60 rounded-t h-[100%] hover:bg-primary/70 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/55 rounded-t h-[88%] hover:bg-primary/65 transition-all cursor-pointer relative group/bar"></div>
+<div class="flex-1 bg-primary/65 rounded-t h-[94%] hover:bg-primary/75 transition-all cursor-pointer relative group/bar"></div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] font-label-caps text-on-surface-variant border-t border-outline-variant/30 pt-4">
+<span>JUL 23</span><span>AUG 23</span><span>SEP 23</span><span>OCT 23</span><span>NOV 23</span><span>DEC 23</span>
+<span>JAN 24</span><span>FEB 24</span><span>MAR 24</span><span>APR 24</span><span>MAY 24</span><span>JUN 24</span>
+</div>
+</div>
+<!-- Alert Center -->
+<div class="col-span-12 lg:col-span-4 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-title-lg text-title-lg">Critical Alerts</h3>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded-full text-[10px] font-bold">4 NEW</span>
+</div>
+<div class="space-y-4 flex-1 overflow-y-auto pr-1 custom-scrollbar">
+<div class="p-4 bg-error-container/20 border-l-4 border-error rounded-r-lg">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-error text-[18px]">report</span>
+<span class="font-label-caps text-label-caps text-error font-bold">Severe Arrears</span>
+</div>
+<p class="text-body-sm font-bold">SMA Cemerlang Jakarta</p>
+<p class="text-[12px] text-on-surface-variant">Outstanding balance exceeded Rp 450M. Performance drop detected.</p>
+</div>
+<div class="p-4 bg-tertiary-container/10 border-l-4 border-tertiary rounded-r-lg">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary text-[18px]">notifications_active</span>
+<span class="font-label-caps text-label-caps text-tertiary font-bold">High Value Payment</span>
+</div>
+<p class="text-body-sm font-bold">SD Bakti Mulya</p>
+<p class="text-[12px] text-on-surface-variant">Bulk payment received: Rp 1.2B (Foundation Grant Contribution).</p>
+</div>
+<div class="p-4 bg-secondary-container/30 border-l-4 border-secondary rounded-r-lg">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">trending_down</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">Performance Warning</span>
+</div>
+<p class="text-body-sm font-bold">SMP Nusantara Depok</p>
+<p class="text-[12px] text-on-surface-variant">Compliance rate dropped 4% below threshold.</p>
+</div>
+<div class="p-4 bg-error-container/20 border-l-4 border-error rounded-r-lg">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-error text-[18px]">gpp_maybe</span>
+<span class="font-label-caps text-label-caps text-error font-bold">Audit Flag</span>
+</div>
+<p class="text-body-sm font-bold">SMA Global Prestasi</p>
+<p class="text-[12px] text-on-surface-variant">32 installment cases missing supporting documents.</p>
+</div>
+</div>
+</div>
+<!-- School Performance Ranking -->
+<div class="col-span-12 lg:col-span-7 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<h3 class="font-title-lg text-title-lg mb-6">School Performance Index</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/30 font-label-caps text-label-caps text-on-surface-variant">
+<th class="py-4 font-bold">SCHOOL NAME</th>
+<th class="py-4 font-bold">COLLECTION</th>
+<th class="py-4 font-bold">ARREARS</th>
+<th class="py-4 font-bold">COMPLIANCE</th>
+<th class="py-4 font-bold">SCORE</th>
+</tr>
+</thead>
+<tbody class="text-body-sm">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 font-bold">SMA Cemerlang Jakarta</td>
+<td class="py-4">98.2%</td>
+<td class="py-4">Rp 45M</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 100%"></div>
+</div>
+                                            100%
+                                        </div>
+</td>
+<td class="py-4"><span class="bg-primary/10 text-primary px-2 py-1 rounded font-bold">9.8</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 font-bold">SD Bakti Mulya</td>
+<td class="py-4">94.5%</td>
+<td class="py-4">Rp 120M</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 92%"></div>
+</div>
+                                            92%
+                                        </div>
+</td>
+<td class="py-4"><span class="bg-primary/10 text-primary px-2 py-1 rounded font-bold">9.2</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group border-y border-outline-variant/10">
+<td class="py-4 font-bold">SMP Nusantara Depok</td>
+<td class="py-4">88.1%</td>
+<td class="py-4">Rp 310M</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 85%"></div>
+</div>
+                                            85%
+                                        </div>
+</td>
+<td class="py-4"><span class="bg-tertiary-container/30 text-on-tertiary-fixed-variant px-2 py-1 rounded font-bold">8.1</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 font-bold">SMA Global Prestasi</td>
+<td class="py-4">76.4%</td>
+<td class="py-4">Rp 580M</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 68%"></div>
+</div>
+                                            68%
+                                        </div>
+</td>
+<td class="py-4"><span class="bg-error-container text-on-error-container px-2 py-1 rounded font-bold">6.4</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Financial Health Heatmap -->
+<div class="col-span-12 lg:col-span-5 p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-title-lg text-title-lg">Regional Health Map</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] font-label-caps">
+<div class="w-2 h-2 rounded-full bg-primary"></div> Excellent
+                            </div>
+<div class="flex items-center gap-1 text-[10px] font-label-caps">
+<div class="w-2 h-2 rounded-full bg-error"></div> Critical
+                            </div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 h-64">
+<!-- Simulated Heatmap Grid -->
+<div class="bg-primary/90 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">JKT-S</div>
+<div class="bg-primary/80 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">JKT-C</div>
+<div class="bg-primary/70 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">BDG-1</div>
+<div class="bg-primary/40 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">SBY-1</div>
+<div class="bg-primary/95 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">JKT-W</div>
+<div class="bg-primary/50 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">BDG-2</div>
+<div class="bg-error/30 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">MDN-1</div>
+<div class="bg-primary/60 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">DPS-1</div>
+<div class="bg-primary/85 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">JKT-E</div>
+<div class="bg-error/70 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">BGR-1</div>
+<div class="bg-primary/30 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">SMR-1</div>
+<div class="bg-primary/50 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">MLG-1</div>
+<div class="bg-error/90 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">DPK-1</div>
+<div class="bg-primary/40 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">TNG-1</div>
+<div class="bg-primary/20 rounded p-2 text-on-surface text-[10px] flex flex-col justify-end">MKS-1</div>
+<div class="bg-primary/90 rounded p-2 text-on-primary text-[10px] flex flex-col justify-end">JKT-N</div>
+</div>
+<div class="mt-6 p-4 bg-surface-container rounded-lg">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+<span class="font-bold text-primary">Regional Trend:</span> Jakarta South and North branches maintain 98%+ collection. Depok Region (DPK-1) requires immediate intervention due to a sharp 12% drop in installment adherence this quarter.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="flex items-center justify-between pt-8 pb-4 text-[10px] font-label-caps text-on-surface-variant opacity-60">
+<span>© 2024 PaySPP Foundation Management System</span>
+<div class="flex gap-4">
+<span>Server Status: <span class="text-primary font-bold">OPERATIONAL</span></span>
+<span>Last Synced: 2 Mins Ago</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Supressed on Overview as per relevance check, but keeping for visual consistency if needed for quick report -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-surface {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #bdc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#301400",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#a7642d",
+                      "surface-tint": "#006876",
+                      "tertiary-fixed": "#ffdcc5",
+                      "primary": "#006572",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#894c16",
+                      "surface-bright": "#f6fafb",
+                      "on-secondary-container": "#57657a",
+                      "surface-variant": "#dfe3e4",
+                      "outline": "#6e797b",
+                      "outline-variant": "#bdc8cb",
+                      "secondary-container": "#d5e3fc",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#3e494b",
+                      "secondary-fixed-dim": "#b9c7df",
+                      "on-tertiary-fixed-variant": "#6f3801",
+                      "on-primary-fixed": "#001f24",
+                      "on-background": "#181c1d",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f1f4f5",
+                      "surface-container-highest": "#dfe3e4",
+                      "on-surface": "#181c1d",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#d7dbdc",
+                      "primary-fixed-dim": "#77d4e5",
+                      "on-secondary-fixed-variant": "#3a485b",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#f6fdff",
+                      "inverse-on-surface": "#eef1f2",
+                      "inverse-surface": "#2d3132",
+                      "surface-container-high": "#e5e9ea",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#028090",
+                      "surface-container": "#ebeeef",
+                      "surface": "#f6fafb",
+                      "primary-fixed": "#9eefff",
+                      "inverse-primary": "#77d4e5",
+                      "background": "#f6fafb",
+                      "on-primary-fixed-variant": "#004e59",
+                      "tertiary-fixed-dim": "#ffb782",
+                      "secondary-fixed": "#d5e3fc",
+                      "on-secondary-fixed": "#0d1c2e",
+                      "secondary": "#515f74"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "container-max-width": "1440px",
+                      "grid-columns": "12",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "display-lg": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "headline-xl": ["Manrope"],
+                      "label-caps": ["Inter"],
+                      "data-mono": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container-lowest text-primary dark:text-primary-fixed border-r border-outline-variant/20 shadow-md flex flex-col h-screen w-64 sticky left-0 top-0 z-50">
+<div class="px-6 py-8">
+<div class="font-headline-xl text-headline-xl font-bold text-primary">PaySPP Exec</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant opacity-70 mt-1 uppercase tracking-widest">Strategic Oversight</div>
+</div>
+<nav class="flex-1 px-4 overflow-y-auto sidebar-scroll">
+<div class="space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Overview</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">analytics</span>
+<span>Multi-School Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold font-label-caps text-label-caps transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span>Financial Performance</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">monetization_on</span>
+<span>Revenue</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">warning</span>
+<span>Arrears</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Installments</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">school</span>
+<span>School Performance</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">history_edu</span>
+<span>Audit</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notifications</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer rounded-lg font-label-caps text-label-caps">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</div>
+</div>
+</nav>
+<div class="p-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-3">
+<img alt="Executive Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional close-up portrait of a high-level corporate executive in a sharp navy suit, looking confident and approachable. The background is a sophisticated, softly blurred modern office interior with warm ambient lighting. The overall color palette is professional and clean, using muted tones that complement a light-mode UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd8EpSkZgAAzJl4yov-dGofaihQWP3CiH-pfxL9OW10wd9FYQm8_oFa258FoF6DE6z_nY02EiTd973ZrfmejLwLDzn0tqg-wsS8Ljtyhurs2nBUkmRwOSMMzsb_90ywsHCMT0RT3Ct57cQ8qMA-u5epNH5y9jfPhhw1JzRBVvCU8wjOIMn_5VRPI9yJ_Gtob11Br-s1MtGad2UEMWM2yrCPyH6wWlUp8pZhnJrOgkf6V3Pg8tYvhEUvDcklGGg09oemlk-BYvt2ZNa"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Executive Director</p>
+<p class="text-xs text-on-surface-variant truncate">foundation-hq@payspp.edu</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-desktop py-4 w-full sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Financial Performance</span>
+<div class="hidden md:flex items-center gap-1 bg-surface-container-high rounded-full px-4 py-2 w-64 border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body-md" placeholder="Search accounts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps hover:bg-primary transition-colors flex items-center gap-2 cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">auto_graph</span>
+                        Quick Insights
+                    </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-primary/5 p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-primary/5 p-2 rounded-full transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-margin-desktop space-y-gutter max-w-container-max-width mx-auto w-full">
+<!-- Section 1: Executive KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Revenue Highlight (Large Card) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[320px]">
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Consolidated Annual Revenue</p>
+<h2 class="font-headline-xl text-display-lg text-primary">$42,850,200</h2>
+<div class="flex items-center gap-2 mt-4">
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12.4%
+                                </span>
+<span class="text-on-surface-variant text-body-sm font-body-sm">vs. last fiscal year</span>
+</div>
+</div>
+<div class="mt-8 flex items-end gap-2 h-32 relative z-10">
+<!-- Simplified visual bar chart -->
+<div class="flex-1 bg-primary/5 h-1/2 rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/10 h-2/3 rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/15 h-3/4 rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/20 h-1/2 rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/25 h-full rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/30 h-4/5 rounded-t-lg transition-all hover:bg-primary/20"></div>
+<div class="flex-1 bg-primary/40 h-5/6 rounded-t-lg transition-all hover:bg-primary/20"></div>
+</div>
+<!-- Background Glass Accents -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Quarterly Target (Side Widget) -->
+<div class="md:col-span-4 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">Strategic Target Progress</p>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-md text-body-md">Operational Income</span>
+<span class="font-data-mono text-data-mono text-primary">82%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-md text-body-md">Facility Expansion Fund</span>
+<span class="font-data-mono text-data-mono text-secondary">64%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[64%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-md text-body-md">Scholarship Endowment</span>
+<span class="font-data-mono text-data-mono text-tertiary">91%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[91%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Export Tool -->
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-6 shadow-sm border border-secondary-container/50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">file_download</span>
+<p class="font-headline-md text-title-lg">Export Reports</p>
+</div>
+<p class="text-body-sm font-body-sm opacity-80 mb-4">Generate executive board summaries for Q3 compliance reviews.</p>
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-between w-full p-2 hover:bg-white/30 rounded transition-colors text-label-caps font-label-caps">
+<span>Financial Statement (PDF)</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="flex items-center justify-between w-full p-2 hover:bg-white/30 rounded transition-colors text-label-caps font-label-caps">
+<span>Revenue Projection (XLSX)</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Revenue Category Analysis & Forecasts -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Revenue Breakdown Table -->
+<div class="md:col-span-7 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center glass-surface sticky top-0 z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface">Revenue Category Analysis</h3>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-1 hover:bg-surface-container-high rounded">filter_list</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-1 hover:bg-surface-container-high rounded">more_vert</span>
+</div>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low font-label-caps text-label-caps text-on-surface-variant">
+<tr>
+<th class="px-6 py-4">Category</th>
+<th class="px-6 py-4">Current Period</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Variance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4 font-body-md text-on-surface">Core Tuition</td>
+<td class="px-6 py-4 font-data-mono">$28,450,000</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span> Stable
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right font-data-mono text-primary">+2.4%</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4 font-body-md text-on-surface">Facility Fees</td>
+<td class="px-6 py-4 font-data-mono">$4,120,500</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-tertiary text-xs font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span> Review
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right font-data-mono text-error">-1.2%</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4 font-body-md text-on-surface">Extracurriculars</td>
+<td class="px-6 py-4 font-data-mono">$6,840,000</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">trending_up</span> Growth
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right font-data-mono text-primary">+18.7%</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4 font-body-md text-on-surface">Grants &amp; Donors</td>
+<td class="px-6 py-4 font-data-mono">$3,439,700</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-on-surface-variant text-xs font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span> Pending
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right font-data-mono">0.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Forecasting & Projections -->
+<div class="md:col-span-5 bg-primary-container text-on-primary-container rounded-xl shadow-md overflow-hidden flex flex-col min-h-[400px]">
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-1">Predictive Projections</h3>
+<p class="text-body-sm opacity-80 mb-8 font-body-sm">Projected end-of-year revenue based on active enrollment trends and historical seasonality.</p>
+<div class="flex-1 flex flex-col justify-end space-y-8">
+<div class="flex items-start gap-4">
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-md">
+<span class="material-symbols-outlined text-2xl">insights</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase opacity-70">EOY Forecast</p>
+<p class="font-headline-xl text-headline-xl">$51.2M</p>
+<p class="text-xs text-primary-fixed-dim mt-1">Expected range: $49.8M - $52.5M</p>
+</div>
+</div>
+<div class="relative h-24 mt-8">
+<!-- Decorative Wave SVG for "Projection" -->
+<svg class="w-full h-full text-primary-fixed opacity-40" viewbox="0 0 400 100">
+<path d="M0 80 Q 50 60, 100 80 T 200 40 T 300 60 T 400 20" fill="none" stroke="currentColor" stroke-dasharray="8 4" stroke-width="3"></path>
+<circle cx="400" cy="20" fill="currentColor" r="4"></circle>
+</svg>
+<div class="absolute top-0 right-0 transform translate-y-[-50%] bg-white text-primary px-3 py-1 rounded text-xs font-bold shadow-lg">
+                                        Goal: $50M
+                                    </div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 bg-black/10 border-t border-white/5">
+<p class="text-xs font-body-sm opacity-70 italic">AI Confidence Score: 94.2% based on previous 24-month variance.</p>
+</div>
+</div>
+</div>
+<!-- Section 3: Quarterly Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">Gross Margin</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">64.5%</span>
+<span class="text-primary material-symbols-outlined">pie_chart</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">Operating Cash</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">$8.2M</span>
+<span class="text-secondary material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">Arrears Rate</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">3.8%</span>
+<span class="text-error material-symbols-outlined">report_problem</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">Enrollment Yield</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">92%</span>
+<span class="text-tertiary material-symbols-outlined">group_add</span>
+</div>
+</div>
+</div>
+<!-- Footer Summary Area -->
+<footer class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div>
+<p class="font-bold text-sm">Data Integrity Verified</p>
+<p class="text-xs text-on-surface-variant font-body-sm">Last synchronized: Today, 10:42 AM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded-full font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">
+                            Audit Logs
+                        </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-label-caps text-label-caps hover:shadow-lg active:scale-95 transition-all">
+                            Share Summary
+                        </button>
+</div>
+</footer>
+</div>
+</main>
+</div>
+</body></html>

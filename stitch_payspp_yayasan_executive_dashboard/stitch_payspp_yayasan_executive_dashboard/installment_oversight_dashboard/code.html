@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Installment Monitoring | PaySPP Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#301400",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a7642d",
+                    "surface-tint": "#006876",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary": "#006572",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#894c16",
+                    "surface-bright": "#f6fafb",
+                    "on-secondary-container": "#57657a",
+                    "surface-variant": "#dfe3e4",
+                    "outline": "#6e797b",
+                    "outline-variant": "#bdc8cb",
+                    "secondary-container": "#d5e3fc",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3e494b",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-tertiary-fixed-variant": "#6f3801",
+                    "on-primary-fixed": "#001f24",
+                    "on-background": "#181c1d",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f1f4f5",
+                    "surface-container-highest": "#dfe3e4",
+                    "on-surface": "#181c1d",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d7dbdc",
+                    "primary-fixed-dim": "#77d4e5",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#f6fdff",
+                    "inverse-on-surface": "#eef1f2",
+                    "inverse-surface": "#2d3132",
+                    "surface-container-high": "#e5e9ea",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#028090",
+                    "surface-container": "#ebeeef",
+                    "surface": "#f6fafb",
+                    "primary-fixed": "#9eefff",
+                    "inverse-primary": "#77d4e5",
+                    "background": "#f6fafb",
+                    "on-primary-fixed-variant": "#004e59",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "secondary": "#515f74"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max-width": "1440px",
+                    "grid-columns": "12",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "display-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "label-caps": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .gantt-row:hover {
+            background: rgba(2, 128, 144, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 sticky left-0 top-0 bg-surface-container-low border-r border-outline-variant/20 shadow-md z-[60]">
+<div class="flex flex-col h-full py-gutter px-4">
+<div class="px-2 mb-8">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary">PaySPP Exec</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Strategic Oversight</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto sidebar-scroll pr-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">analytics</span>
+<span class="font-label-caps text-label-caps">Multi-School Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">payments</span>
+<span class="font-label-caps text-label-caps">Financial Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">monetization_on</span>
+<span class="font-label-caps text-label-caps">Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">warning</span>
+<span class="font-label-caps text-label-caps">Arrears</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-caps text-label-caps">Installments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">school</span>
+<span class="font-label-caps text-label-caps">School Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">assessment</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">history_edu</span>
+<span class="font-label-caps text-label-caps">Audit</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-outline-variant/20 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">notifications</span>
+<span class="font-label-caps text-label-caps">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<div class="mt-6 flex items-center gap-3 px-2">
+<img alt="Executive Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB955jNDtvumyNhZSOcZ5OY28F50LLUL6njYecmLSm27Sru-oWi4lR7j0WSGyCdSGLljtv1mNqzK3lSOX05wX0WQlrRZ-_kHHEHR4OB8QOtqXBuv87LDNCf9_ZPU_ILUsaatGgtzd6QRDh01BtF5StIBWZFHbKSRVGfOrtoSxHXine7iUt6YxiCGZGueAv8WlpS_gpHU2bH7WiewT26U7QORRQojxPL7ehSDTrYHdMRmui7DtUTSh_E4d_TeAcpU8QtwmbzoS3PyEPb"/>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase font-bold text-primary">Chief Officer</span>
+<span class="text-body-sm font-semibold truncate w-32">Alex Sterling</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-xl sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">PaySPP Foundation</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high/40 border-none rounded-full pl-10 pr-4 py-1.5 text-body-sm w-80 focus:ring-2 focus:ring-primary/20" placeholder="Search installments, schools..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-lg font-label-caps text-label-caps cursor-pointer active:scale-95 transition-transform">Quick Insights</button>
+<div class="flex items-center gap-3">
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-[container-max-width] mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Installment Monitoring</h2>
+<p class="text-on-surface-variant">Foundational oversight of active payment structures and cycle compliance.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface-variant rounded-lg font-label-caps text-label-caps hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            FY 2023-2024
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface-variant rounded-lg font-label-caps text-label-caps hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            All Schools
+                        </button>
+</div>
+</div>
+<!-- Bento Grid: Stats & Analytics -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<!-- Installment Statistics -->
+<div class="col-span-12 lg:col-span-4 glass-card p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-label-caps text-label-caps text-primary uppercase">Active Payment Plans</h3>
+<span class="material-symbols-outlined text-primary/40">receipt_long</span>
+</div>
+<div class="flex flex-col gap-1 mb-6">
+<span class="font-headline-xl text-headline-xl">14,282</span>
+<div class="flex items-center gap-2">
+<span class="bg-success-container/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded border border-primary/20">+12% vs LY</span>
+<span class="text-body-sm text-on-surface-variant">Plans approved</span>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-body-sm">Approval Rate</span>
+<span class="font-data-mono text-data-mono">94.2%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[94.2%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-body-sm">Completion Trend</span>
+<span class="font-data-mono text-data-mono">78.5%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[78.5%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- At-Risk Analysis -->
+<div class="col-span-12 lg:col-span-8 glass-card rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-white/40">
+<div>
+<h3 class="font-label-caps text-label-caps text-primary uppercase">Unpaid Installment Analysis</h3>
+<p class="text-[12px] text-on-surface-variant">High-risk accounts requiring immediate executive attention</p>
+</div>
+<button class="text-primary font-label-caps text-label-caps hover:underline">View All Exceptions</button>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">School Entity</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Cycle Phase</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">Outstanding</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-title-lg text-title-lg text-sm">Northcrest International</td>
+<td class="px-6 py-4 text-body-sm">Term 2 / Installment 3</td>
+<td class="px-6 py-4 text-right font-data-mono text-data-mono">$142,500</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-error-container text-on-error-container text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">warning</span> CRITICAL
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-title-lg text-title-lg text-sm">St. Jude Academy</td>
+<td class="px-6 py-4 text-body-sm">Term 2 / Installment 2</td>
+<td class="px-6 py-4 text-right font-data-mono text-data-mono">$89,200</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-tertiary-container text-on-tertiary-container text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">history</span> LATE
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-title-lg text-title-lg text-sm">Beacon High School</td>
+<td class="px-6 py-4 text-body-sm">Term 1 / Recovery</td>
+<td class="px-6 py-4 text-right font-data-mono text-data-mono">$21,400</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-tertiary-container text-on-tertiary-container text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">warning</span> AT RISK
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Burden Analytics Section -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<div class="col-span-12 glass-card rounded-xl shadow-sm p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-primary uppercase">Financial Burden Matrix</h3>
+<p class="text-on-surface-variant">Household leverage by School Grade and Income Tier</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-2 text-[11px] font-bold"><span class="w-3 h-3 rounded-full bg-primary/20"></span> Low</span>
+<span class="flex items-center gap-2 text-[11px] font-bold"><span class="w-3 h-3 rounded-full bg-primary/60"></span> Medium</span>
+<span class="flex items-center gap-2 text-[11px] font-bold"><span class="w-3 h-3 rounded-full bg-primary"></span> High Burden</span>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-4">
+<!-- Burden Grid Columns -->
+<div class="space-y-4">
+<div class="h-8 flex items-center justify-center font-label-caps text-[10px] text-on-surface-variant">GRADE K-3</div>
+<div class="h-24 bg-primary/10 rounded-lg flex items-center justify-center text-primary-fixed-dim font-bold">8%</div>
+<div class="h-24 bg-primary/20 rounded-lg flex items-center justify-center text-primary-fixed-dim font-bold">12%</div>
+</div>
+<div class="space-y-4">
+<div class="h-8 flex items-center justify-center font-label-caps text-[10px] text-on-surface-variant">GRADE 4-6</div>
+<div class="h-24 bg-primary/20 rounded-lg flex items-center justify-center text-primary-fixed-dim font-bold">14%</div>
+<div class="h-24 bg-primary/30 rounded-lg flex items-center justify-center text-primary-fixed-dim font-bold">18%</div>
+</div>
+<div class="space-y-4">
+<div class="h-8 flex items-center justify-center font-label-caps text-[10px] text-on-surface-variant">GRADE 7-9</div>
+<div class="h-24 bg-primary/40 rounded-lg flex items-center justify-center text-white font-bold">22%</div>
+<div class="h-24 bg-primary/60 rounded-lg flex items-center justify-center text-white font-bold">28%</div>
+</div>
+<div class="space-y-4">
+<div class="h-8 flex items-center justify-center font-label-caps text-[10px] text-on-surface-variant">GRADE 10-12</div>
+<div class="h-24 bg-primary/80 rounded-lg flex items-center justify-center text-white font-bold">34%</div>
+<div class="h-24 bg-primary rounded-lg flex items-center justify-center text-white font-bold">41%</div>
+</div>
+<div class="col-span-2 space-y-4">
+<div class="h-8 flex items-center justify-center font-label-caps text-[10px] text-on-surface-variant">PREMIUM PROGRAMS</div>
+<div class="h-52 glass-card rounded-lg border-dashed border-2 flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined text-primary mb-2">insights</span>
+<span class="text-center text-body-sm font-semibold">Highest burden detected in IB Diploma Programs (avg. 48%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Visualization (Gantt View) -->
+<div class="glass-card rounded-xl shadow-sm overflow-hidden mb-margin-desktop">
+<div class="p-6 bg-white/40 border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-primary uppercase">Academic Cycle Timeline</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-primary"></span><span class="text-[11px] font-bold">Active</span></div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-secondary"></span><span class="text-[11px] font-bold">Upcoming</span></div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<div class="min-w-[1000px]">
+<!-- Months Header -->
+<div class="flex border-b border-outline-variant/20 bg-surface-container-low">
+<div class="w-64 p-4 border-r border-outline-variant/20"></div>
+<div class="flex-1 grid grid-cols-12">
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">AUG</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">SEP</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">OCT</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">NOV</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">DEC</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">JAN</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">FEB</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">MAR</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">APR</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">MAY</div>
+<div class="p-3 text-center text-[11px] font-bold border-r border-outline-variant/20">JUN</div>
+<div class="p-3 text-center text-[11px] font-bold">JUL</div>
+</div>
+</div>
+<!-- Rows -->
+<div class="gantt-row flex items-center border-b border-outline-variant/10">
+<div class="w-64 p-4 border-r border-outline-variant/20 font-title-lg text-sm font-semibold">Tuition A (Term-Based)</div>
+<div class="flex-1 h-12 relative flex items-center px-2">
+<div class="absolute left-[0%] w-[33%] h-6 bg-primary rounded-full shadow-sm flex items-center px-3 text-[10px] text-white font-bold">Term 1 Cycle</div>
+<div class="absolute left-[40%] w-[33%] h-6 bg-secondary rounded-full shadow-sm flex items-center px-3 text-[10px] text-white font-bold">Term 2 Cycle</div>
+</div>
+</div>
+<div class="gantt-row flex items-center border-b border-outline-variant/10">
+<div class="w-64 p-4 border-r border-outline-variant/20 font-title-lg text-sm font-semibold">Legacy Plans (Monthly)</div>
+<div class="flex-1 h-12 relative flex items-center px-2">
+<div class="absolute left-[0%] w-[83%] h-6 bg-primary/60 rounded-full shadow-sm border-2 border-primary/20 flex items-center px-3 text-[10px] text-white font-bold">Continuous 10-Month Cycle</div>
+</div>
+</div>
+<div class="gantt-row flex items-center border-b border-outline-variant/10">
+<div class="w-64 p-4 border-r border-outline-variant/20 font-title-lg text-sm font-semibold">Sports &amp; Extracurricular</div>
+<div class="flex-1 h-12 relative flex items-center px-2">
+<div class="absolute left-[16%] w-[16%] h-6 bg-secondary rounded-full shadow-sm flex items-center px-3 text-[10px] text-white font-bold">Season 1</div>
+<div class="absolute left-[58%] w-[16%] h-6 bg-secondary rounded-full shadow-sm flex items-center px-3 text-[10px] text-white font-bold">Season 2</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                        Timeline reflects foundation-wide default schedules. Individual school overrides may apply.
+                    </div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

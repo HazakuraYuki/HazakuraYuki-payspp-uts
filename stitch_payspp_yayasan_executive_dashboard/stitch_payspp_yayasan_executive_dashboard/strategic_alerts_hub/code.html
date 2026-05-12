@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#301400",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#a7642d",
+            "surface-tint": "#006876",
+            "tertiary-fixed": "#ffdcc5",
+            "primary": "#006572",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#894c16",
+            "surface-bright": "#f6fafb",
+            "on-secondary-container": "#57657a",
+            "surface-variant": "#dfe3e4",
+            "outline": "#6e797b",
+            "outline-variant": "#bdc8cb",
+            "secondary-container": "#d5e3fc",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#3e494b",
+            "secondary-fixed-dim": "#b9c7df",
+            "on-tertiary-fixed-variant": "#6f3801",
+            "on-primary-fixed": "#001f24",
+            "on-background": "#181c1d",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f1f4f5",
+            "surface-container-highest": "#dfe3e4",
+            "on-surface": "#181c1d",
+            "on-tertiary-container": "#fffbff",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d7dbdc",
+            "primary-fixed-dim": "#77d4e5",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "on-primary-container": "#f6fdff",
+            "inverse-on-surface": "#eef1f2",
+            "inverse-surface": "#2d3132",
+            "surface-container-high": "#e5e9ea",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#028090",
+            "surface-container": "#ebeeef",
+            "surface": "#f6fafb",
+            "primary-fixed": "#9eefff",
+            "inverse-primary": "#77d4e5",
+            "background": "#f6fafb",
+            "on-primary-fixed-variant": "#004e59",
+            "tertiary-fixed-dim": "#ffb782",
+            "secondary-fixed": "#d5e3fc",
+            "on-secondary-fixed": "#0d1c2e",
+            "secondary": "#515f74"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "40px",
+            "gutter": "24px",
+            "margin-mobile": "16px",
+            "container-max-width": "1440px",
+            "grid-columns": "12",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "body-md": ["inter"],
+            "title-lg": ["inter"],
+            "display-lg": ["manrope"],
+            "headline-md": ["manrope"],
+            "headline-xl": ["manrope"],
+            "label-caps": ["inter"],
+            "data-mono": ["inter"],
+            "body-sm": ["inter"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #bdc8cb;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full py-gutter px-4 bg-surface-container-low border-r border-outline-variant/20 shadow-md sticky left-0 w-64 shrink-0 z-50">
+<div class="mb-8 px-2">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary">PaySPP Exec</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Strategic Oversight</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps">Multi-School Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Financial Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+<span class="font-label-caps text-label-caps">Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-caps text-label-caps">Arrears</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-caps text-label-caps">Installments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">School Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-caps text-label-caps">Audit</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-caps text-label-caps">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 flex items-center gap-3 px-2">
+<img alt="Executive Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a corporate executive in a sharp navy suit, looking confident and poised. The lighting is soft and studio-quality with a clean, light-colored background that emphasizes a high-end, executive atmosphere consistent with corporate leadership and analytical decision-making." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlQfg8QSqtHM3Wv_VnZZQPDoJgIfdSKC_8uCxGzf5zSiw4TpDr03HFNNfgowqvyIwQXaF9Vqo-ld4hMjN4o705UI_otYhsynqiS4A5PvHr78DpB4eQJjJFRNRUfhlv4E4BPHIfAMV-5JT0BxBqynSMJFgfvpgkn_osGFof5C1xe092oc6jqyp7rcaaQpb0_59FW4z1A7IV6cp7vVJckpry3Vz58Two5IowSdJDPfixZZU1GLNI3yaNXzh7quUinZeGuCVUhS6UDI_t"/>
+<div class="overflow-hidden">
+<p class="text-on-surface font-bold truncate">A. Sterling</p>
+<p class="text-on-surface-variant text-xs truncate">Foundation Lead</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface overflow-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full flex items-center justify-between px-margin-desktop py-4 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-primary">Notifications &amp; Alerts</span>
+<div class="hidden lg:flex items-center bg-surface-container-high rounded-full px-4 py-1.5 gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-64 p-0" placeholder="Search alerts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary px-6 py-2 rounded-lg text-white font-label-caps text-label-caps hover:bg-primary-container transition-colors active:scale-95">Quick Insights</button>
+<div class="flex gap-2 text-primary">
+<span class="material-symbols-outlined p-2 cursor-pointer hover:bg-primary/5 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined p-2 cursor-pointer hover:bg-primary/5 rounded-full transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Grid -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-margin-desktop">
+<div class="max-w-container-max-width mx-auto">
+<!-- Bento Header: Stats & Quick Actions -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<!-- Active Alerts Summary -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-gutter">
+<div class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-error block mb-1">CRITICAL</span>
+<p class="font-headline-xl text-headline-xl text-on-surface">12</p>
+</div>
+<div class="flex items-center gap-2 mt-4 text-error">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-body-sm">+4 since 08:00</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary block mb-1">WARNING</span>
+<p class="font-headline-xl text-headline-xl text-on-surface">28</p>
+</div>
+<div class="flex items-center gap-2 mt-4 text-tertiary">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="text-body-sm">-2 from yesterday</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-secondary block mb-1">INFO</span>
+<p class="font-headline-xl text-headline-xl text-on-surface">142</p>
+</div>
+<div class="flex items-center gap-2 mt-4 text-secondary">
+<span class="material-symbols-outlined text-sm">remove</span>
+<span class="text-body-sm">Stable flow</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions Card -->
+<div class="col-span-12 lg:col-span-4 glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm bg-gradient-to-br from-primary/5 to-transparent">
+<h3 class="font-title-lg text-title-lg mb-4">Strategic Alerts</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-surface hover:shadow-md transition-all border border-outline-variant/30 group">
+<span class="font-body-md text-on-surface">Download Full Audit</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-surface hover:shadow-md transition-all border border-outline-variant/30 group">
+<span class="font-body-md text-on-surface">Clear Resolved Alerts</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">auto_mode</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Priority Alert Cards (Left Column) -->
+<div class="col-span-12 lg:col-span-7 space-y-gutter">
+<h2 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+                Priority Actions Required
+              </h2>
+<!-- Critical Card -->
+<div class="glass-card rounded-xl border-l-4 border-l-error border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="p-5 flex gap-4">
+<div class="bg-error-container text-on-error-container p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-headline-md">Incomplete Revenue Reconciliation</h4>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant font-label-caps text-[10px] rounded">ST. PETERS ACADEMY</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">A discrepancy of $42,500 detected in Q3 collection vs bank settlement. Immediate verification required to maintain compliance standards.</p>
+<div class="flex gap-3">
+<button class="bg-primary text-white px-4 py-2 rounded font-label-caps text-label-caps hover:bg-primary-container transition-colors">Launch Investigation</button>
+<button class="text-on-surface-variant px-4 py-2 rounded font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Warning Card -->
+<div class="glass-card rounded-xl border-l-4 border-l-tertiary border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="p-5 flex gap-4">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-headline-md">Arrears Threshold Breached</h4>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant font-label-caps text-[10px] rounded">WEST HIGHLANDS</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Total arrears for Grade 11 has exceeded 15% of projected revenue. Automated payment reminders sent; executive intervention recommended.</p>
+<div class="flex gap-3">
+<button class="bg-primary text-white px-4 py-2 rounded font-label-caps text-label-caps hover:bg-primary-container transition-colors">Review Arrears</button>
+<button class="text-on-surface-variant px-4 py-2 rounded font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">Mark As Seen</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="glass-card rounded-xl border-l-4 border-l-primary border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="p-5 flex gap-4">
+<div class="bg-primary-fixed text-on-primary-fixed-variant p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-headline-md">Compliance Audit Completed</h4>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant font-label-caps text-[10px] rounded">FOUNDATION GLOBAL</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Monthly regulatory compliance audit for all 12 schools has been finalized with a 98% pass rate. 2 minor remediations pending.</p>
+<div class="flex gap-3">
+<button class="bg-primary text-white px-4 py-2 rounded font-label-caps text-label-caps hover:bg-primary-container transition-colors">View Report</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panels (Right Column) -->
+<div class="col-span-12 lg:col-span-5 space-y-gutter">
+<!-- Notification Timeline -->
+<section class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm">
+<h3 class="font-title-lg text-title-lg mb-6 flex items-center justify-between">
+                  Historical Log
+                  <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">filter_list</span>
+</h3>
+<div class="space-y-6 relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-error border-4 border-surface flex items-center justify-center"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">09:42 AM • Financial</p>
+<p class="text-body-sm font-bold text-on-surface">Payment Gateway Timeout</p>
+<p class="text-body-sm text-on-surface-variant">Global checkout services experienced a 4-minute delay.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary border-4 border-surface flex items-center justify-center"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">08:15 AM • Compliance</p>
+<p class="text-body-sm font-bold text-on-surface">New Tax Directive Uploaded</p>
+<p class="text-body-sm text-on-surface-variant">Central board updated regional tax requirements for 2024.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-tertiary border-4 border-surface flex items-center justify-center"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">Yesterday • Operational</p>
+<p class="text-body-sm font-bold text-on-surface">Teacher Bonus Payroll Approved</p>
+<p class="text-body-sm text-on-surface-variant">Disbursements scheduled for North District schools.</p>
+</div>
+</div>
+<button class="w-full mt-6 text-primary font-label-caps text-label-caps py-2 hover:bg-primary/5 rounded-lg transition-colors">View All History</button>
+</section>
+<!-- Threshold Alerts Monitoring -->
+<section class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm">
+<h3 class="font-title-lg text-title-lg mb-6">Performance Triggers</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-on-surface-variant">Revenue Target (North District)</span>
+<span class="font-data-mono">82%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-on-surface-variant">Arrears Ceiling (St. Johns)</span>
+<span class="font-data-mono text-error">94%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error w-[94%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-on-surface-variant">Enrollment Forecast (Secondary)</span>
+<span class="font-data-mono">65%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[65%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription Management -->
+<section class="glass-card p-6 rounded-xl border border-outline-variant/20 shadow-sm bg-surface-container-low/50">
+<h3 class="font-title-lg text-title-lg mb-4">Executive Subscriptions</h3>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-2 hover:bg-surface rounded-lg transition-colors cursor-pointer">
+<span class="text-body-md text-on-surface">Daily Financial Snapshot</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-2 hover:bg-surface rounded-lg transition-colors cursor-pointer">
+<span class="text-body-md text-on-surface">Instant Critical Alerts (SMS)</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-2 hover:bg-surface rounded-lg transition-colors cursor-pointer">
+<span class="text-body-md text-on-surface">Weekly Compliance Digest</span>
+<input class="rounded text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-2 hover:bg-surface rounded-lg transition-colors cursor-pointer">
+<span class="text-body-md text-on-surface">Risk Threshold Warnings</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</label>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 flex items-center justify-around py-3 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-caps">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-label-caps">Data</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-label-caps">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-label-caps">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

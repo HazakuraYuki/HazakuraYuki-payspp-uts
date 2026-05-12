@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Performance Dashboard | PaySPP Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#301400",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#a7642d",
+                        "surface-tint": "#006876",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary": "#006572",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#894c16",
+                        "surface-bright": "#f6fafb",
+                        "on-secondary-container": "#57657a",
+                        "surface-variant": "#dfe3e4",
+                        "outline": "#6e797b",
+                        "outline-variant": "#bdc8cb",
+                        "secondary-container": "#d5e3fc",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3e494b",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-primary-fixed": "#001f24",
+                        "on-background": "#181c1d",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f1f4f5",
+                        "surface-container-highest": "#dfe3e4",
+                        "on-surface": "#181c1d",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d7dbdc",
+                        "primary-fixed-dim": "#77d4e5",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f6fdff",
+                        "inverse-on-surface": "#eef1f2",
+                        "inverse-surface": "#2d3132",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#028090",
+                        "surface-container": "#ebeeef",
+                        "surface": "#f6fafb",
+                        "primary-fixed": "#9eefff",
+                        "inverse-primary": "#77d4e5",
+                        "background": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "secondary": "#515f74"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max-width": "1440px",
+                        "grid-columns": "12",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-caps": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container-lowest text-primary dark:text-primary-fixed font-label-caps text-label-caps border-r border-outline-variant/20 shadow-md flex flex-col h-screen w-64 sticky left-0 h-screen w-64 sticky top-0 shrink-0 overflow-y-auto">
+<div class="px-6 py-8">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary mb-1">PaySPP Exec</h1>
+<p class="text-on-surface-variant font-label-caps tracking-wider opacity-70">Strategic Oversight</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Multi-School Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span>School Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Financial Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+<span>Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span>Arrears</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+<div class="pt-4 mt-4 border-t border-outline-variant/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-4 mt-auto">
+<div class="flex items-center gap-3 bg-surface-container-high p-3 rounded-xl">
+<img alt="Executive Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="A professional headshot of a senior male executive in a tailored charcoal suit, positioned in a high-end corporate office with soft natural lighting. The background features a blurred modern architectural interior with glass and steel elements. The lighting is crisp and flattering, conveying confidence, authority, and high-level strategic intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC0jcBjdNXVguvVx-1hg3KHCj543j-KpaZST-d-0O4RM_M5_zkod2nNxGIqE71_D_CisSn_-Bhu-NZ7zjQynPQlrS86zyQILdZiXlH5-hWSUT-8K3_cA9cBhnEwo4WIZTz_i197LhTSBPV2xZi63EPP0QENY59a87GscR7SrBQE3j4ymyOb7v30mK7ceK1zwAUz_b4VxCcJWLy7FPY_E_6vq2e0My3_MaUbDRdQLdsU1uFmwm69uEIpFDSjOSzF1MeBBTJcAEVSCXu"/>
+<div class="overflow-hidden">
+<p class="font-bold text-on-surface truncate">Admin Name</p>
+<p class="text-xs text-on-surface-variant truncate">Exec Director</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl text-primary font-body-md text-body-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-desktop py-4 w-full h-16">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">Foundation Performance</span>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 w-80 text-body-sm transition-all" placeholder="Search schools or districts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    Quick Insights
+                </button>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-4">
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-gutter overflow-y-auto max-w-container-max-width mx-auto w-full">
+<!-- Summary Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-gutter">
+<div class="glass-card p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">AVG. STABILITY SCORE</p>
+<div class="flex items-end justify-between">
+<h2 class="text-headline-xl font-headline-xl text-on-surface">88.4</h2>
+<span class="text-primary flex items-center text-sm font-bold bg-primary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span> 2.4%
+                        </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1 mt-4">
+<div class="bg-primary h-1 rounded-full w-[88%]"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">TUITION EFFICIENCY</p>
+<div class="flex items-end justify-between">
+<h2 class="text-headline-xl font-headline-xl text-on-surface">94.1%</h2>
+<span class="text-primary flex items-center text-sm font-bold bg-primary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span> 0.8%
+                        </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1 mt-4">
+<div class="bg-primary h-1 rounded-full w-[94%]"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">TOTAL COMPLIANCE</p>
+<div class="flex items-end justify-between">
+<h2 class="text-headline-xl font-headline-xl text-on-surface">100%</h2>
+<span class="text-primary flex items-center text-sm font-bold bg-primary/10 px-2 py-0.5 rounded-full">
+                            Stable
+                        </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1 mt-4">
+<div class="bg-primary h-1 rounded-full w-full"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">REVENUE HEADCOUNT</p>
+<div class="flex items-end justify-between">
+<h2 class="text-headline-xl font-headline-xl text-on-surface">14,208</h2>
+<span class="text-error flex items-center text-sm font-bold bg-error-container/20 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_down</span> 1.2%
+                        </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1 mt-4">
+<div class="bg-error h-1 rounded-full w-[75%]"></div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Main Content -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Performance Radar & Radar Controls -->
+<div class="col-span-12 lg:col-span-5 glass-card rounded-xl border border-outline-variant/30 shadow-sm flex flex-col overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center bg-surface-container-low/50">
+<div>
+<h3 class="text-title-lg font-title-lg text-on-surface">School Multi-Factor Analysis</h3>
+<p class="text-body-sm text-on-surface-variant">St. Jude Academy (Top Tier)</p>
+</div>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<div class="flex-1 flex items-center justify-center p-8 relative">
+<!-- Simulated Radar Chart -->
+<div class="w-64 h-64 border-[1px] border-outline-variant/40 rounded-full relative">
+<div class="absolute inset-4 border-[1px] border-outline-variant/30 rounded-full"></div>
+<div class="absolute inset-12 border-[1px] border-outline-variant/20 rounded-full"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<svg class="w-full h-full fill-primary/20 stroke-primary stroke-[1.5]" viewbox="0 0 100 100">
+<polygon points="50,10 85,35 75,85 25,85 15,35"></polygon>
+<!-- Axes -->
+<line stroke="#6e797b" stroke-width="0.5" x1="50" x2="50" y1="50" y2="10"></line>
+<line stroke="#6e797b" stroke-width="0.5" x1="50" x2="85" y1="50" y2="35"></line>
+<line stroke="#6e797b" stroke-width="0.5" x1="50" x2="75" y1="50" y2="85"></line>
+<line stroke="#6e797b" stroke-width="0.5" x1="50" x2="25" y1="50" y2="85"></line>
+<line stroke="#6e797b" stroke-width="0.5" x1="50" x2="15" y1="50" y2="35"></line>
+</svg>
+</div>
+<!-- Labels -->
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-label-caps uppercase text-on-surface-variant">Liquidity</span>
+<span class="absolute top-1/4 -right-12 text-[10px] font-label-caps uppercase text-on-surface-variant">Growth</span>
+<span class="absolute bottom-0 -right-8 text-[10px] font-label-caps uppercase text-on-surface-variant">Efficiency</span>
+<span class="absolute bottom-0 -left-8 text-[10px] font-label-caps uppercase text-on-surface-variant">Compliance</span>
+<span class="absolute top-1/4 -left-12 text-[10px] font-label-caps uppercase text-on-surface-variant">Retention</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low/50 border-t border-outline-variant/20 grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-body-sm text-on-surface-variant">St. Jude Academy</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-body-sm text-on-surface-variant">Foundation Average</span>
+</div>
+</div>
+</div>
+<!-- Efficiency & Trends -->
+<div class="col-span-12 lg:col-span-7 glass-card rounded-xl border border-outline-variant/30 shadow-sm flex flex-col overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 bg-surface-container-low/50">
+<h3 class="text-title-lg font-title-lg text-on-surface">Efficiency vs. Headcount</h3>
+<p class="text-body-sm text-on-surface-variant">Operational performance across major campuses</p>
+</div>
+<div class="p-6 flex-1">
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-bold text-on-surface">St. Mary's International</span>
+<span class="text-on-surface-variant">98.2% Efficiency | 2,450 Students</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 flex overflow-hidden">
+<div class="bg-primary h-full w-[98%]"></div>
+<div class="bg-outline-variant h-full w-[2%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-bold text-on-surface">Kingsway Preparatory</span>
+<span class="text-on-surface-variant">82.5% Efficiency | 1,820 Students</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 flex overflow-hidden">
+<div class="bg-primary h-full w-[82.5%]"></div>
+<div class="bg-outline-variant h-full w-[17.5%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-bold text-on-surface">Heritage High</span>
+<span class="text-on-surface-variant">91.0% Efficiency | 3,100 Students</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 flex overflow-hidden">
+<div class="bg-primary h-full w-[91%]"></div>
+<div class="bg-outline-variant h-full w-[9%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-bold text-on-surface">Oakwood Primary</span>
+<span class="text-on-surface-variant">64.8% Efficiency | 950 Students</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 flex overflow-hidden">
+<div class="bg-tertiary h-full w-[64.8%]"></div>
+<div class="bg-outline-variant h-full w-[35.2%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-3 gap-4 border-t border-outline-variant/20 pt-6">
+<div class="text-center">
+<p class="text-[10px] font-label-caps text-on-surface-variant mb-1">TARGET EFFICIENCY</p>
+<p class="text-title-lg font-bold text-primary">95.0%</p>
+</div>
+<div class="text-center border-x border-outline-variant/20 px-4">
+<p class="text-[10px] font-label-caps text-on-surface-variant mb-1">CURRENT VARIANCE</p>
+<p class="text-title-lg font-bold text-tertiary">-0.9%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-label-caps text-on-surface-variant mb-1">MAX HEADCOUNT</p>
+<p class="text-title-lg font-bold text-on-surface">15,500</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Ranking Table -->
+<div class="col-span-12 glass-card rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="text-headline-md font-headline-md text-on-surface">School Executive Scorecard</h3>
+<div class="flex gap-2">
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-lg text-body-sm font-bold flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm">download</span> Export Report
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="sticky top-0 bg-surface-container-high/90 backdrop-blur-md z-10">
+<tr>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">RANKING / SCHOOL</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">FINANCIAL STABILITY</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">COMPLIANCE</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">EFFICIENCY</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">STATUS</th>
+<th class="px-6 py-4 text-label-caps font-label-caps text-on-surface-variant">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-title-lg font-bold text-primary/40 group-hover:text-primary transition-colors">01</span>
+<div>
+<p class="font-bold text-on-surface">St. Jude Academy</p>
+<p class="text-xs text-on-surface-variant">District Central</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono">98.5</span>
+<div class="flex gap-0.5">
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">A+ Certified</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-on-surface font-bold">99.1%</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-body-sm font-medium">Optimal</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-title-lg font-bold text-primary/40 group-hover:text-primary transition-colors">02</span>
+<div>
+<p class="font-bold text-on-surface">Marymount International</p>
+<p class="text-xs text-on-surface-variant">Northern Hub</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono">92.1</span>
+<div class="flex gap-0.5">
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-primary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">A Certified</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-on-surface font-bold">94.5%</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-body-sm font-medium">Stable</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-title-lg font-bold text-primary/40 group-hover:text-primary transition-colors">03</span>
+<div>
+<p class="font-bold text-on-surface">Cedarwood Grammar</p>
+<p class="text-xs text-on-surface-variant">Eastern District</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono">74.8</span>
+<div class="flex gap-0.5">
+<div class="w-1.5 h-4 bg-tertiary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-tertiary rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-error-container/30 text-error px-3 py-1 rounded-full text-xs font-bold border border-error/20">Pending Audit</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-on-surface font-bold">81.2%</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></span>
+<span class="text-body-sm font-medium text-tertiary">Monitoring</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-title-lg font-bold text-primary/40 group-hover:text-primary transition-colors">04</span>
+<div>
+<p class="font-bold text-on-surface">Lakeside Elementary</p>
+<p class="text-xs text-on-surface-variant">Coastal Region</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono">52.4</span>
+<div class="flex gap-0.5">
+<div class="w-1.5 h-4 bg-error rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+<div class="w-1.5 h-4 bg-outline-variant/40 rounded-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-error-container/30 text-error px-3 py-1 rounded-full text-xs font-bold border border-error/20">Non-Compliant</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-on-surface font-bold">62.8%</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-rose-600 shadow-[0_0_8px_rgba(225,29,72,0.5)] animate-pulse"></span>
+<span class="text-body-sm font-bold text-error">Critical Intervention</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Strategy Indicator Legend -->
+<div class="col-span-12 glass-card p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-wrap gap-8 items-center justify-center">
+<div class="flex items-center gap-3">
+<span class="w-4 h-4 rounded-full bg-emerald-500"></span>
+<div class="text-body-sm">
+<p class="font-bold text-on-surface">Green: Operational Excellence</p>
+<p class="text-xs text-on-surface-variant">Score &gt; 85% | Minimal risk</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-4 h-4 rounded-full bg-amber-500"></span>
+<div class="text-body-sm">
+<p class="font-bold text-on-surface">Orange: Strategic Watchlist</p>
+<p class="text-xs text-on-surface-variant">Score 60-84% | Secondary oversight</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-4 h-4 rounded-full bg-rose-600"></span>
+<div class="text-body-sm">
+<p class="font-bold text-on-surface">Red: Immediate Intervention</p>
+<p class="text-xs text-on-surface-variant">Score &lt; 60% | Critical stability risk</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

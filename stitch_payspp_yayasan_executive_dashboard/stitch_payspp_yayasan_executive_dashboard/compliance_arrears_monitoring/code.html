@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#301400",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#a7642d",
+                        "surface-tint": "#006876",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary": "#006572",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#894c16",
+                        "surface-bright": "#f6fafb",
+                        "on-secondary-container": "#57657a",
+                        "surface-variant": "#dfe3e4",
+                        "outline": "#6e797b",
+                        "outline-variant": "#bdc8cb",
+                        "secondary-container": "#d5e3fc",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3e494b",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-tertiary-fixed-variant": "#6f3801",
+                        "on-primary-fixed": "#001f24",
+                        "on-background": "#181c1d",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f1f4f5",
+                        "surface-container-highest": "#dfe3e4",
+                        "on-surface": "#181c1d",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d7dbdc",
+                        "primary-fixed-dim": "#77d4e5",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f6fdff",
+                        "inverse-on-surface": "#eef1f2",
+                        "inverse-surface": "#2d3132",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#028090",
+                        "surface-container": "#ebeeef",
+                        "surface": "#f6fafb",
+                        "primary-fixed": "#9eefff",
+                        "inverse-primary": "#77d4e5",
+                        "background": "#f6fafb",
+                        "on-primary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "secondary": "#515f74"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max-width": "1440px",
+                        "grid-columns": "12",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-caps": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container-lowest text-primary dark:text-primary-fixed border-r border-outline-variant/20 shadow-md flex flex-col h-screen w-64 sticky left-0 top-0 z-50 py-gutter px-4">
+<div class="mb-10 px-2">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary">PaySPP Exec</h1>
+<p class="text-on-surface-variant font-label-caps text-[10px]">Strategic Oversight</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">dashboard</span> Overview
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">analytics</span> Multi-School Analytics
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">payments</span> Financial Performance
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span> Compliance
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">monetization_on</span> Revenue
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">receipt_long</span> Arrears
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">school</span> School Performance
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-lg font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">assessment</span> Reports
+                </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a senior corporate executive in a modern glass-walled office environment. The lighting is soft and natural, emphasizing a calm and authoritative presence suitable for high-level financial oversight applications. The aesthetic is clean and minimal, using a muted color palette of navy and charcoal tones with crisp white details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF_gBI8gwKj8HpIGwqdQxuKAEIU1IIvga_sLposyV8GXw8Xd5wawFdsf-xgc9TMnU_hpF5NPpIhF38igWm8rs8-TlBQ2GcZjcISJeXHC1SCxZhDdwigKKH43qbnKJNZjT2KR6sAmPlfyUjOKLaU7KR0ynD76mv3b6zFL8roJOR6nsvopXuxJdtqeSUBBgoCIF5qfu9CrPtyijYc09MilJTw-xJAbvQinh39-SMQo8bF40Y1B_4j2FucOQeO6naJmdkni3qkDLsRRyH"/>
+</div>
+<div>
+<p class="font-title-lg text-sm text-on-surface leading-none">Executive Profile</p>
+<p class="text-[10px] text-on-surface-variant font-label-caps mt-1">Strategic Chief</p>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl text-primary dark:text-primary-fixed border-b border-outline-variant/30 shadow-sm sticky top-0 z-50 flex items-center justify-between px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">PaySPP Foundation</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-2 w-80 text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Search across schools..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-caps text-label-caps cursor-pointer active:scale-95 transition-transform">Quick Insights</button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-margin-desktop max-w-[container-max-width] mx-auto w-full">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Payment Compliance &amp; Arrears</h2>
+<p class="text-on-surface-variant font-body-md mt-1">Real-time risk monitoring for foundation-wide tuition collections.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container border border-outline-variant px-4 py-2 rounded-lg flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span> This Academic Year
+                        </button>
+<button class="bg-surface-container border border-outline-variant px-4 py-2 rounded-lg flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">file_download</span> Export PDF
+                        </button>
+</div>
+</div>
+<!-- Compliance Scorecards Bento Grid -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<div class="col-span-12 lg:col-span-3 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Global Compliance Score</span>
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">92.4%</div>
+<div class="flex items-center gap-2 text-primary font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-sm">trending_up</span> +2.1% from last term
+                        </div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container">
+<div class="h-full bg-primary w-[92.4%]"></div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-3 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Risk Intensity</span>
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">Low</div>
+<div class="text-on-surface-variant font-data-mono text-data-mono">
+                            84% of schools in "Safe Zone"
+                        </div>
+</div>
+<div class="col-span-12 lg:col-span-3 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Arrears Value</span>
+<span class="material-symbols-outlined text-tertiary">monetization_on</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">$1.42M</div>
+<div class="flex items-center gap-2 text-error font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-sm">trending_up</span> 1.5% overdue surge
+                        </div>
+</div>
+<div class="col-span-12 lg:col-span-3 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Collection Discipline</span>
+<span class="material-symbols-outlined text-secondary">analytics</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-on-surface mb-2">88/100</div>
+<div class="text-on-surface-variant font-data-mono text-data-mono">
+                            Top performing: Lincoln Academy
+                        </div>
+</div>
+</div>
+<!-- Main Analytics Section -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Arrears Intensity Heatmap -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center bg-surface-container/30 backdrop-blur-md">
+<div>
+<h3 class="font-title-lg text-title-lg">Arrears Heatmap: Class Levels vs. Branches</h3>
+<p class="text-on-surface-variant text-body-sm">Visualizing collection intensity across the foundation network</p>
+</div>
+<div class="flex gap-2">
+<span class="w-3 h-3 rounded-full bg-primary/20"></span>
+<span class="w-3 h-3 rounded-full bg-primary/50"></span>
+<span class="w-3 h-3 rounded-full bg-primary/80"></span>
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+</div>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-6 gap-2">
+<!-- Heatmap Mockup -->
+<div class="col-start-2 text-center text-[10px] font-label-caps text-on-surface-variant pb-2">Branch A</div>
+<div class="col-start-3 text-center text-[10px] font-label-caps text-on-surface-variant pb-2">Branch B</div>
+<div class="col-start-4 text-center text-[10px] font-label-caps text-on-surface-variant pb-2">Branch C</div>
+<div class="col-start-5 text-center text-[10px] font-label-caps text-on-surface-variant pb-2">Branch D</div>
+<div class="col-start-6 text-center text-[10px] font-label-caps text-on-surface-variant pb-2">Branch E</div>
+<div class="text-right text-[10px] font-label-caps text-on-surface-variant pr-2 flex items-center justify-end">K-Level</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">2%</div>
+<div class="h-16 rounded bg-primary/30 hover:bg-primary/40 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">5%</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">1%</div>
+<div class="h-16 rounded bg-primary/60 hover:bg-primary/70 transition-all cursor-pointer flex items-center justify-center text-white font-data-mono text-xs">12%</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">3%</div>
+<div class="text-right text-[10px] font-label-caps text-on-surface-variant pr-2 flex items-center justify-end">Primary</div>
+<div class="h-16 rounded bg-primary/80 hover:bg-primary/90 transition-all cursor-pointer flex items-center justify-center text-white font-data-mono text-xs">18%</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">4%</div>
+<div class="h-16 rounded bg-error/40 hover:bg-error/50 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">24%</div>
+<div class="h-16 rounded bg-primary/20 hover:bg-primary/30 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">6%</div>
+<div class="h-16 rounded bg-primary/40 hover:bg-primary/50 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">9%</div>
+<div class="text-right text-[10px] font-label-caps text-on-surface-variant pr-2 flex items-center justify-end">Secondary</div>
+<div class="h-16 rounded bg-primary/20 hover:bg-primary/30 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">7%</div>
+<div class="h-16 rounded bg-error/70 hover:bg-error/80 transition-all cursor-pointer flex items-center justify-center text-white font-data-mono text-xs">42%</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">3%</div>
+<div class="h-16 rounded bg-primary/30 hover:bg-primary/40 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">5%</div>
+<div class="h-16 rounded bg-primary/10 hover:bg-primary/20 transition-all cursor-pointer flex items-center justify-center text-on-surface font-data-mono text-xs">2%</div>
+</div>
+</div>
+</div>
+<!-- High-Risk Analytics -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<h3 class="font-title-lg text-title-lg mb-4">Critical Arrears Cases</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-3 bg-error-container/20 rounded-lg border border-error/10">
+<div class="w-10 h-10 rounded bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">North Park Academy</p>
+<p class="text-xs text-on-surface-variant">Arrears: $42,500 (90+ Days)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">chevron_right</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-lg border border-outline-variant/10">
+<div class="w-10 h-10 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">feedback</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Riverbend Primary</p>
+<p class="text-xs text-on-surface-variant">Arrears: $28,100 (60+ Days)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">chevron_right</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-lg border border-outline-variant/10">
+<div class="w-10 h-10 rounded bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">assignment_late</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Saint Judes High</p>
+<p class="text-xs text-on-surface-variant">Arrears: $19,200 (30+ Days)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">chevron_right</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline text-outline font-label-caps text-label-caps rounded-lg hover:bg-outline/5 transition-all">View All Risk Cases</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm overflow-hidden relative group">
+<h3 class="font-title-lg text-title-lg mb-1">Collection Discipline</h3>
+<p class="text-on-surface-variant text-xs mb-4">Historical trend line (12 Months)</p>
+<div class="h-32 flex items-end gap-1">
+<div class="flex-1 bg-primary/20 h-1/2 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-2/3 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-1/2 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-3/4 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-full rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-2/3 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-3/4 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-4/5 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-2/3 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-5/6 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-4/5 rounded-t-sm group-hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 h-full rounded-t-sm group-hover:bg-primary transition-all"></div>
+</div>
+<div class="mt-4 flex justify-between items-center text-[10px] font-label-caps text-on-surface-variant">
+<span>JAN 2023</span>
+<span>DEC 2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance Leaderboard (Detailed Table) -->
+<div class="mt-gutter bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg">Foundation Compliance Ledger</h3>
+<div class="flex items-center gap-4">
+<div class="flex border border-outline-variant rounded-lg overflow-hidden">
+<button class="px-3 py-1.5 bg-primary text-on-primary text-xs font-label-caps">By School</button>
+<button class="px-3 py-1.5 bg-surface text-on-surface-variant text-xs font-label-caps hover:bg-surface-container transition-colors">By Grade</button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container/50 sticky top-0 backdrop-blur-md">
+<tr>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">School Name</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Compliance Score</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Arrears %</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">30+ Days</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">60+ Days</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">HA</div>
+<span class="font-body-md text-on-surface">Heritage Academy</span>
+</div>
+</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">98.5%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono text-primary">1.2%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$3,400</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$0</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-wider">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary font-bold text-xs">CS</div>
+<span class="font-body-md text-on-surface">Crestwood Secondary</span>
+</div>
+</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">91.2%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">4.8%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$12,800</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$4,200</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-wider">Stable</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-error/10 flex items-center justify-center text-error font-bold text-xs">NP</div>
+<span class="font-body-md text-on-surface">North Park Prep</span>
+</div>
+</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">76.4%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono text-error">12.5%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$42,500</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$28,900</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded-full uppercase tracking-wider">Critical</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-tertiary/10 flex items-center justify-center text-tertiary font-bold text-xs">RP</div>
+<span class="font-body-md text-on-surface">Riverbend Primary</span>
+</div>
+</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">84.9%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono text-tertiary">7.1%</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$28,100</td>
+<td class="px-6 py-4 font-data-mono text-data-mono">$1,100</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-tertiary-container/10 text-tertiary text-[10px] font-bold rounded-full uppercase tracking-wider">Warning</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button (Contextual Support) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40 group">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform">headset_mic</span>
+<div class="absolute right-full mr-4 bg-surface-container-highest px-3 py-1 rounded text-xs text-on-surface opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none">
+            Foundation Support
+        </div>
+</button>
+</body></html>
